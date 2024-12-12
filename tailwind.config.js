@@ -5,7 +5,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+			fontFamily: {
+				sinteca: ['Sinteca'],
+				sintecaMed: ['Sinteca Medium'],
+        sintecaSb: ['Sinteca SemiBold']
+			}
+		},
   },
   plugins: [],
 }

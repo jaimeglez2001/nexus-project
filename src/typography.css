@@ -1,0 +1,97 @@
+@font-face {
+  font-family: "Sinteca";
+  src: url("/fonts/Sinteca-Regular.otf") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sinteca Medium";
+  src: url("/fonts/Sinteca-Medium.otf") format("woff2");
+  font-weight: 500;
+  font-style: medium;
+}
+
+@font-face {
+  font-family: "Sinteca SemiBold";
+  src: url("/fonts/Sinteca-SemiBold.otf") format("woff2");
+  font-weight: 600;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: "New Pixel";
+  src: url("/fonts/thatthatnewpixelfamilytest-italicsquare.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+.sinteca {
+  font-family: "Sinteca";
+}
+
+.sinteca-med {
+  font-family: "Sinteca Medium";
+}
+
+.sinteca-sb {
+  font-family: "Sinteca SemiBold";
+}
+
+.body {
+  font-family: "Sinteca";
+  font-size: 16px;
+}
+
+.body-med {
+  font-family: "Sinteca Medium";
+  font-size: 16px;
+}
+
+.body-large{
+    font-family: "Sinteca Medium";
+    font-size: 20px;
+}
+
+.black-box {
+  display: inline-block;
+  width: fit-content;
+  background-color: black;
+  padding: 0px 20px 0px 20px;
+  letter-spacing: -4%;
+  color: white;
+  flex-grow: 0;
+  flex-basis: auto;
+  flex-shrink: 0;
+  align-items: flex-start;
+  align-self: flex-start;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.white-box {
+  display: inline-block;
+  width: fit-content;
+  background-color: white;
+  padding: 0px 20px 0px 20px;
+  letter-spacing: -4%;
+  color: black;
+  font-family: "Sinteca";
+  flex-grow: 0;
+  flex-basis: auto;
+  flex-shrink: 0;
+  align-items: flex-start;
+  align-self: flex-start;
+}
+
+.blue-box {
+  display: inline-block;
+  width: fit-content;
+  background-color: #194bf9;
+  padding: 0px 20px 0px 20px;
+  letter-spacing: -4%;
+  color: white;
+  font-family: "Sinteca";
+  align-self: flex-start;
+}
