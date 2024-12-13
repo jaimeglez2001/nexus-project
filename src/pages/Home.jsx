@@ -1,4 +1,4 @@
-import LargeCta from "/src/components/large-cta.jsx";
+import LargeCta from "/src/components/LargeCta.jsx";
 import "../style/typography.css";
 
 import gsap from "gsap";
@@ -15,7 +15,7 @@ function Home() {
         trigger: "#scroller",
         start: "20% 20%",
         end: "80% bottom",
-        markers: true,
+        markers: false,
         scrub: true,
       },
     });

@@ -3,7 +3,7 @@ import Nav from "./components/nav";
 
 import Explore from "./pages/Explore";
 import Home from "./pages/Home";
-import Conexion from "./pages/Conexion-humana";
+import Conexion from "./pages/ConexionHumana";
 
 function App() {
   return (

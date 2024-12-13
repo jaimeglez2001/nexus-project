@@ -1,8 +1,8 @@
 import "../style/typography.css";
-import Cta from "../components/cta.jsx";
+import Cta from "../components/Cta.jsx";
 import "../style/index.css";
 import Apertura from "./apertura.jsx";
-import SingleNav from "../components/single-nav.jsx";
+import SingleNav from "../components/SingleNav.jsx";
 
 function Conexion({ name, nameHighlight }) {
   return (
@@ -162,7 +162,7 @@ function Conexion({ name, nameHighlight }) {
         </section>
         <footer className="flex items-end gap-20 p-10">
           <figure>
-            <img src="./public/imgs/explorar-link.png" className="" alt="" />
+            <img src="./public/imgs/relaciones-interpersonales-link.png" className="" alt="" />
           </figure>
           <article className="flex flex-col items-end gap-5 pb-20">
             <h2 className="flex flex-col sinteca-sb text-[48px] pt-40 tracking-tighter leading-[1%]">

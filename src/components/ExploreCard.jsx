@@ -1,4 +1,4 @@
-import Cta from "./cta";
+import Cta from "./Cta";
 import "../style/typography.css";
 
 export default function ExploreCard({
@@ -7,10 +7,12 @@ export default function ExploreCard({
   sectionNumber,
   fullSectionName,
   bodyText,
+  image,
+  id
 }) {
   return (
     <>
-      <section className="h-full flex items-end w-[100vw] pl-10 bg-white relative shrink-0">
+      <section id={`${id}`} className="explore-card h-[95vh] flex items-end w-[99vw] pl-10 bg-white relative shrink-0 pb-20">
         <article className="flex flex-col gap-10 items-start z-50">
           <h2 className="flex flex-col sinteca-sb items-end text-[64px] tracking-tighter leading-[1%]">
             {sectionName}{" "}
@@ -24,25 +26,6 @@ export default function ExploreCard({
             </p>
             <Cta name="Explorar más" link="/conexion-humana" />
           </aside>
-          <footer className="flex flex-col gap-4">
-            <aside className="flex gap-2 items-center">
-              <span className="black-box small">{sectionNumber}</span>
-              <strong className="black-box small">{fullSectionName}</strong>
-            </aside>
-            <nav className="flex gap-2">
-              <ul className="flex gap-2">
-                <li className="active h-[8px] w-[200px] bg-[--nexusBlue]">
-                  <a href="#"></a>
-                </li>
-                <li className="h-[8px] w-[64px] border-[1px] border-solid border-[--nexusBlue]">
-                  <a href="#"></a>
-                </li>
-                <li className="h-[8px] w-[64px] border-[1px] border-solid border-[--nexusBlue]">
-                  <a href="#"></a>
-                </li>
-              </ul>
-            </nav>
-          </footer>
         </article>
         <aside>
           <figure className="absolute bottom-0 right-0">
@@ -63,10 +46,10 @@ export default function ExploreCard({
 
 
               <image
-                href="/public/imgs/explora-conexion-humana.png"
+                href={`/public/imgs/${image}.png`}
                 x="0"
                 y="0"
-                preserveAspectRatio="xMidYMid slice"
+                width="100%"
                 clipPath="url(#clip)"
               />
             </svg>

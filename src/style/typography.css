@@ -128,3 +128,7 @@
   font-family: "Sinteca";
   align-self: flex-start;
 }
+
+*{
+  scroll-behavior: smooth ;
+}
