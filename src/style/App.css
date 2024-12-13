@@ -1,0 +1,16 @@
+
+*{
+  --nexusBlue: #194bf9;
+}
+
+path {
+  background-image: url(/public/hero.png);
+}
+
+
+
+p {
+  letter-spacing: -0.4px;
+}
+
+

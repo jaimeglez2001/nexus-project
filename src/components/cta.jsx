@@ -1,4 +1,4 @@
-import "/src/typography.css";
+import "../style/typography.css";
 
 
 function Cta({ name = "Explorar más", link = "#" }) {

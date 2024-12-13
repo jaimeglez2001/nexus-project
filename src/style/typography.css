@@ -39,9 +39,20 @@
   font-family: "Sinteca SemiBold";
 }
 
+*{
+  text-wrap: pretty;
+  --nexusBlue: #194bf9;
+}
+
+.small{
+  font-family: "Sinteca";
+  font-size: 14px;
+}
+
 .body {
   font-family: "Sinteca";
   font-size: 16px;
+  letter-spacing: -1%;
 }
 
 .body-med {
@@ -52,6 +63,31 @@
 .body-large{
     font-family: "Sinteca Medium";
     font-size: 20px;
+    letter-spacing: -.2px;
+}
+.h5{
+  font-family: "Sinteca Medium";
+  font-size: 24px;
+  letter-spacing: -.3px;
+  line-height: 110%;
+}
+.h3{
+  font-family: "Sinteca Medium";
+  font-size: 40px;
+  letter-spacing: -.4px;
+  line-height: 100%;
+}
+.pixel-sm {
+  font-family: "New Pixel";
+  font-size: 130px;
+  letter-spacing: -10px;
+  line-height: 90%;
+}
+.pixel {
+  font-family: "New Pixel";
+  font-size: 190px;
+  letter-spacing: -17px;
+  line-height: 90%;
 }
 
 .black-box {
@@ -59,7 +95,6 @@
   width: fit-content;
   background-color: black;
   padding: 0px 20px 0px 20px;
-  letter-spacing: -4%;
   color: white;
   flex-grow: 0;
   flex-basis: auto;
@@ -75,7 +110,6 @@
   width: fit-content;
   background-color: white;
   padding: 0px 20px 0px 20px;
-  letter-spacing: -4%;
   color: black;
   font-family: "Sinteca";
   flex-grow: 0;
@@ -90,7 +124,6 @@
   width: fit-content;
   background-color: #194bf9;
   padding: 0px 20px 0px 20px;
-  letter-spacing: -4%;
   color: white;
   font-family: "Sinteca";
   align-self: flex-start;

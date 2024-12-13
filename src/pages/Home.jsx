@@ -1,6 +1,5 @@
 import LargeCta from "/src/components/large-cta.jsx";
-import Nav from "/src/components/nav.jsx";
-import "/src/typography.css";
+import "../style/typography.css";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -9,41 +8,40 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
-
-
 function Home() {
-    useGSAP(() => {
-      const event_1 = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#scroller",
-          start: "20% 20%",
-          end: "80% bottom",
-          markers: true,
-          scrub: true,
-        },
-      });
-  
-      event_1
-        .to("#section_1", { opacity: 0 })
-        .fromTo("#section_2", { opacity: 0 }, { opacity: 1 })
-        .fromTo("#section_2", { opacity: 1 }, { opacity: 0 })
-        .fromTo("#section_3", { opacity: 0 }, { opacity: 1 })
-        .fromTo("#section_3", { opacity: 1 }, { opacity: 0 })
-        .fromTo("#section_4", { opacity: 0 }, { opacity: 1 });
+  useGSAP(() => {
+    const event_1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#scroller",
+        start: "20% 20%",
+        end: "80% bottom",
+        markers: true,
+        scrub: true,
+      },
     });
-    return (
-      <>
-        <Nav />
-  
+
+    event_1
+      .to("#section_1", { opacity: 0 })
+      .fromTo("#section_2", { opacity: 0 }, { opacity: 1 })
+      .fromTo("#section_2", { opacity: 1 }, { opacity: 0 })
+      .fromTo("#section_3", { opacity: 0 }, { opacity: 1 })
+      .fromTo("#section_3", { opacity: 1 }, { opacity: 0 })
+      .fromTo("#section_4", { opacity: 0 }, { opacity: 1 });
+  });
+  return (
+    <>
+
+      <main className="bg-white">
+
         {/*HERO*/}
-        <main className="hero flex justify-center items-center h-[100vh] sinteca">
+        <section className="hero flex justify-center items-center h-[100vh] sinteca">
           {/*FIRMA*/}
           <img
             className="absolute top-[50%] left-[50%] translate-x-[-40%] translate-y-[-55%]"
             src="./public/imgs/firma.png"
             alt=""
           />
-  
+
           {/*Huella Hero*/}
           <svg
             className="main-svg"
@@ -58,7 +56,7 @@ function Home() {
               <path d="M935.489 691.876V458.038H817.366V236.25L935.489 236.25V110.893L817.366 110.893V1.8544e-05L701.653 1.48659e-05V110.893L467.815 110.893L467.815 7.43295e-06L233.975 0V110.893L118.259 110.893L118.259 236.25H0.131841L0.131836 349.553L233.975 349.554V458.038H118.259L118.259 583.393L347.276 583.393L347.276 810H467.815L467.815 691.876H701.653V583.393H817.366V691.876H935.489Z"></path>
               <path d="M233.975 810V691.876H118.259V810H233.975Z"></path>
             </clipPath>
-  
+
             {/* Imagen de fondo */}
             <image
               href="/public/imgs/hero-3.png"
@@ -70,7 +68,7 @@ function Home() {
               clipPath="url(#clip)"
             />
           </svg>
-  
+
           {/* Logo Nexus Hero */}
           <svg
             className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
@@ -103,7 +101,7 @@ function Home() {
               fill="white"
             ></path>
           </svg>
-  
+
           {/* Claim Hero */}
           <article className="hero-claim flex flex-col items-end w-[400px] absolute bottom-[25%] left-[50%] translate-x-[-50%] gap-5">
             <div className="claim flex flex-col w-full">
@@ -111,7 +109,7 @@ function Home() {
               <p className="black-box body-large font-sinteca text-[22px]">
                 Cada relación es única y personal,
               </p>
-  
+
               {/* Row 2 */}
               <div className="p-wrap w-full flex justify-end">
                 <p className="black-box body-large font-sinteca text-[22px]">
@@ -119,14 +117,12 @@ function Home() {
                 </p>
               </div>
             </div>
-  
+
             {/* CTA */}
-            <LargeCta 
-                name="Descubre tu huella"
-            />
+            <LargeCta name="Descubre tu huella" />
           </article>
-        </main>
-  
+        </section>
+
         <section
           id="scroller"
           className="scroll_section flex flex-col w-full h-[700vh] relative"
@@ -145,7 +141,7 @@ function Home() {
                   alt=""
                 />
               </figure>
-  
+
               {/* Textos de la sección */}
               <article className="texts flex flex-col w-[800px]">
                 {/* Nexus dibujo */}
@@ -156,22 +152,26 @@ function Home() {
                     alt=""
                   />
                 </figure>
-  
+
                 {/* Row 1 */}
                 <article className="row-1 flex justify-between">
-                  <p className="black-box body-large">Nexus es un proyecto de</p>
+                  <p className="black-box body-large">
+                    Nexus es un proyecto de
+                  </p>
                   <section className="flex-wrapper flex gap-4">
-                    <p className="blue-box body-large">tipografía experimental</p>
+                    <p className="blue-box body-large">
+                      tipografía experimental
+                    </p>
                     <p className="black-box body-large"></p> yspq
                   </section>
                 </article>
-  
+
                 {/* Row 2 */}
                 <article className="row-2 flex justify-between pl-40 pr-10">
                   <p className="black-box body-large">que estudia las</p>
                   <p className="blue-box body-large">complejidades</p>
                 </article>
-  
+
                 {/* Row 3 */}
                 <article className="row-3 flex justify-between pl-20">
                   <div className="black-box body-large">
@@ -179,14 +179,14 @@ function Home() {
                   </div>
                 </article>
               </article>
-  
+
               {/* Highlight sección */}
               <section className="flex gap-40 items-center justify-end w-full absolute bottom-[10%] right-[5%] z-50">
                 <article className="flex flex-col gap-5">
                   <span className="pixel difference bg-blend-difference">
                     personales
                   </span>
-  
+
                   {/* Firma 'personales' */}
                   <img
                     src="./public/imgs/personales-figma.png"
@@ -194,7 +194,7 @@ function Home() {
                     alt=""
                   />
                 </article>
-  
+
                 {/* Huella */}
                 <svg
                   width="295"
@@ -209,7 +209,7 @@ function Home() {
                   ></path>
                 </svg>
               </section>
-  
+
               {/* Imagen de la sección */}
               <img
                 src="./public/imgs/section-2.png"
@@ -231,13 +231,13 @@ function Home() {
                   <p className="black-box body-large">En nuestras vidas</p>
                   <p className="white-box body-large">nos encontramos</p>
                 </article>
-  
+
                 {/* Row 2 */}
                 <article className="row-2 flex justify-between pl-40 pr-10">
                   <p className="blue-box body-large">con diversidad de</p>
                 </article>
               </article>
-  
+
               {/* Highlight sección */}
               <article className="z-50 flex flex-col items-end">
                 {/* Dibujo individuo */}
@@ -248,11 +248,11 @@ function Home() {
                     alt=""
                   />
                 </figure>
-  
+
                 {/* Tetxo highlight */}
                 <span className="pixel z-50">individuos</span>
               </article>
-  
+
               {/* Imagen sección */}
               <figure>
                 <img
@@ -280,7 +280,7 @@ function Home() {
                     <p>aunque compartamos</p>
                   </div>
                 </div>
-  
+
                 {/* Row 2 */}
                 <div className="row-2 flex justify-between pr-10">
                   <img src="./public/imgs/pero.png" className="pt-2" alt="" />
@@ -292,7 +292,7 @@ function Home() {
                   </div>
                 </div>
               </article>
-  
+
               {/* Textos 2 de la sección */}
               <article className="texts flex flex-col items-end w-full z-50 relative">
                 {/* Row 1 */}
@@ -304,7 +304,7 @@ function Home() {
                     <p>conectar</p>
                   </div>
                 </div>
-  
+
                 {/* Row 2 */}
                 <div className="row-2 flex justify-between pl-20 pr-10">
                   <div className="blue-box body-large">
@@ -317,25 +317,25 @@ function Home() {
                     <p>a</p>
                   </div>
                 </div>
-  
+
                 {/* Row 3 */}
                 <div className="row-3 flex justify-end pr-20">
                   <div className="blue-box body-large">
                     <p>unos pocos</p>
                   </div>
                 </div>
-  
+
                 {/* CTA */}
                 <div className="absolute -bottom-20"></div>
               </article>
-  
+
               {/* Imagen de la sección */}
               <img
                 src="./public/imgs/section-4.png"
                 alt=""
                 className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] h-[40vh] -z-10 blendhar"
               />
-  
+
               {/* Firma */}
               <img
                 className="absolute top-[50%] h-[90vh] left-[50%] translate-x-[-60%] translate-y-[-50%]"
@@ -386,8 +386,9 @@ function Home() {
             </section>
           </div>
         </section>
-      </>
-    );
-  }
+      </main>
+    </>
+  );
+}
 
-  export default Home;
+export default Home;

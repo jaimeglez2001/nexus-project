@@ -1,4 +1,4 @@
-import "/src/typography.css";
+import "../style/typography.css";
 
 
 function LargeCta({ name = "Explorar más", link = "#" }) {
