@@ -1,10 +1,11 @@
 import "../style/typography.css";
+import { Link } from "react-router-dom";  
 
 
 function Cta({ name = "Explorar más", link = "#" }) {
   return (
     <>
-      <a href={link} className="flex gap-2">
+      <a href={link} className="cta flex gap-2">
         <span className="body-med black-box">{name}</span>
         <figure className="w-[24px] bg-[--nexusBlue] flex justify-center items-center">
           <svg

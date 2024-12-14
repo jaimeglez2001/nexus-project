@@ -26,7 +26,7 @@ function App() {
               />
             }
           />
-          <Route path="/conexion-humana" element={<Conexion
+          <Route path="/explore/conexion-humana" element={<Conexion
             name={"Conexión"}
             nameHighlight={"humana"}
           />} />

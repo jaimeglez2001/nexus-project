@@ -3,8 +3,15 @@ import Cta from "../components/Cta.jsx";
 import "../style/index.css";
 import Apertura from "./apertura.jsx";
 import SingleNav from "../components/SingleNav.jsx";
+import React, { useState, useEffect } from "react";
+import Carrusel from "../components/Carrusel.jsx";
+
+
 
 function Conexion({ name, nameHighlight }) {
+
+
+
   return (
     <>
       <main className="bg-white">
@@ -19,33 +26,9 @@ function Conexion({ name, nameHighlight }) {
           </h1>
         </Apertura>
 
-        <section className="p-5 pt-14 h-[100vh] relative bg-white">
-          <article className="text-carusel h-full flex flex-col items-center justify-center">
-            <span className="sinteca-sb text-[48px] leading-[95%] tracking-tight max-w-[900px] text-pretty text-white">
-              “Cada individuo posee una voz interior que rápidamente evalúa la
-              relevancia o significado de algo o alguien”
-            </span>
-          </article>
-          <aside className="absolute bottom-20 left-[50%] translate-x-[-50%]">
-            <nav className="flex gap-2">
-              <ul className="flex gap-2">
-                <li className="active h-[8px] w-[200px] bg-white">
-                  <a href="#"></a>
-                </li>
-                <li className="h-[8px] w-[64px] border-[1px] border-solid border-white">
-                  <a href="#"></a>
-                </li>
-                <li className="h-[8px] w-[64px] border-[1px] border-solid border-white">
-                  <a href="#"></a>
-                </li>
-              </ul>
-            </nav>
-          </aside>
-        </section>
-        <section
-          id="section_2"
-          className="h-[100vh] w-full flex flex-col justify-center px-80 relative pt-80 bg-white overflow-visible pb-90"
-        >
+        <Carrusel />
+
+        <section className="h-[100vh] w-full flex flex-col justify-center px-80 relative pt-80 bg-white overflow-visible pb-90">
           <h2 className="small flex items-center gap-2 absolute top-[15%] left-10">
             <svg
               width="12"
@@ -75,12 +58,14 @@ function Conexion({ name, nameHighlight }) {
           <aside className="bg-white">
             <article className="z-50 flex flex-col max-w-[800px] items-end">
               {/* Tetxo highlight */}
-              <strong className="pixel z-50 text-white difference font-normal">miradas</strong>
+              <strong className="pixel z-50 text-white difference font-normal">
+                miradas
+              </strong>
             </article>
 
             <figure>
               <img
-                src="./public/imgs/conexion-4.png"
+                src="../public/imgs/conexion-4.png"
                 alt=""
                 className="absolute top-[50%] right-[15%] translate-y-[-50%] h-[70vh]"
               />
@@ -89,7 +74,7 @@ function Conexion({ name, nameHighlight }) {
 
           <figure>
             <img
-              src="./public/imgs/firma-xl.png"
+              src="../public/imgs/firma-xl.png"
               alt=""
               className="absolute right-[0%] top-[50%] translate-y-[-20%] z-[99]  difference"
             />
@@ -162,7 +147,11 @@ function Conexion({ name, nameHighlight }) {
         </section>
         <footer className="flex items-end gap-20 p-10">
           <figure>
-            <img src="./public/imgs/relaciones-interpersonales-link.png" className="" alt="" />
+            <img
+              src="../public/imgs/relaciones-interpersonales-link.png"
+              className=""
+              alt=""
+            />
           </figure>
           <article className="flex flex-col items-end gap-5 pb-20">
             <h2 className="flex flex-col sinteca-sb text-[48px] pt-40 tracking-tighter leading-[1%]">

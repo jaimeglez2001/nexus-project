@@ -1,4 +1,5 @@
 import "../style/typography.css";
+import { Link } from "react-router-dom";  
 
 export default function SingleNav() {
   return (
@@ -6,19 +7,19 @@ export default function SingleNav() {
       <nav>
         <ul className="flex gap-2 z-50 top-20 left-10 fixed">
           <li>
-            <a className="black-box" href="/">
+            <Link className="black-box" to="/explore/conexion-humana">
               Conexión humana
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="white-box" href="/">
+            <Link className="white-box" to="/explore/relaciones-interpersonales">
               Relaciones interpersonales
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="white-box" href="/">
+            <Link className="white-box" to="/explore/relaciones-espaciales">
               Relaciones espaciales
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

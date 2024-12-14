@@ -1,10 +1,11 @@
 import "../style/typography.css";
+import { Link } from "react-router-dom";
 
 
 function LargeCta({ name = "Explorar más", link = "#" }) {
   return (
     <>
-      <a href={link} className="flex gap-2">
+      <Link to={link} className="flex gap-2">
         <span className="body-large black-box">{name}</span>
         <figure className="w-[30px] bg-[--nexusBlue] flex justify-center items-center">
           <svg
@@ -20,7 +21,7 @@ function LargeCta({ name = "Explorar más", link = "#" }) {
             />
           </svg>
         </figure>
-      </a>
+      </Link>
     </>
   );
 }
