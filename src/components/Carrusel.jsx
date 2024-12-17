@@ -38,14 +38,18 @@ export default function Carrusel() {
         className={`flex h-[100vh] gap-10 pt-[140px] overflow-hidden`}
       >
         <CarruselArticle
-          text="“Cada individuo posee una voz interior que rápidamente evalúa la
-        relevancia o significado de algo o alguien”"
+          text='"Cada individuo posee una voz interior que rápidamente evalúa la
+        relevancia o significado de algo o alguien"'
+          image="conexion-1.png"
         />
         <CarruselArticle
-          text="“Cada individuo posee una voz interior que rápidamente evalúa la
-        relevancia o significado de algo o alguien”"
+          text="En nuestras vidas cotidianas nos encontramos con una diversidad de individuos"
+          image="conexion-2.png"
         />
-
+        <CarruselArticle
+          text='Aunque compartimos estos espacios con numerosas personas, el acto de "conectar" profundamente se reserva a unas pocas'
+          image="conexion-3.png"
+        />
         <aside className="absolute bottom-10 left-[50%] translate-x-[-50%]">
           <nav className="flex gap-2">
             <ul className="flex gap-2">

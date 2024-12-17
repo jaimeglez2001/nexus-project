@@ -1,4 +1,4 @@
-import LargeCta from "/src/components/LargeCta.jsx";
+import LargeCta from "../components/ctas/LargeCta.jsx";
 import "../style/typography.css";
 
 import gsap from "gsap";
@@ -103,7 +103,7 @@ function Home() {
           </svg>
 
           {/* Claim Hero */}
-          <article className="hero-claim flex flex-col items-end w-[400px] absolute bottom-[25%] left-[50%] translate-x-[-50%] gap-5">
+          <article className="hero-claim flex flex-col items-end w-[400px] absolute bottom-[25%] left-[50%] z-10 translate-x-[-50%] gap-5">
             <div className="claim flex flex-col w-full">
               {/* Row 1 */}
               <p className="black-box body-large font-sinteca text-[22px]">

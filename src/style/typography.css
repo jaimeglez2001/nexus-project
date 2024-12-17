@@ -26,6 +26,20 @@
   font-weight: 500;
   font-style: italic;
 }
+@font-face {
+  font-family: "Nexus";
+  src: url("/fonts/Nexus.ttf")
+    format("truetype");
+  font-weight: 1000;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nexus Light";
+  src: url("/fonts/Nexus.ttf")
+    format("truetype");
+  font-weight: 0;
+  font-style: normal;
+}
 
 .sinteca {
   font-family: "Sinteca";
@@ -98,6 +112,20 @@
 .pixel-strong{
   margin-top: clamp(-45px, 100vw, -60px);
 }
+.pixel-menu{
+  font-family: "New Pixel";
+  font-size: 84px;
+  line-height: 80%;
+}
+.nexus-font{
+  font-family: "Nexus";
+}
+.huella-xxl{
+  font-family: "Nexus";
+  font-size: clamp(120px, 30vw, 1000px);
+  color: var(--nexusBlue);
+  line-height: 90%;
+}
 @media (max-width: 768px) {
   .pixel {
     font-size: 18vw;
@@ -117,6 +145,7 @@
   background-color: black;
   padding: 0px 20px 0px 20px;
   color: white;
+  font-family: "Sinteca";
   flex-grow: 0;
   flex-basis: auto;
   flex-shrink: 0;
@@ -138,6 +167,13 @@
   flex-shrink: 0;
   align-items: flex-start;
   align-self: flex-start;
+}
+
+a.white-box:hover{
+  background-color: black;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .blue-box {
@@ -182,4 +218,30 @@
   width: 300px;
   background-color: white;
   transition: all .6s cubic-bezier(0.11, 0, 0.5, 0) 0s;
+}
+#explore-holder{
+  scroll-snap-type: x mandatory;
+}
+.explore-card{
+  scroll-snap-align: start;
+}
+.menu-item{
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  flex-grow: 0;
+  flex-basis: auto;
+  flex-shrink: 0;
+  span{
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover{
+    cursor: pointer;
+    span{
+      transition: all 0.3s ease-in-out;
+      transform: translateY(-90px);
+    }
+  }
 }

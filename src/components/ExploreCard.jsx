@@ -1,4 +1,4 @@
-import Cta from "./Cta.jsx";
+import Cta from "./ctas/Cta.jsx";
 import "../style/typography.css";
 
 export default function ExploreCard({
