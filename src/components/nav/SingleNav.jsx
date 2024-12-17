@@ -19,7 +19,7 @@ export default function SingleNav() {
 
   useEffect(() => {
     handleReload();
-  }, []);
+  });
 
 
   return (

@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useId } from "react";
 import Cta from "../components/ctas/cta.jsx";
 import "../style/typography.css";
 import ExploreCard from "/src/components/ExploreCard.jsx";
+
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import EXPLORE from "../data/EXPLORAR.js";
+import PAGES from "../data/PAGES.jsx";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
 function Explore() {
   const [activeSection, setActiveSection] = useState(1); // Controlador del índice activo
-  const explore = EXPLORE;
+  const explore = PAGES;
 
   useGSAP(() => {
     const contents = gsap.utils.toArray(".explore-card");
@@ -31,6 +32,8 @@ function Explore() {
       },
     });
   });
+
+  const sectionId = useId();
 
   return (
     <>
@@ -52,13 +55,13 @@ function Explore() {
           {explore.map((explore, index) => {
             return (
               <ExploreCard
-                key={explore.id}
-                id={explore.id}
+                key={index}
+                id={sectionId}
                 sectionName={explore.sectionName}
                 sectionDisplay={explore.sectionDisplay}
                 bodyText={explore.bodyText}
                 image={explore.image}
-                link={explore.link}
+                link={explore.pathname}
               />
             );
           })}

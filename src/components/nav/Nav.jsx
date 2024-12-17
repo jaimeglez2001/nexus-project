@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import "../../style/typography.css";
+import { MenuContext } from "../../context/menu.jsx";
+import { useContext } from "react";
 
 export default function Nav() {
+  const { isOpen, handleClick } = useContext(MenuContext);
+
   return (
     <>
       <nav className=" w-full flex justify-between items-center pt-4 px-10 fixed top-0 left-0 z-50 difference">
@@ -31,28 +35,25 @@ export default function Nav() {
             ></path>
           </svg>
         </Link>
-        <Link className="small white-box" to="/">
-          Inicio
-        </Link>
-        <Link className="small white-box" to="/explore">
-          Explorar
-        </Link>
-        <svg
-          width="25"
-          height="23"
-          viewBox="0 0 25 23"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0.34375 0.295898H25.0002V9.62969H0.34375V0.295898Z"
-            fill="white"
-          ></path>
-          <path
-            d="M0.34375 13.2238H25.0002V22.5576H0.34375V13.2238Z"
-            fill="white"
-          ></path>
-        </svg>
+        <button onClick={() => handleClick(isOpen)}>
+          <svg
+            className="burguer-menu"
+            width="25"
+            height="23"
+            viewBox="0 0 25 23"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.34375 0.295898H25.0002V9.62969H0.34375V0.295898Z"
+              fill="white"
+            ></path>
+            <path
+              d="M0.34375 13.2238H25.0002V22.5576H0.34375V13.2238Z"
+              fill="white"
+            ></path>
+          </svg>
+        </button>
       </nav>
     </>
   );
