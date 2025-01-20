@@ -15,14 +15,12 @@ export default function BurguerMenu() {
 
   function handleHover(e) {
     setPage(e);
-    console.log(isOpen);
   }
 
   return (
     <>
-      <div className={`burguer-menu flex flex-col gap-10 justify-end h-[100vh] w-full fixed top-0 left-0 z-50 bg-white ${isOpen ? "menu-open" : "menu-close"}`}>
-        <Nav />
-        <nav className="flex gap-20 w-full justify-between items-end p-10">
+      <div className={`burguer-menu z-[80] flex justify-end h-[100vh] w-full fixed top-0 left-0 ${isOpen ? "menu-open" : "menu-close"}`}>
+        <nav className="flex gap-20 z-10 w-full justify-between items-end p-10 bg-white">
           <ul className="flex flex-col w-full">
             {pages.map((item, index) => (
               <NavItem
@@ -30,6 +28,7 @@ export default function BurguerMenu() {
                 name={item.name}
                 link={item.pathname}
                 onMouseEnter={() => handleHover(index)}
+                onClick={() => handleClick(isOpen)}
               />
             ))}
           </ul>
@@ -39,7 +38,7 @@ export default function BurguerMenu() {
         </nav>
         <footer>
           <img
-            className="w-full"
+            className="w-[1000px] h-full object-cover" 
             src="../../public/imgs/footer-menu.png"
             alt=""
           />

@@ -5,6 +5,7 @@ import Explore from "./pages/Explore";
 import Home from "./pages/Home";
 import Conexion from "./pages/explore/ConexionHumana.jsx";
 import RelacionesInterpersonales from "./pages/explore/RelacionesInterpersonales.jsx";
+import RelacionesEspaciales from "./pages/explore/RelacionesEspaciales.jsx";
 import BurguerMenu from "./components/nav/BurguerMenu.jsx";
 import {MenuProvider} from "./context/menu.jsx";
 
@@ -43,6 +44,15 @@ function App() {
                 <RelacionesInterpersonales
                   name={"Relaciones"}
                   nameHighlight={"interpersonales"}
+                />
+              }
+            />
+            <Route
+              path="/explore/relaciones-espaciales"
+              element={
+                <RelacionesEspaciales
+                  name={"Relaciones"}
+                  nameHighlight={"espaciales"}
                 />
               }
             />

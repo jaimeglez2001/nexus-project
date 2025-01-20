@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Explore() {
   const [activeSection, setActiveSection] = useState(1); // Controlador del índice activo
-  const explore = PAGES;
+  const explore = PAGES[1].subPages;
 
   useGSAP(() => {
     const contents = gsap.utils.toArray(".explore-card");
@@ -39,7 +39,7 @@ function Explore() {
     <>
       <main className="w-full flex flex-col gap-10 pb-10 bg-white">
         <header className="w-full flex flex-col gap-2 px-10 top-20 z-50 fixed">
-          <ul className="flex gap-2 small sinteca">
+          <ul className="flex small sinteca">
             <li>
               <a href="/">Inicio</a>
             </li>

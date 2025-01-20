@@ -8,10 +8,27 @@ import Carrusel from "../../components/Carrusel.jsx";
 import Huella from "../../components/Huella.jsx";
 import FASES from "../../data/FASES.js";
 import CarruselFases from "../../components/CarruselFases.jsx";
+import RELACIONES from "../../data/RELACIONES.jsx";
+
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(useGSAP);
 
 export default function RelacionesInterpersonales({ name, nameHighlight }) {
   const [activeSection, setActiveSection] = useState(1); // Controlador del índice activo
   const fasesRelacion = FASES;
+  const relaciones = RELACIONES;
+  const [activeRelation_1, setActiveRelation_1] = useState(0);
+  const [activeRelation_2, setActiveRelation_2] = useState(0);
+
+  const handleActiveRelation_1 = (index) => {
+    setActiveRelation_1(index);
+  };
+  const handleActiveRelation_2 = (index) => {
+    setActiveRelation_2(index);
+  };
   return (
     <>
       <main className="bg-white">
@@ -29,88 +46,116 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
 
         <CarruselFases />
 
-        <section className="flex justify-between px-10 h-[100vh] pt-[320px]">
-          <aside>
-            <h2 className="small flex items-center gap-2">
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 9 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect y="0.397461" width="9" height="9" fill="#194BF9" />
-              </svg>
-              Tipos de relaciones
-            </h2>
-          </aside>
-          <article className="flex flex-col max-w-[764px] gap-10">
-            <h3 className="h3">
-              En el análisis de las complejidades inherentes a las relaciones
-              humanas, resulta esencial dividirlas en dos categorías
-              fundamentales
-            </h3>
-            <article className="flex gap-4">
-              <article className="flex flex-col items-center gap-[52px]">
-                <header className="flex flex-col gap-10">
-                  <h3 className="h5 border-b-[.5px] border-black pb-5 w-full">
-                    <strong>Relaciones personales</strong>
-                  </h3>
-                  <p className="body">
-                    Involucran una cercanía e interdependencia significativas,
-                    como aquellas con amigos cercanos, parejas o familiares
-                  </p>
-                </header>
+        <section className=" justify-between px-10 py-40 min-h-[110vh] text-white bg-black relative flex flex-row items-start">
+          <div className="sticky top-40 h-[80vh] flex flex-col justify-between">
+            <p className="h3 max-w-[560px] text-pretty">
+              En el análisis de las relaciones humanas, resulta esencial
+              dividirlas en dos categorías fundamentales
+            </p>
 
-                <svg
-                  width="120"
-                  height="120"
-                  viewBox="0 0 120 120"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M119.248 104.103V89.4129H104.557V75.0489H119.248V16.6132H89.7038V1.43298H16.0879V45.1781H1.23438V75.0489H16.0879V89.4129H31.4316V75.0489H59.9965V89.4129H75.1767V75.0489H89.7038V119.447H104.557V104.103H119.248ZM89.7038 46.1575V59.8686H75.1768V46.1575H89.7038Z"
-                    stroke="black"
-                  />
-                </svg>
-              </article>
-              <article className="flex flex-col items-center gap-[52px]">
-                <header className="flex flex-col gap-10">
-                  <h3 className="h5 border-b-[.5px] border-black pb-5 w-full">
-                    <strong>Relaciones sociales</strong>
-                  </h3>
-                  <p className="body">
-                    Satisfacen ocasionalmente nuestras necesidades y carecen de
-                    la misma proximidad e interdependencia
-                  </p>
-                </header>
+            <svg
+              width="500"
+              viewBox="0 0 656 573"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M159.996 81.0039V0.9375H81.1266V81.0039H159.996Z"
+                stroke="white"
+                strokeWidth=".5"
+              />
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M573.472 572.158V492.092H654.735V408.44H573.472V247.112H654.735V81.0039H573.472V162.266H493.407V81.0039H330.884V0.9375H241.258V162.266H81.1254V247.112H159.995V325.984H1.05664V408.44H81.1254V492.092H159.995V572.158H330.884V492.092H493.407V572.158H573.472ZM409.756 247.112V325.984H493.407V247.112H409.756Z"
+                stroke="white"
+                strokeWidth=".5"
+              />
+            </svg>
+          </div>
 
-                <svg
-                  width="135"
-                  height="118"
-                  viewBox="0 0 135 118"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M33.5119 17.3342V0.9375H17.3604V17.3342H33.5119Z"
-                    stroke="black"
-                  />
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M118.187 117.917V101.521H134.829V84.3896H118.187V51.3514H134.829V17.3342H118.187V33.9758H101.791V17.3342H68.5079V0.9375H50.1535V33.9758H17.3601V51.3514H33.5117V67.5035H0.962891V84.3896H17.3601V101.521H33.5117V117.917H68.5079V101.521H101.791V117.917H118.187ZM84.6602 51.3514V67.5035H101.791V51.3514H84.6602Z"
-                    stroke="black"
-                  />
-                </svg>
-              </article>
+          <section className="flex flex-col gap-20">
+            <article className="flex flex-col gap-20 max-w-[564px] pr-40 border-b-[1px] border-white pb-20">
+              <header className="flex flex-col gap-4">
+                <h3 className="h3">
+                  Relaciones{" "}
+                  <strong className="thatthat font-normal">
+                    {relaciones[0].name}
+                  </strong>
+                </h3>
+                <p className="body">{relaciones[0].description}</p>
+              </header>
+              <div className="flex flex-col gap-10">
+                <div className="flex flex-col gap-5">
+                  <span className="small">Podemos distinguir:</span>
+                  <ul className="flex gap-2">
+                    {relaciones[0].subRelations.map((subRelation, index) => {
+                      return (
+                        <li key={index}>
+                          <button
+                            onClick={() => {
+                              handleActiveRelation_1(index);
+                            }}
+                            className={
+                              activeRelation_1 === index
+                                ? "white-box"
+                                : "black-box"
+                            }
+                          >
+                            {subRelation.name}
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+                <p className="body">
+                  {relaciones[0].subRelations[activeRelation_1].description}
+                </p>
+              </div>
             </article>
-          </article>
+            <article className="flex flex-col gap-20 max-w-[564px] pr-40 border-b-[1px] border-white pb-20">
+              <header className="flex flex-col gap-4">
+                <h3 className="h3">
+                  Relaciones{" "}
+                  <strong className="thatthat font-normal">
+                    {relaciones[1].name}
+                  </strong>
+                </h3>
+                <p className="body">{relaciones[1].description}</p>
+              </header>
+              <div className="flex flex-col gap-10">
+                <div className="flex flex-col gap-5">
+                  <span className="small">Podemos distinguir:</span>
+                  <ul className="flex gap-2">
+                    {relaciones[1].subRelations.map((subRelation, index) => {
+                      return (
+                        <li key={index}>
+                          <button
+                            onClick={() => {
+                              handleActiveRelation_2(index);
+                            }}
+                            className={
+                              activeRelation_2 === index
+                                ? "white-box"
+                                : "black-box"
+                            }
+                          >
+                            {subRelation.name}
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+                <p className="body">
+                  {relaciones[1].subRelations[activeRelation_2].description}
+                </p>
+              </div>
+            </article>
+          </section>
         </section>
-        <Carrusel />
+
         <footer className="flex items-end gap-20 p-10">
           <figure>
             <img

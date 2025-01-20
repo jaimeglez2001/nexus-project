@@ -1,4 +1,4 @@
-import LargeCta from "../components/ctas/LargeCta.jsx";
+import Cta from "../components/ctas/Cta";
 import "../style/typography.css";
 
 import gsap from "gsap";
@@ -118,8 +118,8 @@ function Home() {
               </div>
             </div>
 
-            {/* CTA */}
-            <LargeCta name="Descubre tu huella" />
+
+            <Cta name="Descubre tu huella" size="large" />
           </article>
         </section>
 

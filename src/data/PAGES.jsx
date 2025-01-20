@@ -45,6 +45,22 @@ const pages = [
           "En nuestras vidas cotidianas nos encontramos con una diversidad de individuos",
         image: "explora-conexion-humana",
         pathname: "/explore/conexion-humana",
+        huella: (
+          <svg
+            width="335"
+            height="336"
+            viewBox="0 0 335 336"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M334.327 291.598V250.043H292.772V209.411H334.327V44.114H250.756V1.17365H42.5181V124.916H0.501953V209.411H42.5181V250.043H85.921V209.411H166.723V250.043H209.663V209.411H250.756V335H292.772V291.598H334.327ZM250.756 127.686V166.471H209.663V127.686H250.756Z"
+              stroke="black"
+            />
+          </svg>
+        ),
       },
       {
         name: "Relaciones interpersonales",
@@ -54,6 +70,28 @@ const pages = [
           "En el análisis de las complejidades inherentes a las relaciones humanas, resulta esencial dividirlas en dos categorías fundamentales",
         image: "relaciones-interpersonales-link",
         pathname: "/explore/relaciones-interpersonales",
+        huella: (
+          <svg
+            width="334"
+            height="336"
+            viewBox="0 0 334 336"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M333.467 1.05737V68.2609H301.326V100.767H333.467V133.273H301.326V166.875H266.994V133.273H233.757V100.767H200.156V33.5634H266.994V1.05737H333.467ZM233.759 100.721V68.2147H266.995V100.721H233.759Z"
+              stroke="black"
+            />
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M167.284 133.273V100.767H100.811V133.273H34.3381V100.767H0.736328V300.917H34.3381V334.884H100.811V300.917H134.413V268.045H167.284V200.477H134.413V166.875H200.156V133.273H167.284ZM101.174 200.475V232.981H134.41V200.475H101.174Z"
+              stroke="black"
+            />
+          </svg>
+        ),
       },
       {
         name: "Relaciones espaciales",
@@ -63,6 +101,20 @@ const pages = [
           "El comportamiento humano se concibe como el resultado de un campo, compuesto por hechos coexistentes donde el cambio en una parte afecta al conjunto",
         image: "section-3",
         pathname: "/explore/relaciones-espaciales",
+        huella: (
+          <svg
+            width="344"
+            height="346"
+            viewBox="0 0 344 346"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M102.596 310.171V241.02H136.94V206.676H102.596V173.261H0.958008V37.2797H35.7658V71.159H69.1813V0.615784H172.212V37.2797H207.019V71.159H240.899V37.2797H309.586V71.159H343.465V138.918H309.586V173.261H274.777V138.918H207.019M102.596 310.171H69.1813V241.02H0.958008V310.171H35.7658V345.442H102.596V310.171ZM102.596 310.171H136.94V276.755H172.212V310.171H207.019V276.755H240.899V241.02H274.777V206.676H207.019V138.918M207.019 138.918L172.212 138.918V105.503H207.02L207.019 138.918ZM136.94 71.1591V37.2798H102.596V71.1591H136.94Z"
+              stroke="black"
+            />
+          </svg>
+        ),
       },
     ],
   },

@@ -8,7 +8,7 @@ export default function Nav() {
 
   return (
     <>
-      <nav className=" w-full flex justify-between items-center pt-4 px-10 fixed top-0 left-0 z-50 difference">
+      <nav className=" w-full flex justify-between items-center pt-4 px-10 fixed top-0 left-0 z-[99] difference">
         <Link to="/">
           <svg
             width="74"

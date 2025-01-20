@@ -41,6 +41,10 @@
   font-style: normal;
 }
 
+.thatthat {
+  font-family: "New Pixel";
+}
+
 .sinteca {
   font-family: "Sinteca";
 }
@@ -153,6 +157,7 @@
   align-self: flex-start;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  border: 1px solid white
 }
 
 .white-box {
@@ -167,6 +172,7 @@
   flex-shrink: 0;
   align-items: flex-start;
   align-self: flex-start;
+  border: 1px solid black
 }
 
 a.white-box:hover{
@@ -199,25 +205,35 @@ a.white-box:hover{
     }
   }
 }
+.cta-white{
+  &:hover{
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    .white-box{
+      background-color: var(--nexusBlue);
+      color: white;
+    }
+  }
+}
 .nav-explore{
   width: 64px;
   border: 1px solid var(--nexusBlue);
-  transition: all .6s cubic-bezier(0.11, 0, 0.5, 0) 0s;
+  transition: all .6s cubic-bezier(.24,1.03,.87,1.01) 0s;
 }
 .nav-explore-white{
   width: 64px;
   border: 1px solid white;
-  transition: all .6s cubic-bezier(0.11, 0, 0.5, 0) 0s;
+  transition: all .6s cubic-bezier(.24,1.03,.87,1.01) 0s;
 }
 .nav-explore-active{
   width: 300px;
   background-color: var(--nexusBlue);
-  transition: all .6s cubic-bezier(0.11, 0, 0.5, 0) 0s;
+  transition: all .6s cubic-bezier(.24,1.03,.87,1.01) 0s;
 }
 .nav-explore-white-active{
   width: 300px;
   background-color: white;
-  transition: all .6s cubic-bezier(0.11, 0, 0.5, 0) 0s;
+  transition: all .6s cubic-bezier(.24,1.03,.87,1.01) 0s;
 }
 #explore-holder{
   scroll-snap-type: x mandatory;
@@ -247,10 +263,24 @@ a.white-box:hover{
 }
 .menu-open{
   visibility: visible;
-  transition: all .6s cubic-bezier(0.11, 0, 0.5, 0) 0s;
+  footer{
+    transform: translateX(0);  
+    transition: transform 1s cubic-bezier(.24,1.03,.85,.99) .3s;
+  };
+  nav{
+    transform: translateX(0);  
+    transition: transform 1s cubic-bezier(.24,1.03,.85,.99) 0s;
+  }
 }
 .menu-close{
   visibility: hidden;
-  transform: translateY(-100vh);
-  transition: all .6s cubic-bezier(0.11, 0, 0.5, 0) 0s;
+  transition: visibility 0s linear 1.45s;
+  footer{
+    transform: translateX(-100vw);  
+    transition: transform .65s cubic-bezier(.24,1.03,.85,.99) 0s;
+  };
+  nav{
+    transform: translateX(-90vw);  
+    transition: transform 1.35s cubic-bezier(.24,1.03,.85,.99) 0.125s;
+  }
 }

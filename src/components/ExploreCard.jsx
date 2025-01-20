@@ -13,7 +13,7 @@ export default function ExploreCard({
     <>
       <section
         id={`${id}`}
-        className="explore-card border-x-[.5px] snap-start border-black flex-col sm:flex-row h-[95vh] flex items-end w-[99vw] pl-10 bg-white relative shrink-0 pb-20"
+        className="explore-card border-x-[.5px] snap-start border-black flex-col sm:flex-row h-[95vh] flex items-end w-[100vw] pl-10 bg-white relative shrink-0 pb-20"
       >
         <article className="flex flex-col gap-10 items-start z-50">
           <h2 className="h2 flex flex-col gap-2sinteca-sb items-end tracking-tighter">
