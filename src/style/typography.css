@@ -126,7 +126,7 @@
 }
 .huella-xxl{
   font-family: "Nexus";
-  font-size: clamp(120px, 30vw, 1000px);
+  font-size: clamp(120px, 15vw, 1000px);
   color: var(--nexusBlue);
   line-height: 90%;
 }

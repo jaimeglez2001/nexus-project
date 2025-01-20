@@ -74,7 +74,7 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
             </svg>
           </div>
 
-          <section className="flex flex-col gap-20">
+          <section className="flex flex-col gap-60">
             <article className="flex flex-col gap-20 max-w-[564px] pr-40 border-b-[1px] border-white pb-20">
               <header className="flex flex-col gap-4">
                 <h3 className="h3">
