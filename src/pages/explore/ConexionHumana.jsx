@@ -1,16 +1,16 @@
 import "../../style/typography.css";
 import Cta from "../../components/ctas/Cta.jsx";
 import "../../style/index.css";
-import Apertura from "../../components/Apertura.jsx"; 
+import Apertura from "../../components/Apertura.jsx";
 import SingleNav from "../../components/nav/SingleNav.jsx";
 import React, { useState, useEffect } from "react";
 import Carrusel from "../../components/Carrusel.jsx";
+import PAGES from "../../data/PAGES.jsx";
 
 
 
 export default function Conexion({ name, nameHighlight }) {
-
-
+  const CONEXION = PAGES[1].subPages[0].carrusel;
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function Conexion({ name, nameHighlight }) {
           </h1>
         </Apertura>
 
-        <Carrusel />
+        <Carrusel array={CONEXION} />
 
         <section className="h-[100vh] w-full flex flex-col justify-center px-80 relative pt-80 bg-white overflow-visible pb-90">
           <h2 className="small flex items-center gap-2 absolute top-[15%] left-10">
@@ -160,7 +160,10 @@ export default function Conexion({ name, nameHighlight }) {
                 interpersonales
               </strong>
             </h2>
-            <Cta name="Explorar más" link="/explore/relaciones-interpersonales" />
+            <Cta
+              name="Explorar más"
+              link="/explore/relaciones-interpersonales"
+            />
           </article>
         </footer>
       </main>

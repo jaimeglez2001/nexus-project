@@ -20,7 +20,7 @@ export default function BurguerMenu() {
   return (
     <>
       <div className={`burguer-menu z-[80] flex justify-end h-[100vh] w-full fixed top-0 left-0 ${isOpen ? "menu-open" : "menu-close"}`}>
-        <nav className="flex gap-20 z-10 w-full justify-between items-end p-10 bg-white">
+        <nav className="menuNav flex gap-20 z-10 w-full justify-between items-end p-10 bg-white">
           <ul className="flex flex-col w-full">
             {pages.map((item, index) => (
               <NavItem

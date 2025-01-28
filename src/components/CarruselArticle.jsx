@@ -1,4 +1,4 @@
-export default function CarruselArticle({ id, text, image }) {
+export default function CarruselArticle({ text, image }) {
   return (
     <article
       id="section_1"

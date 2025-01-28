@@ -21,7 +21,7 @@ export default function CarruselFases() {
         trigger: "#fases-holder",
         pin: true,
         scrub: true,
-        markers: true,
+        markers: false,
         start: "20 top", // Empieza cuando la parte superior del trigger (carusel-holder) llegue a la parte superior de la ventana
         end: "+=3000", // Define el final del pin, en este caso 3000px después del comienzo
       },

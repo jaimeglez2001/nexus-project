@@ -1,5 +1,5 @@
 import React, { useState, useId } from "react";
-import Cta from "../components/ctas/cta.jsx";
+import Cta from "../components/ctas/Cta.jsx";
 import "../style/typography.css";
 import ExploreCard from "/src/components/ExploreCard.jsx";
 
@@ -62,6 +62,10 @@ function Explore() {
                 bodyText={explore.bodyText}
                 image={explore.image}
                 link={explore.pathname}
+                svg={explore.svg}
+                clipPath={explore.path}
+                index={index}
+                huella={explore.huella}
               />
             );
           })}

@@ -1,12 +1,15 @@
 import "../../style/typography.css";
 import { Link } from "react-router-dom";  
+import { useState } from "react";
 
 function LargeCta({ name = "Explorar más", link = "#" }) {
+
+
   return (
     <>
-      <Link to={link} className="flex gap-2">
-        <span className="body-large black-box">{name}</span>
-        <figure className="w-[30px] bg-[--nexusBlue] flex justify-center items-center">
+      <Link to={link} className="flex gap-1 bg-black p-2 rounded-md">
+        <span className="body-large white-box rounded-sm">{name}</span>
+        <figure className="w-[30px] border-[1px] border-white flex justify-center items-center rounded-sm">
           <svg
             width="12"
             height="12"
@@ -26,11 +29,12 @@ function LargeCta({ name = "Explorar más", link = "#" }) {
 }
 
 function NormalCta({ name = "Explorar más", link = "#", color = "black" }) {
+
   return (
     <>
-      <Link to={link} className={`${color === "white" ? 'cta-white' : 'cta'} flex gap-2`}>
-        <span className= {`body-med ${color === "white" ? 'white-box' : 'black-box'}`}>{name}</span>
-        <figure className="w-[24px] bg-[--nexusBlue] flex justify-center items-center">
+      <Link to={link} className={`cta ${color === "white" ? 'cta-white' : 'cta'} flex gap-1 bg-black p-2 rounded-md`}>
+        <span className= {`body-med ${color === "white" ? 'white-box' : 'black-box'} rounded-sm`}>{name}</span>
+        <figure className="w-[24px] border-[1px] border-white rounded-sm flex justify-center items-center">
           <svg
             width="12"
             height="12"

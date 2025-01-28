@@ -8,6 +8,7 @@ export default function ExploreCard({
   image,
   id,
   link,
+  huella
 }) {
   return (
     <>
@@ -31,35 +32,7 @@ export default function ExploreCard({
         </article>
         <aside>
           <figure className="static sm:absolute bottom-0 right-0">
-            <svg
-              className="w-[45vw]"
-              viewBox="0 0 745 747"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <clipPath id="clip">
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M744.603 0.000244141V150.348H672.698V223.07H744.603V295.793H672.698V370.967H595.89V295.793H521.533V223.07H446.359V72.7227H595.89V0.000244141H744.603ZM521.536 222.967V150.244H595.893V222.967H521.536Z"
-                  fill="#D9D9D9"
-                />
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M372.82 295.793V223.07H224.106V295.793H75.3928V223.07H0.219116V670.845H75.3928V746.836H224.106V670.845H299.28V597.305H372.82V446.14H299.28V370.967H446.359V295.793H372.82ZM224.917 446.136V518.858H299.274V446.136H224.917Z"
-                  fill="#D9D9D9"
-                />
-              </clipPath>
-              <image
-              href={`../public/imgs/${image}.png`}
-              width="100%"
-              height="100%"
-              clipPath="url(#clip)"
-            />
-            </svg>
-
-
+            {huella}
             <img
               src="../public/imgs/firma-negra.png"
               alt=""

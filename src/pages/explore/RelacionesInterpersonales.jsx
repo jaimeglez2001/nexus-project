@@ -46,7 +46,7 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
 
         <CarruselFases />
 
-        <section className=" justify-between px-10 py-40 min-h-[110vh] text-white bg-black relative flex flex-row items-start">
+        <section className=" justify-between px-10 py-40 min-h-[110vh] text-white bg-[--nexusBlue] relative flex flex-row items-start">
           <div className="sticky top-40 h-[80vh] flex flex-col justify-between">
             <p className="h3 max-w-[560px] text-pretty">
               En el análisis de las relaciones humanas, resulta esencial
@@ -88,7 +88,7 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
               <div className="flex flex-col gap-10">
                 <div className="flex flex-col gap-5">
                   <span className="small">Podemos distinguir:</span>
-                  <ul className="flex gap-2">
+                  <ul className="flex gap-1 p-1 w-fit rounded-md">
                     {relaciones[0].subRelations.map((subRelation, index) => {
                       return (
                         <li key={index}>
@@ -96,11 +96,11 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
                             onClick={() => {
                               handleActiveRelation_1(index);
                             }}
-                            className={
+                            className={`${
                               activeRelation_1 === index
                                 ? "white-box"
-                                : "black-box"
-                            }
+                                : "tab"
+                            } rounded-[4px]`}
                           >
                             {subRelation.name}
                           </button>
@@ -127,7 +127,7 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
               <div className="flex flex-col gap-10">
                 <div className="flex flex-col gap-5">
                   <span className="small">Podemos distinguir:</span>
-                  <ul className="flex gap-2">
+                  <ul className="flex gap-1 p-1 w-fit rounded-md">
                     {relaciones[1].subRelations.map((subRelation, index) => {
                       return (
                         <li key={index}>
@@ -135,11 +135,11 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
                             onClick={() => {
                               handleActiveRelation_2(index);
                             }}
-                            className={
-                              activeRelation_2 === index
+                            className={`${
+                              activeRelation_1 === index
                                 ? "white-box"
-                                : "black-box"
-                            }
+                                : "tab"
+                            } rounded-[4px]`}
                           >
                             {subRelation.name}
                           </button>

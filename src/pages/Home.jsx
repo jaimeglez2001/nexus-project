@@ -10,38 +10,68 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Home() {
   useGSAP(() => {
-    const event_1 = gsap.timeline({
+    const contents = gsap.utils.toArray(".carusel-child");
+    console.log(contents);
+
+    gsap.to(contents, {
+      xPercent: -100 * (contents.length - 1),
       scrollTrigger: {
-        trigger: "#scroller",
-        start: "20% 20%",
-        end: "80% bottom",
-        markers: false,
-        scrub: true,
+        trigger: "#carusel-holder",
+        pin: true,
+        scrub: 1,
+        anticipatePin: 1,
+        start: "top top", // Empieza cuando la parte superior del trigger (carusel-holder) llegue a la parte superior de la ventana
+        end: "+=3000", // Define el final del pin, en este caso 3000px después del comienzo
       },
     });
 
-    event_1
-      .to("#section_1", { opacity: 0 })
-      .fromTo("#section_2", { opacity: 0 }, { opacity: 1 })
-      .fromTo("#section_2", { opacity: 1 }, { opacity: 0 })
-      .fromTo("#section_3", { opacity: 0 }, { opacity: 1 })
-      .fromTo("#section_3", { opacity: 1 }, { opacity: 0 })
-      .fromTo("#section_4", { opacity: 0 }, { opacity: 1 });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#end",
+        start: "top top",
+        end: "+=3000",
+        pin: true,
+        markers: true,
+        scrub: 1,
+      },
+    });
+
+    tl.from("#section-1", { y: -200, opacity: 0 }, "start")
+      .from("#section-2", { y: 200, opacity: 0 }, "start+=0.5")
+      .from("#section-3", { y: -200, opacity: 0 }, "start+=1")
+      .to("#section-1", { y: 0, opacity: 1 }, "moveIn")
+      .to("#section-2", { y: 0, opacity: 1 }, "moveIn+=0.5")
+      .to("#section-3", { y: 0, opacity: 1 }, "moveIn+=1")
+      .to(
+        [".columns"],
+        { filter: "blur(10px)", scale: 1.1, opacity: 0 },
+        "scaleEffect+=1"
+      )
+      .from(
+        ["#texto-final-1", "#texto-final-2", "#huella-final", "#cta-final"],
+        { opacity: 0 },
+        "end"
+      )
+      .from("#huella-final", { scale: 0.5, filter: "blur(10px)" }, "end")
+      .to("#huella-final", { scale: 1, filter: "blur(0px)" }, "end+=1")
+      .to(
+        ["#texto-final-1", "#texto-final-2", "#cta-final"],
+        { opacity: 1 },
+        "end+=2"
+      );
   });
+
   return (
     <>
-
-      <main className="bg-white">
-
+      <main className="">
         {/*HERO*/}
-        <section className="hero flex justify-center items-center h-[100vh] sinteca">
+        <section className="hero flex justify-center items-center h-[100vh] sinteca bg-white">
           {/*FIRMA*/}
           <img
             className="absolute top-[50%] left-[50%] translate-x-[-40%] translate-y-[-55%]"
             src="./public/imgs/firma.png"
             alt=""
           />
-
           {/*Huella Hero*/}
           <svg
             className="main-svg"
@@ -68,38 +98,55 @@ function Home() {
               clipPath="url(#clip)"
             />
           </svg>
-
           {/* Logo Nexus Hero */}
+
           <svg
-            className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
-            width="348"
+            className="absolute top-[50%] left-[50%] translate-x-[-50%]
+        translate-y-[-50%]"
+            width="316"
             height="164"
-            viewBox="0 0 348 164"
+            viewBox="0 0 316 164"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M33.0457 77.1808V135.246H0.0175781V47.882H65.5407V77.1808H33.0457Z"
-              fill="white"
-            ></path>
-            <path
-              d="M65.5407 77.1808H95.3725V163.48H65.5407V77.1808Z"
-              fill="white"
-            ></path>
-            <path
-              d="M107.665 104.349V163.48H140.16V104.349H172.123V135.246H205.683V163.48H237.646V104.349H205.683V77.1808H237.646V47.882H205.683V77.1808H172.123V47.882H107.665V77.1808H140.16V104.349H107.665Z"
-              fill="white"
-            ></path>
-            <path
-              d="M249.106 135.246V163.48H316.76V135.246H347.657V104.349H281.602V77.1808H347.657V47.882H281.602V77.1808H249.106V104.349H281.602V135.246H249.106Z"
-              fill="white"
-            ></path>
-            <path
               fillRule="evenodd"
               clipRule="evenodd"
-              d="M29.8634 0.255717H118.15V39.493H29.8634V0.255717ZM100.681 31.6843C98.4674 31.6843 96.5901 30.3394 96.5901 28.7984C96.5901 28.0418 97.1225 27.5375 97.7949 27.5375C98.3553 27.5375 98.5515 27.9017 98.8317 28.6863C99.336 30.0032 99.9804 30.6756 101.129 30.6756C102.418 30.6756 103.063 29.723 103.063 28.4061C103.063 27.3414 102.558 26.5288 101.858 25.5482L101.101 24.3714C100.064 22.8303 99.4481 21.8216 99.4481 20.4207C99.4481 17.7869 101.718 15.9657 104.407 15.9657C106.649 15.9657 107.742 17.2545 107.742 18.2072C107.742 18.9637 107.153 19.468 106.537 19.468C105.948 19.468 105.724 19.0197 105.528 18.3473C105.248 17.5627 104.828 16.9463 103.735 16.9463C102.614 16.9463 101.774 17.7028 101.774 19.0758C101.774 20.0564 102.278 21.0371 103.034 22.1298L103.735 23.2786L103.774 23.3396C104.814 24.954 105.388 25.845 105.388 27.1733C105.388 29.723 103.371 31.6843 100.681 31.6843ZM95.2879 11.5106C95.2879 12.5473 96.0164 13.2478 97.0811 13.2478C98.1458 13.2478 98.8743 12.5473 98.8743 11.5106C98.8743 10.4459 98.1458 9.77347 97.0811 9.77347C96.0164 9.77347 95.2879 10.4459 95.2879 11.5106ZM93.4947 20.5328L91.0851 27.3133C91.0024 27.5495 90.9235 27.7658 90.8504 27.9661C90.5766 28.7163 90.3846 29.2424 90.3846 29.751C90.3846 30.7597 90.8889 31.5442 92.3739 31.5442C94.6715 31.5442 96.4927 28.7143 97.5014 26.2206H96.857C95.9323 28.266 94.6715 30.0312 93.6348 30.0312C93.2425 30.0312 93.1305 29.807 93.1305 29.3868C93.1305 29.013 93.4611 28.1052 93.6862 27.4871L93.7188 27.3974L96.1565 20.5888L96.1932 20.488C96.6245 19.3024 96.969 18.3553 96.969 17.6468C96.969 16.8343 96.4927 16.1058 95.484 16.1058C93.4387 16.1058 91.3372 18.3473 90.0484 20.841H90.7208C91.7855 19.0758 93.0184 17.5908 93.8589 17.5908C94.0831 17.5908 94.2232 17.7028 94.2232 18.0671C94.2232 18.4594 93.8309 19.6081 93.4947 20.5328ZM79.2256 31.6843C77.0121 31.6843 75.1348 30.3394 75.1348 28.7984C75.1348 28.0418 75.6672 27.5375 76.3396 27.5375C76.9 27.5375 77.0961 27.9017 77.3763 28.6863C77.8807 30.0032 78.5251 30.6756 79.6739 30.6756C80.9628 30.6756 81.6072 29.723 81.6072 28.4061C81.6072 27.3414 81.1029 26.5288 80.4024 25.5482L79.6459 24.3714C78.6092 22.8303 77.9928 21.8216 77.9928 20.4207C77.9928 17.7869 80.2623 15.9657 82.9521 15.9657C85.1936 15.9657 86.2864 17.2545 86.2864 18.2072C86.2864 18.9637 85.698 19.468 85.0816 19.468C84.4932 19.468 84.269 19.0197 84.0729 18.3473C83.7927 17.5627 83.3724 16.9463 82.2797 16.9463C81.1589 16.9463 80.3183 17.7028 80.3183 19.0758C80.3183 20.0564 80.8227 21.0371 81.5792 22.1298L82.2797 23.2786L82.3189 23.3396C83.3588 24.954 83.9328 25.845 83.9328 27.1733C83.9328 29.723 81.9154 31.6843 79.2256 31.6843ZM73.8326 11.5106C73.8326 12.5473 74.5611 13.2478 75.6258 13.2478C76.6905 13.2478 77.419 12.5473 77.419 11.5106C77.419 10.4459 76.6905 9.77347 75.6258 9.77347C74.5611 9.77347 73.8326 10.4459 73.8326 11.5106ZM72.0394 20.5328L69.6298 27.3133C69.5471 27.5495 69.4682 27.7658 69.3951 27.966C69.1213 28.7162 68.9293 29.2424 68.9293 29.751C68.9293 30.7597 69.4336 31.5442 70.9186 31.5442C73.2162 31.5442 75.0374 28.7143 76.0461 26.2206H75.4017C74.477 28.266 73.2162 30.0312 72.1795 30.0312C71.7872 30.0312 71.6751 29.807 71.6751 29.3868C71.6751 29.013 72.0058 28.1052 72.2309 27.4871L72.2635 27.3974L74.7012 20.5888L74.7379 20.4879C75.1692 19.3024 75.5137 18.3553 75.5137 17.6468C75.5137 16.8343 75.0374 16.1058 74.0287 16.1058C71.9833 16.1058 69.8819 18.3473 68.593 20.841H69.2655C70.3302 19.0758 71.563 17.5908 72.4036 17.5908C72.6278 17.5908 72.7679 17.7028 72.7679 18.0671C72.7679 18.4594 72.3756 19.6081 72.0394 20.5328ZM56.5946 31.292H53.8487L60.237 11.6507C60.7058 10.1925 60.5211 9.60548 58.9182 9.52984L57.839 14.1164H56.9704C57.6709 10.9783 57.3627 10.1377 55.3173 10.1377H53.4681C52.7676 10.1377 52.4033 10.502 52.2072 11.0904L46.8556 28.5182C46.3792 30.1713 46.4353 30.6196 49.0971 30.6196L48.901 31.292H40.2711L40.4673 30.6196C42.5967 30.6196 43.2972 30.1713 43.7735 28.5182L49.1251 11.0904C49.2932 10.53 49.0971 10.1377 48.4246 10.1377H46.8836C44.7261 10.1377 44.0817 10.9503 42.7648 14.1164H41.9242L43.7455 8.87686H58.696C61.3858 8.87686 63.2351 8.62469 63.6834 8.06431L64.0196 8.26044L58.4438 25.0438H58.724C61.582 18.8516 63.8235 16.0497 66.065 16.0497C67.3819 16.0497 68.0824 16.8903 68.0824 18.0951C68.0824 19.7087 66.8095 22.5602 65.598 25.2742C65.2738 26.0006 64.9539 26.7171 64.664 27.3974C64.6393 27.4605 64.6133 27.5266 64.5864 27.5949C64.3388 28.2231 64.0196 29.0329 64.0196 29.3868C64.0196 29.807 64.1317 30.0312 64.5239 30.0312C65.5606 30.0312 66.8215 28.266 67.7461 26.2206H68.3906C67.3819 28.7143 65.5606 31.5442 63.2631 31.5442C61.7781 31.5442 61.2737 30.7597 61.2737 29.751C61.2737 29.2623 61.4832 28.7737 61.7921 28.0528C61.8906 27.8231 61.9992 27.5697 62.1143 27.2853C62.48 26.3609 62.8507 25.4534 63.2019 24.5939C64.2767 21.9629 65.1684 19.7804 65.1684 18.9357C65.1684 18.3193 64.9722 18.0391 64.58 18.0391C63.4872 18.0391 60.6573 20.7849 56.5946 31.292Z"
+              d="M29.8633 0.255737H118.149V39.493H29.8633V0.255737ZM100.681 31.6843C98.4673 31.6843 96.59 30.3394 96.59 28.7984C96.59 28.0419 97.1224 27.5375 97.7948 27.5375C98.3552 27.5375 98.5514 27.9018 98.8315 28.6863C99.3359 30.0032 99.9803 30.6756 101.129 30.6756C102.418 30.6756 103.062 29.723 103.062 28.4061C103.062 27.3414 102.558 26.5288 101.858 25.5482L101.101 24.3714C100.064 22.8303 99.448 21.8216 99.448 20.4207C99.448 17.7869 101.717 15.9657 104.407 15.9657C106.649 15.9657 107.742 17.2546 107.742 18.2072C107.742 18.9637 107.153 19.4681 106.537 19.4681C105.948 19.4681 105.724 19.0198 105.528 18.3473C105.248 17.5628 104.828 16.9463 103.735 16.9463C102.614 16.9463 101.774 17.7029 101.774 19.0758C101.774 20.0565 102.278 21.0371 103.034 22.1299L103.735 23.2786L103.774 23.3396C104.814 24.954 105.388 25.845 105.388 27.1733C105.388 29.723 103.371 31.6843 100.681 31.6843ZM95.2878 11.5107C95.2878 12.5474 96.0163 13.2478 97.081 13.2478C98.1457 13.2478 98.8742 12.5474 98.8742 11.5107C98.8742 10.4459 98.1457 9.77349 97.081 9.77349C96.0163 9.77349 95.2878 10.4459 95.2878 11.5107ZM93.4946 20.5328L91.0849 27.3134C91.0023 27.5495 90.9234 27.7658 90.8503 27.9661C90.5765 28.7163 90.3845 29.2424 90.3845 29.751C90.3845 30.7597 90.8888 31.5442 92.3738 31.5442C94.6714 31.5442 96.4926 28.7143 97.5013 26.2206H96.8569C95.9322 28.266 94.6714 30.0312 93.6347 30.0312C93.2424 30.0312 93.1303 29.8071 93.1303 29.3868C93.1303 29.013 93.461 28.1052 93.6861 27.4871L93.7187 27.3974L96.1564 20.5888L96.1931 20.488C96.6244 19.3024 96.9689 18.3553 96.9689 17.6468C96.9689 16.8343 96.4926 16.1058 95.4839 16.1058C93.4385 16.1058 91.3371 18.3473 90.0482 20.841H90.7207C91.7854 19.0758 93.0183 17.5908 93.8588 17.5908C94.083 17.5908 94.2231 17.7029 94.2231 18.0671C94.2231 18.4594 93.8308 19.6082 93.4946 20.5328ZM79.2255 31.6843C77.012 31.6843 75.1347 30.3394 75.1347 28.7984C75.1347 28.0419 75.6671 27.5375 76.3395 27.5375C76.8999 27.5375 77.096 27.9018 77.3762 28.6863C77.8806 30.0032 78.525 30.6756 79.6738 30.6756C80.9627 30.6756 81.6071 29.723 81.6071 28.4061C81.6071 27.3414 81.1027 26.5288 80.4023 25.5482L79.6458 24.3714C78.6091 22.8303 77.9926 21.8216 77.9926 20.4207C77.9926 17.7869 80.2622 15.9657 82.952 15.9657C85.1935 15.9657 86.2863 17.2546 86.2863 18.2072C86.2863 18.9637 85.6979 19.4681 85.0814 19.4681C84.493 19.4681 84.2689 19.0198 84.0728 18.3473C83.7926 17.5628 83.3723 16.9463 82.2795 16.9463C81.1588 16.9463 80.3182 17.7029 80.3182 19.0758C80.3182 20.0565 80.8226 21.0371 81.5791 22.1299L82.2795 23.2786L82.3188 23.3396C83.3587 24.954 83.9327 25.845 83.9327 27.1733C83.9327 29.723 81.9153 31.6843 79.2255 31.6843ZM73.8325 11.5107C73.8325 12.5474 74.561 13.2478 75.6257 13.2478C76.6904 13.2478 77.4189 12.5474 77.4189 11.5107C77.4189 10.4459 76.6904 9.77349 75.6257 9.77349C74.561 9.77349 73.8325 10.4459 73.8325 11.5107ZM72.0393 20.5328L69.6296 27.3134C69.547 27.5495 69.4681 27.7658 69.395 27.9661C69.1212 28.7163 68.9292 29.2424 68.9292 29.751C68.9292 30.7597 69.4335 31.5442 70.9185 31.5442C73.2161 31.5442 75.0373 28.7143 76.046 26.2206H75.4016C74.4769 28.266 73.2161 30.0312 72.1794 30.0312C71.7871 30.0312 71.675 29.8071 71.675 29.3868C71.675 29.013 72.0057 28.1052 72.2308 27.4871L72.2634 27.3974L74.7011 20.5888L74.7378 20.4879C75.1691 19.3024 75.5136 18.3553 75.5136 17.6468C75.5136 16.8343 75.0373 16.1058 74.0286 16.1058C71.9832 16.1058 69.8818 18.3473 68.5929 20.841H69.2654C70.3301 19.0758 71.5629 17.5908 72.4035 17.5908C72.6277 17.5908 72.7678 17.7029 72.7678 18.0671C72.7678 18.4594 72.3755 19.6082 72.0393 20.5328ZM56.5945 31.2921H53.8486L60.2369 11.6508C60.7056 10.1925 60.5209 9.6055 58.9181 9.52986L57.8389 14.1164H56.9703C57.6708 10.9783 57.3626 10.1377 55.3172 10.1377H53.4679C52.7675 10.1377 52.4032 10.502 52.2071 11.0904L46.8555 28.5182C46.3791 30.1713 46.4352 30.6196 49.097 30.6196L48.9008 31.2921H40.271L40.4671 30.6196C42.5966 30.6196 43.2971 30.1713 43.7734 28.5182L49.125 11.0904C49.2931 10.53 49.097 10.1377 48.4245 10.1377H46.8835C44.726 10.1377 44.0816 10.9503 42.7647 14.1164H41.9241L43.7453 8.87688H58.6959C61.3857 8.87688 63.235 8.62471 63.6833 8.06433L64.0195 8.26046L58.4437 25.0438H58.7239C61.5818 18.8516 63.8234 16.0497 66.0649 16.0497C67.3818 16.0497 68.0822 16.8903 68.0822 18.0951C68.0822 19.7087 66.8094 22.5602 65.5979 25.2743C65.2736 26.0006 64.9538 26.7171 64.6639 27.3974C64.6392 27.4606 64.6132 27.5267 64.5863 27.5949C64.3387 28.2232 64.0195 29.033 64.0195 29.3868C64.0195 29.8071 64.1316 30.0312 64.5238 30.0312C65.5605 30.0312 66.8214 28.266 67.746 26.2206H68.3904C67.3818 28.7143 65.5605 31.5442 63.263 31.5442C61.778 31.5442 61.2736 30.7597 61.2736 29.751C61.2736 29.2623 61.4831 28.7737 61.792 28.0529C61.8905 27.8231 61.9991 27.5698 62.1142 27.2854C62.4798 26.3609 62.8506 25.4534 63.2017 24.5939C64.2766 21.9629 65.1683 19.7804 65.1683 18.9357C65.1683 18.3193 64.9721 18.0391 64.5799 18.0391C63.4871 18.0391 60.6572 20.7849 56.5945 31.2921Z"
               fill="white"
-            ></path>
+            />
+            <path
+              d="M129.083 76.2985H100.023V47.2394H158.142V76.2985H187.201V105.358H216.26V163.476H187.201V134.417H158.142V105.358H129.083V76.2985Z"
+              fill="white"
+            />
+            <path
+              d="M100.023 105.358H129.083V163.476H100.023V105.358Z"
+              fill="white"
+            />
+            <path
+              d="M187.201 47.2394H216.26V76.2985H187.201V47.2394Z"
+              fill="white"
+            />
+            <path
+              d="M228.657 76.2985H257.716V105.358H228.657V76.2985Z"
+              fill="white"
+            />
+            <path
+              d="M257.716 105.358H315.884V134.417H286.825L286.775 163.476H228.657V134.417H257.716V105.358Z"
+              fill="white"
+            />
+            <path
+              d="M257.716 47.2394H315.834V76.2985H257.716V47.2394Z"
+              fill="white"
+            />
+            <path
+              d="M58.1359 47.3313L58.1858 76.2985L29.0767 76.3905V134.417H0.0180874L0.0175781 47.3313H58.1359Z"
+              fill="white"
+            />
+            <path
+              d="M58.1858 76.2985H87.245V163.476L58.1858 163.479V76.2985Z"
+              fill="white"
+            />
           </svg>
 
           {/* Claim Hero */}
@@ -118,273 +165,231 @@ function Home() {
               </div>
             </div>
 
-
-            <Cta name="Descubre tu huella" size="large" />
+            <Cta
+              name="Descubre tu huella"
+              link="/crea-tu-huella"
+              color="white"
+            />
           </article>
         </section>
 
-        <section
-          id="scroller"
-          className="scroll_section flex flex-col w-full h-[700vh] relative"
-        >
-          {/* SECCIÓN 1 */}
-          <div className="section_wrapper sticky top-0 left-0 w-full">
-            <section
-              id="section_1"
-              className="h-[100vh] p-10 flex items-center w-full relative"
-            >
-              {/* Firma */}
-              <figure>
-                <img
-                  src="./public/imgs/firma-negra.png"
-                  className="absolute h-[95vh] right-[20%] bottom-0"
-                  alt=""
-                />
-              </figure>
+        {/* SECCIÓN 1 */}
 
-              {/* Textos de la sección */}
-              <article className="texts flex flex-col w-[800px]">
-                {/* Nexus dibujo */}
-                <figure>
-                  <img
-                    src="./public/imgs/nexus-firma.png"
-                    className="w-[100px] pl-4 mb-4"
-                    alt=""
-                  />
-                </figure>
-
-                {/* Row 1 */}
-                <article className="row-1 flex justify-between">
-                  <p className="black-box body-large">
-                    Nexus es un proyecto de
-                  </p>
-                  <section className="flex-wrapper flex gap-4">
-                    <p className="blue-box body-large">
-                      tipografía experimental
-                    </p>
-                    <p className="black-box body-large"></p> yspq
-                  </section>
-                </article>
-
-                {/* Row 2 */}
-                <article className="row-2 flex justify-between pl-40 pr-10">
-                  <p className="black-box body-large">que estudia las</p>
-                  <p className="blue-box body-large">complejidades</p>
-                </article>
-
-                {/* Row 3 */}
-                <article className="row-3 flex justify-between pl-20">
-                  <div className="black-box body-large">
-                    <p>de las relaciones</p>
-                  </div>
-                </article>
-              </article>
-
-              {/* Highlight sección */}
-              <section className="flex gap-40 items-center justify-end w-full absolute bottom-[10%] right-[5%] z-50">
-                <article className="flex flex-col gap-5">
-                  <span className="pixel difference bg-blend-difference">
-                    personales
-                  </span>
-
-                  {/* Firma 'personales' */}
-                  <img
-                    src="./public/imgs/personales-figma.png"
-                    className="pl-10 w-[250px] object-cover"
-                    alt=""
-                  />
-                </article>
-
-                {/* Huella */}
-                <svg
-                  width="295"
-                  height="254"
-                  viewBox="0 0 295 254"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M42.2404 253.094V210.967H84.367V253.094H42.2404ZM42.2404 210.967V168.84H84.367V210.967H42.2404ZM0.11377 210.967V168.84H42.2404V210.967H0.11377ZM84.367 210.967V168.84H126.494V210.967H84.367ZM126.494 210.967V168.84H168.62V210.967H126.494ZM0.11377 168.84V126.714H42.2404V168.84H0.11377ZM42.2404 168.84V126.714H84.367V168.84H42.2404ZM42.2404 126.714V84.5872H84.367V126.714H42.2404ZM126.494 126.714V84.5872H168.62V126.714H126.494ZM168.62 84.5872V42.4606H210.747V84.5872H168.62ZM168.62 42.4606V0.333984H210.747V42.4606H168.62ZM210.747 42.4606V0.333984H252.873V42.4606H210.747ZM252.873 84.5872V42.4606H295V84.5872H252.873Z"
-                    fill="#194BF9"
-                  ></path>
-                </svg>
-              </section>
-
-              {/* Imagen de la sección */}
+        {/* SECCIÓN 2 */}
+        <section id="carusel-holder" className="flex overflow-hidden h-[100vh]">
+          <article className="carusel-child h-[100vh] w-[100vw] p-10 flex items-center shrink-0 relative bg-white">
+            {/* Firma */}
+            <figure>
               <img
-                src="./public/imgs/section-2.png"
-                alt=""
-                className="absolute right-0 bottom-0 h-[95vh] -z-10"
-              />
-            </section>
-          </div>
-          {/* SECCIÓN 2 */}
-          <div className="section_wrapper sticky top-0 left-0 w-full">
-            <section
-              id="section_2"
-              className="h-[100vh] w-full flex flex-col justify-center px-80 relative"
-            >
-              {/* Textos sección */}
-              <article className="texts flex flex-col w-[800px]">
-                {/* Row 1 */}
-                <article className="row-1 flex">
-                  <p className="black-box body-large">En nuestras vidas</p>
-                  <p className="white-box body-large">nos encontramos</p>
-                </article>
-
-                {/* Row 2 */}
-                <article className="row-2 flex justify-between pl-40 pr-10">
-                  <p className="blue-box body-large">con diversidad de</p>
-                </article>
-              </article>
-
-              {/* Highlight sección */}
-              <article className="z-50 flex flex-col items-end">
-                {/* Dibujo individuo */}
-                <figure>
-                  <img
-                    src="./public/imgs/individuos-firma.png"
-                    className="pr-20 h-[120px]"
-                    alt=""
-                  />
-                </figure>
-
-                {/* Tetxo highlight */}
-                <span className="pixel z-50">individuos</span>
-              </article>
-
-              {/* Imagen sección */}
-              <figure>
-                <img
-                  src="./public/imgs/section-3.png"
-                  alt=""
-                  className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] h-[50vh] -z-10"
-                />
-              </figure>
-            </section>
-          </div>
-          {/* SECCIÓN 3 */}
-          <div className="section_wrapper sticky top-0 left-0 w-full ">
-            <section
-              id="section_3"
-              className="h-[100vh] flex flex-col justify-center w-full relative px-[475px] gap-20"
-            >
-              {/* Textos de la sección */}
-              <article className="texts flex flex-col w-[800px] z-50">
-                {/* Row 1 */}
-                <div className="row-1 flex pl-10">
-                  <div className="white-box body-large">
-                    <p>Pero,</p>
-                  </div>
-                  <div className="black-box body-large">
-                    <p>aunque compartamos</p>
-                  </div>
-                </div>
-
-                {/* Row 2 */}
-                <div className="row-2 flex justify-between pr-10">
-                  <img src="./public/imgs/pero.png" className="pt-2" alt="" />
-                  <div className="blue-box body-large">
-                    <p>espacio</p>
-                  </div>
-                  <div className="black-box body-large">
-                    <p>con ellos</p>
-                  </div>
-                </div>
-              </article>
-
-              {/* Textos 2 de la sección */}
-              <article className="texts flex flex-col items-end w-full z-50 relative">
-                {/* Row 1 */}
-                <div className="row-1 flex w-[500px] items-start">
-                  <div className="black-box body-large">
-                    <p>El acto de</p>
-                  </div>
-                  <div className="white-box body-large">
-                    <p>conectar</p>
-                  </div>
-                </div>
-
-                {/* Row 2 */}
-                <div className="row-2 flex justify-between pl-20 pr-10">
-                  <div className="blue-box body-large">
-                    <p>profundamente</p>
-                  </div>
-                  <div className="black-box body-large">
-                    <p>se reserva</p>
-                  </div>
-                  <div className="black-box body-large">
-                    <p>a</p>
-                  </div>
-                </div>
-
-                {/* Row 3 */}
-                <div className="row-3 flex justify-end pr-20">
-                  <div className="blue-box body-large">
-                    <p>unos pocos</p>
-                  </div>
-                </div>
-
-                {/* CTA */}
-                <div className="absolute -bottom-20"></div>
-              </article>
-
-              {/* Imagen de la sección */}
-              <img
-                src="./public/imgs/section-4.png"
-                alt=""
-                className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] h-[40vh] -z-10 blendhar"
-              />
-
-              {/* Firma */}
-              <img
-                className="absolute top-[50%] h-[90vh] left-[50%] translate-x-[-60%] translate-y-[-50%]"
                 src="./public/imgs/firma-negra.png"
+                className="absolute h-[95vh] right-[5%] bottom-0 z-10"
                 alt=""
               />
-            </section>
-          </div>
-          {/* SECCIÓN 4 */}
-          <div className="section_wrapper sticky top-0 left-0 w-full ">
-            <section id="section_4" className="h-[100vh] w-full relative ">
-              <article className="texts flex flex-col w-[550px] absolute top-[40%] translate-y-[-50%] left-[20%]">
-                <div className="row-1 flex justify-between">
-                  <div className="black-box body-large">
-                    <p>Cada relación</p>
-                  </div>
-                  <div className="black-box body-large">
-                    <p>es</p>
-                  </div>
-                  <div className="wrapper flex">
-                    <div className="blue-box body-large">
-                      <p>única</p>
-                    </div>
-                    <div className="white-box body-large">
-                      <p>y</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="row-2 flex justify-between pl-60 pr-10">
-                  <div className="blue-box body-large">
-                    <p>personal</p>
-                  </div>
-                </div>
-                <div className="row-3 flex justify-end pr-10">
-                  <div className="white-box body-large">
-                    <p>como una</p>
-                  </div>
+            </figure>
+
+            {/* Textos de la sección */}
+            <article className="texts flex flex-col w-[800px] z-10">
+              {/* Row 1 */}
+              <article className="row-1 flex gap-10">
+                <p className="black-box body-large">Nexus es un proyecto de</p>
+                <section className="flex-wrapper flex gap-4">
+                  <p className="blue-box body-large">tipografía experimental</p>
+                </section>
+              </article>
+
+              {/* Row 2 */}
+              <article className="row-2 flex gap-5 pl-10 pr-10">
+                <p className="black-box body-large">que estudia las</p>
+                <p className="blue-box body-large">complejidades</p>
+              </article>
+
+              {/* Row 3 */}
+              <article className="row-3 flex justify-end pr-40">
+                <div className="black-box body-large">
+                  <p>de las relaciones</p>
                 </div>
               </article>
-              <span className="pixel absolute bottom-[20%] right-[25%] z-50">
-                huella
-              </span>
-              <img
-                src="./public/imgs/section-5.png"
-                alt=""
-                className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] h-[65vh] -z-10 blendhar"
+              <article className="flex flex-col gap-5 items-end">
+                <span className="pixel pl-[200px]">personales</span>
+                <Cta color="white" name="Descubre Nexus" link="/nexus" />
+              </article>
+            </article>
+
+            {/* Highlight sección */}
+            <section className="flex gap-40 items-center justify-end w-full absolute bottom-[10%] right-[5%] z-50"></section>
+
+            {/* Imagen de la sección */}
+            <img
+              src="./public/imgs/home-2.png"
+              alt=""
+              className="h-[95vh] absolute right-0 bottom-0"
+            />
+          </article>
+          <article className="carusel-child shrink-0 h-[100vh] w-[100vw] flex justify-center items-center relative bg-[--nexusBlue]">
+            <p className="h3 text-center text-white max-w-[675px] z-10">
+              En nuestras vidas nos encontramos con diversidad de individuos
+            </p>
+            <img
+              src="/public/imgs/home-3.png"
+              className="absolute left-10 bottom-0 h-[90vh]"
+            />
+          </article>
+
+          {/* SECCIÓN 3 */}
+
+          <article className="carusel-child shrink-0 h-[100vh] flex flex-col justify-center w-[100vw] relative px-[475px] gap-20 bg-white">
+            {/* Textos de la sección */}
+            <article className="texts flex flex-col w-[800px] z-50 mt-40">
+              {/* Row 1 */}
+              <div className="row-1 flex pl-10">
+                <div className="white-box body-large">
+                  <p>Pero,</p>
+                </div>
+                <div className="black-box body-large">
+                  <p>aunque compartamos</p>
+                </div>
+              </div>
+
+              {/* Row 2 */}
+              <div className="row-2 flex justify-end pr-40">
+                <div className="blue-box body-large">
+                  <p>espacio</p>
+                </div>
+                <div className="black-box body-large">
+                  <p>con ellos</p>
+                </div>
+              </div>
+            </article>
+
+            {/* Textos 2 de la sección */}
+            <article className="texts flex flex-col items-end w-full z-50 relative">
+              {/* Row 1 */}
+              <div className="row-1 flex w-[500px] items-start">
+                <div className="black-box body-large">
+                  <p>El acto de</p>
+                </div>
+                <div className="white-box body-large">
+                  <p>conectar</p>
+                </div>
+              </div>
+
+              {/* Row 2 */}
+              <div className="row-2 flex justify-between pl-20 pr-10">
+                <div className="blue-box body-large">
+                  <p>profundamente</p>
+                </div>
+                <div className="black-box body-large">
+                  <p>se reserva</p>
+                </div>
+                <div className="black-box body-large">
+                  <p>a</p>
+                </div>
+              </div>
+
+              {/* Row 3 */}
+              <div className="row-3 flex justify-end pr-20 mb-10">
+                <div className="blue-box body-large">
+                  <p>unos pocos</p>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <Cta
+                name="Conoce más"
+                link="/explore/conexion-humana"
+                color="white"
               />
+            </article>
+
+            {/* Imagen de la sección */}
+            <img
+              src="./public/imgs/section-4.png"
+              alt=""
+              className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] h-[40vh] opacity-60"
+            />
+          </article>
+        </section>
+<section className="h-[100vh] flex items-center justify-center">
+  <video src="./public/vids/nexus_video.mp4" className="w-full cover" autoPlay loop muted></video>
+</section>
+        {/* SECCIÓN 4 */}
+        <section id="end" className="w-full flex">
+          <section className="columns w-full flex">
+            <section
+              id="section-1"
+              className="h-[100vh] w-[100vw] flex items-center"
+            >
+              <article className="w-full h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/cada-relacion.png')] bg-cover bg-center bg-no-repeat">
+                <div className="flex ">
+                  <span className="black-box body-large">Cada </span>{" "}
+                  <strong className="white-box body-large">relación</strong>
+                </div>
+              </article>
             </section>
-          </div>
+            <section
+              id="section-2"
+              className="h-[100vh] w-[100vw] flex items-center"
+            >
+              <article className="w-full h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/es-unica.png')] bg-cover bg-center bg-no-repeat">
+                <div className="flex gap-4 ">
+                  <span className="white-box body-large">es </span>{" "}
+                  <strong className="blue-box body-large">única</strong>
+                </div>
+              </article>
+            </section>
+            <section
+              id="section-3"
+              className="h-[100vh] w-[100vw] flex items-center"
+            >
+              <article className="w-full h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/y-personal.png')] bg-cover bg-center bg-no-repeat">
+                <div className="flex gap-4 flex-col items-center">
+                  <span className="black-box body-large text-center">y </span>{" "}
+                  <strong className="white-box body-large">personal</strong>
+                </div>
+              </article>
+            </section>
+          </section>
+          <section className="h-[100vh] w-full absolute top-0 left-0">
+            <article className="flex items-center h-full w-full justify-between px-40 relative">
+              <div>
+                <span id="texto-final-1" className="black-box">
+                  como una
+                </span>
+              </div>
+
+              <svg
+                id="huella-final"
+                width="600"
+                height="600"
+                viewBox="0 0 432 431"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M1.28903 374.322L1.28902 320.866L54.7433 320.866L54.7433 268.599L1.28902 268.599L1.289 55.9655L108.792 55.9655L108.792 0.7283L376.663 0.728276L376.663 159.906L430.711 159.906L430.711 268.599L376.663 268.599L376.663 320.866L320.83 320.866L320.83 268.599L216.89 268.599L216.89 320.866L161.652 320.866L161.652 268.599L108.792 268.599L108.792 430.153L54.7433 430.153L54.7433 374.322L1.28903 374.322ZM108.792 163.47L108.792 213.362L161.652 213.362L161.652 163.47L108.792 163.47Z"
+                  stroke="black"
+                />
+              </svg>
+              <div>
+                {" "}
+                <strong
+                  id="texto-final-2"
+                  className="thatthat font-normal text-[64px] tracking-[-5px]"
+                >
+                  huella
+                </strong>
+              </div>
+            </article>
+            <div id="cta-final" className="absolute right-40 bottom-[30%]">
+              <Cta
+                name="Descubre la tuya"
+                link="/crea-tu-huella"
+                color="white"
+              />
+            </div>
+          </section>
         </section>
       </main>
     </>

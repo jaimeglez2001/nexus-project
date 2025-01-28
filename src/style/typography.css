@@ -28,15 +28,13 @@
 }
 @font-face {
   font-family: "Nexus";
-  src: url("/fonts/Nexus.ttf")
-    format("truetype");
+  src: url("/fonts/Nexus.ttf") format("truetype");
   font-weight: 1000;
   font-style: normal;
 }
 @font-face {
   font-family: "Nexus Light";
-  src: url("/fonts/Nexus.ttf")
-    format("truetype");
+  src: url("/fonts/Nexus.ttf") format("truetype");
   font-weight: 0;
   font-style: normal;
 }
@@ -57,12 +55,12 @@
   font-family: "Sinteca SemiBold";
 }
 
-*{
+* {
   text-wrap: pretty;
   --nexusBlue: #194bf9;
 }
 
-.small{
+.small {
   font-family: "Sinteca";
   font-size: 14px;
 }
@@ -78,27 +76,33 @@
   font-size: 16px;
 }
 
-.body-large{
-    font-family: "Sinteca Medium";
-    font-size: 20px;
-    letter-spacing: -.2px;
+.body-large {
+  font-family: "Sinteca Medium";
+  font-size: 20px;
+  letter-spacing: -0.2px;
 }
-.h5{
+.h5 {
   font-family: "Sinteca Medium";
   font-size: 24px;
-  letter-spacing: -.3px;
+  letter-spacing: -0.3px;
   line-height: 110%;
 }
-.h3{
+.h3 {
   font-family: "Sinteca Medium";
   font-size: 40px;
-  letter-spacing: -.4px;
+  letter-spacing: -0.4px;
   line-height: 100%;
 }
-.h2{
+.h2 {
   font-family: "Sinteca SemiBold";
   font-size: clamp(48px, 4vw, 64px);
-  letter-spacing: clamp(-2px, -5px, -.5px);
+  letter-spacing: clamp(-2px, -5px, -0.5px);
+  line-height: 100%;
+}
+.h1 {
+  font-family: "Sinteca SemiBold";
+  font-size: clamp(100px, 8vw, 150px);
+  letter-spacing: clamp(-6px, -10px, -0.5px);
   line-height: 100%;
 }
 .pixel-sm {
@@ -113,18 +117,19 @@
   letter-spacing: clamp(-13px, -17px, -24px);
   line-height: 90%;
 }
-.pixel-strong{
+.pixel-strong {
   margin-top: clamp(-45px, 100vw, -60px);
 }
-.pixel-menu{
+.pixel-menu {
   font-family: "New Pixel";
   font-size: 84px;
   line-height: 80%;
 }
-.nexus-font{
+.nexus-font {
   font-family: "Nexus";
+  line-height: 48px;
 }
-.huella-xxl{
+.huella-xxl {
   font-family: "Nexus";
   font-size: clamp(120px, 15vw, 1000px);
   color: var(--nexusBlue);
@@ -136,10 +141,10 @@
     letter-spacing: -5px;
     line-height: 90%;
   }
-  .h2{
+  .h2 {
     font-family: "Sinteca SemiBold";
     font-size: 8vw;
-    letter-spacing: -.5px;
+    letter-spacing: -0.5px;
     line-height: 100%;
   }
 }
@@ -157,7 +162,6 @@
   align-self: flex-start;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  border: 1px solid white
 }
 
 .white-box {
@@ -172,14 +176,40 @@
   flex-shrink: 0;
   align-items: flex-start;
   align-self: flex-start;
-  border: 1px solid black
 }
 
-a.white-box:hover{
-  background-color: black;
+.border-white-box {
+  display: inline-block;
+  width: fit-content;
+  padding: 0px 20px 0px 20px;
   color: white;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Sinteca";
+  flex-grow: 0;
+  flex-basis: auto;
+  flex-shrink: 0;
+  align-items: flex-start;
+  align-self: flex-start;
+  border: 1px solid white;
+}
+
+.border-black-box {
+  display: inline-block;
+  width: fit-content;
+  padding: 0px 20px 0px 20px;
+  color: black;
+  font-family: "Sinteca";
+  flex-grow: 0;
+  flex-basis: auto;
+  flex-shrink: 0;
+  align-items: flex-start;
+  align-self: flex-start;
+  outline: 1px solid black;
+  outline-offset: -1px;
+  &:hover {
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    background-color: rgb(196, 209, 226);
+  }
 }
 
 .blue-box {
@@ -192,56 +222,37 @@ a.white-box:hover{
   align-self: flex-start;
 }
 
-*{
-  scroll-behavior: smooth ;
+* {
+  scroll-behavior: smooth;
 }
-.cta{
-  &:hover{
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    .black-box{
-      background-color: var(--nexusBlue);
-      color: white;
-    }
-  }
-}
-.cta-white{
-  &:hover{
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    .white-box{
-      background-color: var(--nexusBlue);
-      color: white;
-    }
-  }
-}
-.nav-explore{
+
+.nav-explore {
   width: 64px;
   border: 1px solid var(--nexusBlue);
-  transition: all .6s cubic-bezier(.24,1.03,.87,1.01) 0s;
+  transition: all 0.6s cubic-bezier(0.24, 1.03, 0.87, 1.01) 0s;
 }
-.nav-explore-white{
+.nav-explore-white {
   width: 64px;
   border: 1px solid white;
-  transition: all .6s cubic-bezier(.24,1.03,.87,1.01) 0s;
+  transition: all 0.6s cubic-bezier(0.24, 1.03, 0.87, 1.01) 0s;
 }
-.nav-explore-active{
+.nav-explore-active {
   width: 300px;
   background-color: var(--nexusBlue);
-  transition: all .6s cubic-bezier(.24,1.03,.87,1.01) 0s;
+  transition: all 0.6s cubic-bezier(0.24, 1.03, 0.87, 1.01) 0s;
 }
-.nav-explore-white-active{
+.nav-explore-white-active {
   width: 300px;
   background-color: white;
-  transition: all .6s cubic-bezier(.24,1.03,.87,1.01) 0s;
+  transition: all 0.6s cubic-bezier(0.24, 1.03, 0.87, 1.01) 0s;
 }
-#explore-holder{
+#explore-holder {
   scroll-snap-type: x mandatory;
 }
-.explore-card{
+.explore-card {
   scroll-snap-align: start;
 }
-.menu-item{
+.menu-item {
   height: 75px;
   display: flex;
   flex-direction: column;
@@ -249,38 +260,165 @@ a.white-box:hover{
   flex-grow: 0;
   flex-basis: auto;
   flex-shrink: 0;
-  span{
+  span {
     display: inline-block;
     transition: all 0.3s ease-in-out;
   }
-  &:hover{
+  &:hover {
     cursor: pointer;
-    span{
+    span {
       transition: all 0.3s ease-in-out;
       transform: translateY(-90px);
     }
   }
 }
-.menu-open{
+.menu-open {
   visibility: visible;
-  footer{
-    transform: translateX(0);  
-    transition: transform 1s cubic-bezier(.24,1.03,.85,.99) .3s;
-  };
-  nav{
-    transform: translateX(0);  
-    transition: transform 1s cubic-bezier(.24,1.03,.85,.99) 0s;
+  footer {
+    transform: translateX(0);
+    transition: transform 1s cubic-bezier(0.24, 1.03, 0.85, 0.99) 0.3s;
+  }
+  nav {
+    transform: translateX(0);
+    transition: transform 1s cubic-bezier(0.24, 1.03, 0.85, 0.99) 0s;
   }
 }
-.menu-close{
+.menu-close {
   visibility: hidden;
   transition: visibility 0s linear 1.45s;
-  footer{
-    transform: translateX(-100vw);  
-    transition: transform .65s cubic-bezier(.24,1.03,.85,.99) 0s;
-  };
-  nav{
-    transform: translateX(-90vw);  
-    transition: transform 1.35s cubic-bezier(.24,1.03,.85,.99) 0.125s;
+  footer {
+    transform: translateX(-100vw);
+    transition: transform 0.65s cubic-bezier(0.24, 1.03, 0.85, 0.99) 0s;
+  }
+  nav {
+    transform: translateX(-90vw);
+    transition: transform 1.35s cubic-bezier(0.24, 1.03, 0.85, 0.99) 0.125s;
+  }
+}
+
+.fixed-body {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.menuNav {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 36px 36px;
+}
+
+.tab {
+  display: inline-block;
+  width: fit-content;
+  padding: 0px 20px 0px 20px;
+  color: white;
+  font-family: "Sinteca";
+  flex-grow: 0;
+  flex-basis: auto;
+  flex-shrink: 0;
+  align-items: flex-start;
+  align-self: flex-start;
+  outline: 1px solid white;
+  outline-offset: -1px;
+  border-radius: 4px;
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    background-color: #315bf5;
+    color: white;
+    border-radius: 0px;
+  }
+}
+.tab-black {
+  display: inline-block;
+  width: fit-content;
+  padding: 0px 20px 0px 20px;
+  color: black;
+  font-family: "Sinteca";
+  border-radius: 2px;
+  flex-grow: 0;
+  flex-basis: auto;
+  flex-shrink: 0;
+  align-items: flex-start;
+  align-self: flex-start;
+  outline: 1px solid black;
+  outline-offset: -1px;
+  border-radius: 4px;
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    background-color: #315bf5;
+    color: white;
+    border-radius: 0px;
+  }
+}
+
+.logo_nav {
+  &:hover {
+    cursor: pointer;
+    mix-blend-mode: difference;
+    path {
+      fill: #e6b406;
+    }
+  }
+}
+
+.burguer-menu-nav {
+  &:hover {
+    cursor: pointer;
+    mix-blend-mode: difference;
+    path {
+      fill: #e6b406;
+    }
+  }
+}
+
+.cta {
+  transition: all 0.3s ease-in-out;
+  .white-box{
+    transition: all 0.3s ease-in-out;
+  }
+  figure {
+    transition: all 0.3s ease-in-out;
+    svg {
+      path {
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+  &:hover {
+    background-color: var(--nexusBlue);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-radius: 0px;
+    .white-box {
+      background-color: var(--nexusBlue);
+      outline: 1px solid white;
+      outline-offset: -1px;
+      color: white;
+      border-radius: 0px;
+      transition: all 0.3s ease-in-out;
+    }
+    figure {
+      background-color: white;
+      border-radius: 0px;
+      outline: 1px solid white;
+      outline-offset: -1px;
+      transition: all 0.3s ease-in-out;
+      svg {
+        path {
+          fill: var(--nexusBlue);
+          transition: all 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+.button{
+  &:hover{
+    cursor: pointer;
   }
 }

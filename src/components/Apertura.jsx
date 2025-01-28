@@ -10,7 +10,7 @@ export default function Apertura({ children }) {
           <img
             src="../public/imgs/firma-xl.png"
             alt=""
-            className="absolute z-[99] right-[50%] translate-x-[30%] top-[60%] translate-y-[-40%]  difference"
+            className="absolute z-[50] right-[50%] translate-x-[30%] top-[60%] translate-y-[-40%]  difference"
           />
         </figure>
         {children}

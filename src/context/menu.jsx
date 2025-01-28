@@ -9,8 +9,12 @@ export function MenuProvider({ children }) {
     setIsOpen((prevState) => !prevState); // Alterna el estado
   }
 
+  function closeMenu(){
+    setIsOpen(false);
+  }
+
   return (
-    <MenuContext.Provider value={{ isOpen, handleClick }}>
+    <MenuContext.Provider value={{ isOpen, handleClick, closeMenu }}>
       {children}
     </MenuContext.Provider>
   );

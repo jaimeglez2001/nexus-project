@@ -47,20 +47,41 @@ const pages = [
         pathname: "/explore/conexion-humana",
         huella: (
           <svg
-            width="335"
-            height="336"
+            width="800"
             viewBox="0 0 335 336"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M334.327 291.598V250.043H292.772V209.411H334.327V44.114H250.756V1.17365H42.5181V124.916H0.501953V209.411H42.5181V250.043H85.921V209.411H166.723V250.043H209.663V209.411H250.756V335H292.772V291.598H334.327ZM250.756 127.686V166.471H209.663V127.686H250.756Z"
-              stroke="black"
+            <clipPath id="clip01">
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M334.327 291.598V250.043H292.772V209.411H334.327V44.114H250.756V1.17365H42.5181V124.916H0.501953V209.411H42.5181V250.043H85.921V209.411H166.723V250.043H209.663V209.411H250.756V335H292.772V291.598H334.327ZM250.756 127.686V166.471H209.663V127.686H250.756Z"
+                stroke="black"
+              />
+            </clipPath>
+            <image
+              href={`../public/imgs/explora-conexion-humana.png`}
+              width="100%"
+              height="100%"
+              clipPath="url(#clip01)"
             />
           </svg>
         ),
+        carrusel: [
+          {
+            text: "“Cada individuo posee una voz interior que rápidamente evalúa la relevancia o significado de algo o alguien”",
+            image: "conexion-1.png",
+          },
+          {
+            text: "En nuestras vidas cotidianas nos encontramos con una diversidad de individuos",
+            image: "conexion-2.png",
+          },
+          {
+            text: `Aunque compartimos estos espacios con numerosas personas, el acto de "conectar" profundamente se reserva a unas pocas`,
+            image: "conexion-3.png",
+          },
+        ],
       },
       {
         name: "Relaciones interpersonales",
@@ -72,23 +93,30 @@ const pages = [
         pathname: "/explore/relaciones-interpersonales",
         huella: (
           <svg
-            width="334"
-            height="336"
+            width="800"
             viewBox="0 0 334 336"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M333.467 1.05737V68.2609H301.326V100.767H333.467V133.273H301.326V166.875H266.994V133.273H233.757V100.767H200.156V33.5634H266.994V1.05737H333.467ZM233.759 100.721V68.2147H266.995V100.721H233.759Z"
-              stroke="black"
-            />
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M167.284 133.273V100.767H100.811V133.273H34.3381V100.767H0.736328V300.917H34.3381V334.884H100.811V300.917H134.413V268.045H167.284V200.477H134.413V166.875H200.156V133.273H167.284ZM101.174 200.475V232.981H134.41V200.475H101.174Z"
-              stroke="black"
+            <clipPath id="clip02">
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M333.467 1.05737V68.2609H301.326V100.767H333.467V133.273H301.326V166.875H266.994V133.273H233.757V100.767H200.156V33.5634H266.994V1.05737H333.467ZM233.759 100.721V68.2147H266.995V100.721H233.759Z"
+                stroke="black"
+              />
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M167.284 133.273V100.767H100.811V133.273H34.3381V100.767H0.736328V300.917H34.3381V334.884H100.811V300.917H134.413V268.045H167.284V200.477H134.413V166.875H200.156V133.273H167.284ZM101.174 200.475V232.981H134.41V200.475H101.174Z"
+                stroke="black"
+              />
+            </clipPath>
+            <image
+              href={`../public/imgs/relaciones-interpersonales-link.png`}
+              width="100%"
+              height="100%"
+              clipPath="url(#clip02)"
             />
           </svg>
         ),
@@ -103,18 +131,35 @@ const pages = [
         pathname: "/explore/relaciones-espaciales",
         huella: (
           <svg
-            width="344"
-            height="346"
+            width="800"
             viewBox="0 0 344 346"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              d="M102.596 310.171V241.02H136.94V206.676H102.596V173.261H0.958008V37.2797H35.7658V71.159H69.1813V0.615784H172.212V37.2797H207.019V71.159H240.899V37.2797H309.586V71.159H343.465V138.918H309.586V173.261H274.777V138.918H207.019M102.596 310.171H69.1813V241.02H0.958008V310.171H35.7658V345.442H102.596V310.171ZM102.596 310.171H136.94V276.755H172.212V310.171H207.019V276.755H240.899V241.02H274.777V206.676H207.019V138.918M207.019 138.918L172.212 138.918V105.503H207.02L207.019 138.918ZM136.94 71.1591V37.2798H102.596V71.1591H136.94Z"
-              stroke="black"
+            <clipPath id="clip03">
+              <path
+                d="M102.596 310.171V241.02H136.94V206.676H102.596V173.261H0.958008V37.2797H35.7658V71.159H69.1813V0.615784H172.212V37.2797H207.019V71.159H240.899V37.2797H309.586V71.159H343.465V138.918H309.586V173.261H274.777V138.918H207.019M102.596 310.171H69.1813V241.02H0.958008V310.171H35.7658V345.442H102.596V310.171ZM102.596 310.171H136.94V276.755H172.212V310.171H207.019V276.755H240.899V241.02H274.777V206.676H207.019V138.918M207.019 138.918L172.212 138.918V105.503H207.02L207.019 138.918ZM136.94 71.1591V37.2798H102.596V71.1591H136.94Z"
+                stroke="black"
+              />
+            </clipPath>
+            <image
+              href={`../public/imgs/relaciones-espaciales-1.png`}
+              width="100%"
+              height="100%"
+              clipPath="url(#clip03)"
             />
           </svg>
         ),
+        carrusel: [
+          {
+            text: "La proxémica, una rama de la semiótica dedicada al estudio de la organización del espacio en la comunicación",
+            image: "espaciales-2.jpg",
+          },
+          {
+            text: "Analiza las relaciones espaciales entre individuos y objetos durante la interacción, considerando posturas adoptadas y la presencia o ausencia de contacto físico ",
+            image: "espaciales-1.jpg",
+          },
+        ],
       },
     ],
   },

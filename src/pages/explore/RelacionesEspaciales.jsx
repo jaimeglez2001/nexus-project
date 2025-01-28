@@ -6,6 +6,7 @@ import SingleNav from "../../components/nav/SingleNav.jsx";
 import React, { useState, useEffect } from "react";
 import Carrusel from "../../components/Carrusel.jsx";
 import HALL from "../../data/HALL.jsx";
+import PAGES from "../../data/PAGES.jsx";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -19,7 +20,7 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
   const handleClick = (index) => {
     setActiveHall(index);
   }
-
+  const ESPACIALES = PAGES[1].subPages[2].carrusel
   return (
     <>
       <main className="bg-white">
@@ -35,7 +36,7 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
           </h1>
         </Apertura>
 
-        <section className="flex justify-between px-10 h-[90vh] py-20">
+        <section className="flex justify-between px-10 py-20">
           <aside>
             <h2 className="small flex items-center gap-2">
               <svg
@@ -56,6 +57,7 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
               compuesto por hechos coexistentes donde el cambio en una parte
               afecta al conjunto
             </h3>
+            <div className="flex flex-col gap-[16px]">
             <p className="body">
               Este &quot;espacio&quot; es percibido de manera única por cada
               individuo. El individuo y su entorno no son entidades separadas,
@@ -67,10 +69,14 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
               los hechos y acontecimientos actuales y de cómo los percibe el
               sujeto
             </p>
+            </div>
+
           </article>
         </section>
 
-        <Carrusel />
+        <Carrusel 
+          array={ESPACIALES}
+        />
 
         <section className="h-[100vh] flex justify-between p-10 pt-40 w-full">
           <article className="flex flex-col gap-20">
@@ -79,10 +85,10 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
               subcategorías:
             </h2>
             <section className="flex flex-col gap-10">
-              <ul className="flex gap-2">
+              <ul className="flex gap-2 bg-gray-200 p-1">
                 {hall.map((hall, index) =>  {
                   return (
-                    <li key={index}><button onClick={() => {handleClick(index)}} className={activeHall === index ? 'black-box' : 'white-box'}>{hall.name}</button></li>
+                    <li key={index}><button onClick={() => {handleClick(index)}} className={activeHall === index ? 'blue-box' : 'tab'}>{hall.name}</button></li>
                   )
                 })}
                 
@@ -185,7 +191,7 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
                 Nexus
               </strong>
             </h2>
-            <Cta color="white" name="Descubrir Nexus" link="/explore/nexus" />
+            <Cta color="white" name="Descubrir Nexus" link="/nexus" />
           </article>
           </section>
         </footer>

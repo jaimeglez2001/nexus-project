@@ -4,11 +4,12 @@ import CarruselArticle from "./CarruselArticle.jsx";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollToTop from "./ScrollToTop.jsx";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Carrusel() {
+export default function Carrusel({ array }) {
   const [activeSection, setActiveSection] = useState(1); // Controlador del índice activo
 
   useGSAP(() => {
@@ -19,55 +20,36 @@ export default function Carrusel() {
       scrollTrigger: {
         trigger: "#carusel-holder",
         pin: true,
-        scrub: true,
+        scrub: 1,
         start: "20 top", // Empieza cuando la parte superior del trigger (carusel-holder) llegue a la parte superior de la ventana
         end: "+=3000", // Define el final del pin, en este caso 3000px después del comienzo
-        onUpdate: (self) => {
-          // Calculando la sección activa en función del progreso del scroll
-          const index = Math.round(self.progress * (contents.length - 1));
-          setActiveSection(index + 1); // Actualiza el estado con el índice
-        },
+
       },
     });
   });
 
   return (
     <section className="p-5 pt-14 relative bg-white">
+      <ScrollToTop />
       <section
         id="carusel-holder"
         className={`flex h-[100vh] gap-10 pt-[140px] overflow-hidden`}
       >
-        <CarruselArticle
-          text='"Cada individuo posee una voz interior que rápidamente evalúa la
-        relevancia o significado de algo o alguien"'
-          image="conexion-1.png"
-        />
-        <CarruselArticle
-          text="En nuestras vidas cotidianas nos encontramos con una diversidad de individuos"
-          image="conexion-2.png"
-        />
-        <CarruselArticle
-          text='Aunque compartimos estos espacios con numerosas personas, el acto de "conectar" profundamente se reserva a unas pocas'
-          image="conexion-3.png"
-        />
-        <aside className="absolute bottom-10 left-[50%] translate-x-[-50%]">
-          <nav className="flex gap-2">
-            <ul className="flex gap-2">
-              {["section_1", "section_2", "section_3"].map((id, index) => (
-                <li className="flex grow" key={id}>
-                  <a
-                    className={`h-[8px] ${
-                      activeSection === index + 1
-                        ? "nav-explore-white-active"
-                        : "nav-explore-white"
-                    }`}
-                    href={`#${id}`}
-                  ></a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </aside>
+        {array.map((item, index) => {
+          return (
+            <article
+              key={index}
+              id="section_1"
+              className="carusel-child shrink-0 w-full text-carusel h-[85vh] flex flex-col items-center justify-center"
+              style={{ backgroundImage: `url("../public/imgs/${item.image}")` }}
+            >
+              <span className="sinteca-sb text-[48px] leading-[95%] tracking-tight max-w-[900px] text-pretty text-white">
+                {item.text}
+              </span>
+            </article>
+          );
+        })}
+
       </section>
     </section>
   );
