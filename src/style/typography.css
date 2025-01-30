@@ -1,3 +1,7 @@
+/* {
+  outline: 1px solid red;
+}*/
+
 @font-face {
   font-family: "Sinteca";
   src: url("/fonts/Sinteca-Regular.otf") format("woff2");

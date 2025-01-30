@@ -22,6 +22,7 @@ function Home() {
         anticipatePin: 1,
         start: "top top", // Empieza cuando la parte superior del trigger (carusel-holder) llegue a la parte superior de la ventana
         end: "+=3000", // Define el final del pin, en este caso 3000px después del comienzo
+        markers: false,
       },
     });
 
@@ -59,20 +60,22 @@ function Home() {
         { opacity: 1 },
         "end+=2"
       );
-
   });
 
   return (
     <>
-      <main className="">
+      <main className="w-[100vw] bg-white">
         {/*HERO*/}
-        <section className="hero w-full flex justify-center items-center h-[100vh] sinteca bg-white">
+        <section className="hero w-full flex justify-center items-center h-[100vh] sinteca bg-white px-4">
           {/*FIRMA*/}
-          <img
-            className="absolute top-[50%] left-[50%] translate-x-[-40%] translate-y-[-55%]"
-            src="/imgs/firmas/firma-blanca.png"
-            alt=""
-          />
+          <figure className="absolute top-[50%] left-[50%] translate-x-[-40%] translate-y-[-55%] w-[100sw]">
+            <img
+              className=""
+              src="/imgs/firmas/firma-blanca.png"
+              alt=""
+            />
+          </figure>
+
           {/*Huella Hero*/}
           <svg
             viewBox="0 0 936 810"
@@ -103,7 +106,6 @@ function Home() {
           <svg
             className="absolute top-[50%] left-[50%] md:translate-x-[-50%] translate-x-[-35%]
         translate-y-[-50%] md:w-[316px]"
-
             viewBox="0 0 316 164"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -149,7 +151,7 @@ function Home() {
           </svg>
 
           {/* Claim Hero */}
-          <article className="hero-claim flex flex-col items-end w-[400px] absolute bottom-[25%] left-[50%] z-10 translate-x-[-50%] gap-5">
+          <article className="hero-claim flex flex-col items-end w-full md:w-[400px] absolute bottom-[25%] left-[50%] z-10 translate-x-[-50%] gap-5 px-4">
             <div className="claim flex flex-col w-full">
               {/* Row 1 */}
               <p className="black-box body-large font-sinteca text-[22px]">
@@ -172,32 +174,30 @@ function Home() {
           </article>
         </section>
 
-        {/* SECCIÓN 1 */}
-
         {/* SECCIÓN 2 */}
-        <section id="carusel-holder" className="flex overflow-hidden h-[100vh]">
-          <article className="carusel-child h-[100vh] w-[100vw] p-10 flex items-center shrink-0 relative bg-white">
+        <section id="carusel-holder" className="flex overflow-hidden h-screen">
+          <article className="carusel-child h-full w-[100vw] p-4 md:p-10 flex items-start md:items-end pt-40 md:pt-0 shrink-0 relative bg-white">
             {/* Firma */}
-            <figure>
+            <figure className="absolute w-[100sw] md:h-[90vh] bottom-20 md:right-[5%] md:bottom-0 z-10">
               <img
                 src="/imgs/firmas/firma-negra.png"
-                className="absolute h-[95vh] right-[5%] bottom-0 z-10"
+                className=" h-full w-full"
                 alt=""
               />
             </figure>
 
             {/* Textos de la sección */}
-            <article className="texts flex flex-col w-[800px] z-10">
+            <article className="texts max-w-screen flex flex-col z-10 gap-5 md:gap-0">
               {/* Row 1 */}
-              <article className="row-1 flex gap-10">
+              <article className="row-1 flex flex-col md:flex-row md:gap-10">
                 <p className="black-box body-large">Nexus es un proyecto de</p>
-                <section className="flex-wrapper flex gap-4">
+                <section className="flex-wrapper flex gap-4 pl-20 md:pl-0">
                   <p className="blue-box body-large">tipografía experimental</p>
                 </section>
               </article>
 
               {/* Row 2 */}
-              <article className="row-2 flex gap-5 pl-10 pr-10">
+              <article className="row-2 flex md:gap-5 pl-10 pr-10">
                 <p className="black-box body-large">que estudia las</p>
                 <p className="blue-box body-large">complejidades</p>
               </article>
@@ -209,7 +209,7 @@ function Home() {
                 </div>
               </article>
               <article className="flex flex-col gap-5 items-end">
-                <span className="pixel pl-[200px]">personales</span>
+                <span className="pixel md:pl-[200px]">personales</span>
                 <Cta color="white" name="Descubre Nexus" link="/nexus" />
               </article>
             </article>
@@ -221,22 +221,25 @@ function Home() {
             <img
               src="/imgs/home/home-section-1.png"
               alt=""
-              className="h-[95vh] absolute right-0 bottom-0"
+              className="mdh-[95vh] absolute right-0 bottom-0"
             />
           </article>
-          <article className="carusel-child shrink-0 h-[100vh] w-[100vw] flex justify-center items-center relative bg-[--nexusBlue]">
+          <article className="carusel-child shrink-0 px-4 h-[100vh] max-w-screen w-screen flex justify-center items-center relative bg-[--nexusBlue]">
             <p className="h3 text-center text-white max-w-[675px] z-10">
               En nuestras vidas nos encontramos con diversidad de individuos
             </p>
+            <figure  className="absolute left-10 bottom-0 md:h-[90vh]">
             <img
               src="/imgs/home/home-section-2.png"
-              className="absolute left-10 bottom-0 h-[90vh]"
+              className="h-full w-full"
             />
+            </figure>
+
           </article>
 
           {/* SECCIÓN 3 */}
 
-          <article className="carusel-child shrink-0 h-[100vh] flex flex-col justify-center w-[100vw] relative px-[475px] gap-20 bg-white">
+          <article className="carusel-child h-[100vh] flex flex-col justify-center max-w-screen w-screen relative px-4 md:px-[475px] gap-20 bg-white">
             {/* Textos de la sección */}
             <article className="texts flex flex-col w-[800px] z-50 mt-40">
               {/* Row 1 */}
@@ -261,9 +264,9 @@ function Home() {
             </article>
 
             {/* Textos 2 de la sección */}
-            <article className="texts flex flex-col items-end w-full z-50 relative">
+            <article className="texts flex flex-col gap-3 md:gap-0 items-end w-full z-50 relative">
               {/* Row 1 */}
-              <div className="row-1 flex w-[500px] items-start">
+              <div className="row-1 flex md:w-[500px] items-start">
                 <div className="black-box body-large">
                   <p>El acto de</p>
                 </div>
@@ -301,53 +304,50 @@ function Home() {
             </article>
 
             {/* Imagen de la sección */}
+            <figure className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-screen md:w-auto md:h-[40vh] opacity-60">
             <img
               src="/imgs/home/home-section-3.png"
               alt=""
-              className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] h-[40vh] opacity-60"
+              className="h-full w-full"
             />
+            </figure>
+           
           </article>
         </section>
-        <section id="nexus_video" className="h-[100vh] flex items-center justify-center">
+        <section
+          id="nexus_video"
+          className="h-[50vh] md:h-screen flex items-center justify-center"
+        >
           <video
             id="video"
             src="/vids/nexus_video.mp4"
-            className="w-full cover"
+            className="w-full h-full object-cover"
             autoPlay
             loop
             muted
           ></video>
         </section>
         {/* SECCIÓN 4 */}
-        <section id="end" className="w-full flex">
-          <section className="columns w-full flex">
-            <section
-              id="section-1"
-              className="h-[100vh] w-[100vw] flex items-center"
-            >
-              <article className="w-full h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/home/cada-relacion.png')] bg-cover bg-center bg-no-repeat">
+        <section id="end" className="w-full flex h-screen flex-col md:flex-row overflow-hidden py-40 md:py-0">
+          <section className="columns w-full h-full flex flex-col md:flex-row">
+            <section id="section-1" className="h-full md:h-screen w-full md:w-1/3 flex items-center">
+              <article className="w-full h-full md:h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/home/cada-relacion.png')] bg-cover bg-center bg-no-repeat">
                 <div className="flex ">
                   <span className="black-box body-large">Cada </span>{" "}
                   <strong className="white-box body-large">relación</strong>
                 </div>
               </article>
             </section>
-            <section
-              id="section-2"
-              className="h-[100vh] w-[100vw] flex items-center"
-            >
-              <article className="w-full h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/home/es-unica.png')] bg-cover bg-center bg-no-repeat">
+            <section id="section-2" className="h-full md:h-screen w-full md:w-1/3 flex items-center">
+              <article className="w-full h-full md:h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/home/es-unica.png')] bg-cover bg-center bg-no-repeat">
                 <div className="flex gap-4 ">
                   <span className="white-box body-large">es </span>{" "}
                   <strong className="blue-box body-large">única</strong>
                 </div>
               </article>
             </section>
-            <section
-              id="section-3"
-              className="h-[100vh] w-[100vw] flex items-center"
-            >
-              <article className="w-full h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/home/y-personal.png')] bg-cover bg-center bg-no-repeat">
+            <section id="section-3" className="h-full md:h-screen w-full md:w-1/3 flex items-center">
+              <article className="w-full h-full md:h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/home/y-personal.png')] bg-cover bg-center bg-no-repeat">
                 <div className="flex gap-4 flex-col items-center">
                   <span className="black-box body-large text-center">y </span>{" "}
                   <strong className="white-box body-large">personal</strong>
@@ -355,21 +355,22 @@ function Home() {
               </article>
             </section>
           </section>
-          <section className="h-[100vh] w-full absolute top-0 left-0">
-            <article className="flex items-center h-full w-full justify-between px-40 relative">
+          <section className="py-40 md:py-0 h-screen w-full absolute top-0 left-0">
+            <article className="flex flex-col md:flex-row items-center h-full w-full justify-between px-4 md:px-40 relative">
               <div>
-                <span id="texto-final-1" className="black-box">
+                <span id="texto-final-1" className="black-box text-base md:text-lg">
                   como una
                 </span>
               </div>
 
               <svg
                 id="huella-final"
-                width="600"
-                height="600"
+                width="100%"
+                height="auto"
                 viewBox="0 0 432 431"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="max-w-[300px] md:max-w-[600px]"
               >
                 <path
                   fillRule="evenodd"
@@ -382,18 +383,14 @@ function Home() {
                 {" "}
                 <strong
                   id="texto-final-2"
-                  className="thatthat font-normal text-[64px] tracking-[-5px]"
+                  className="thatthat font-normal text-3xl md:text-[64px] tracking-[-2px] md:tracking-[-5px]"
                 >
                   huella
                 </strong>
               </div>
             </article>
-            <div id="cta-final" className="absolute right-40 bottom-[30%]">
-              <Cta
-                name="Descubre la tuya"
-                link="/crea-tu-huella"
-                color="white"
-              />
+            <div id="cta-final" className="absolute right-4 md:right-40 bottom-[10%] md:bottom-[30%]">
+              <Cta name="Descubre la tuya" link="/crea-tu-huella" color="white" />
             </div>
           </section>
         </section>
