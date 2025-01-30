@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import FASES from "../data/FASES.js";
 import PAGES from "../data/PAGES.jsx";
 import HALL from "../data/HALL.jsx";
+import Breadcrumbs from "../components/nav/Breadcrumbs.jsx";
 
 export default function Nexus({ name, nameHighlight }) {
   const [activeFase, setActiveFase] = useState(0);
@@ -24,6 +25,7 @@ export default function Nexus({ name, nameHighlight }) {
   return (
     <>
       <main className="bg-white">
+        <Breadcrumbs />
         <section className="h-[100vh] w-full flex justify-end items-center relative bg-white overflow-hidden pr-80">
           {" "}
           <article className="flex flex-col items-start gap-1 pt-20">
@@ -43,23 +45,23 @@ export default function Nexus({ name, nameHighlight }) {
             </article>
           </article>
           <img
-            src="./public/imgs/nxs.png"
+            src="/imgs/nexus/nexus-apertura.png"
             className="absolute left-0 bottom-0 h-[90vh]"
           />{" "}
           <svg
-            className="absolute bottom-0 left-0"
-            height="500"
+            className="absolute top-20 right-10"
+            height="300"
             viewBox="0 0 275 440"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
               d="M274.737 54.5128V165.338H219.325V219.664H165.542V165.338H0.390625V110.468H55.2597V54.5128H109.043V0.186523H165.542V54.5128H274.737Z"
-              fill="white"
+              fill="#194bf9"
             />
             <path
               d="M219.325 328.859V439.141H55.2597V384.272H165.542V328.859H109.043V273.446H165.542V328.859H219.325Z"
-              fill="white"
+              fill="#194bf9"
             />
           </svg>
         </section>
@@ -293,7 +295,7 @@ export default function Nexus({ name, nameHighlight }) {
         </section>
         <section className=" flex justify-between max-w-[100vw] overflow-hidden">
           <video
-            src="./public/vids/hall_c.mp4"
+            src="/vids/hall_c.mp4"
             autoPlay
             muted
             loop

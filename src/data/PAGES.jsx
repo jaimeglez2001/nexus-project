@@ -43,12 +43,13 @@ const pages = [
         sectionDisplay: "humana",
         bodyText:
           "En nuestras vidas cotidianas nos encontramos con una diversidad de individuos",
-        image: "explora-conexion-humana",
+        image: "/imgs/explore/conexion/conexion-main.jpg",
         pathname: "/explore/conexion-humana",
         huella: (
           <svg
             width="800"
-            viewBox="0 0 335 336"
+            height="800"
+            viewBox="0 0 500 451"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -56,13 +57,12 @@ const pages = [
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"
-                d="M334.327 291.598V250.043H292.772V209.411H334.327V44.114H250.756V1.17365H42.5181V124.916H0.501953V209.411H42.5181V250.043H85.921V209.411H166.723V250.043H209.663V209.411H250.756V335H292.772V291.598H334.327ZM250.756 127.686V166.471H209.663V127.686H250.756Z"
-                stroke="black"
+                d="M151.611 0.141602L151.611 98.9292L199.89 98.9292V148.694H151.611V199.203L0.829102 199.203V399.006H50.5939V351.469H99.6164V451H251.883V399.006H299.42V351.469L349.186 351.469V399.006H449.459V351.469H499.224V248.968H449.459V199.203L400.436 199.203V248.968L299.418 248.973L299.42 148.694H400.436L400.436 98.9292L349.186 98.9292V50.6492L299.42 50.6492V0.141614L251.883 0.14161V50.6492L199.89 50.6492V0.141606L151.611 0.141602ZM151.443 400.01V350.207H200.932V400.01H151.443ZM249.929 298.776V248.973H299.418V298.776H249.929Z"
+                fill="black"
               />
             </clipPath>
             <image
-              href={`../public/imgs/explora-conexion-humana.png`}
-              width="100%"
+              href={`/imgs/explore/conexion/conexion-main.jpg`}
               height="100%"
               clipPath="url(#clip01)"
             />
@@ -71,15 +71,15 @@ const pages = [
         carrusel: [
           {
             text: "“Cada individuo posee una voz interior que rápidamente evalúa la relevancia o significado de algo o alguien”",
-            image: "conexion-1.png",
+            image: "/explore/conexion/conexion-carrusel-1.png",
           },
           {
             text: "En nuestras vidas cotidianas nos encontramos con una diversidad de individuos",
-            image: "conexion-2.png",
+            image: "/explore/conexion/conexion-carrusel-2.png",
           },
           {
-            text: `Aunque compartimos estos espacios con numerosas personas, el acto de "conectar" profundamente se reserva a unas pocas`,
-            image: "conexion-3.png",
+            text: `Aunque compartamos espacio con ellos, el acto de "conectar" profundamente se reserva a unas pocos`,
+            image: "/explore/conexion/conexion-carrusel-3.png",
           },
         ],
       },
@@ -89,12 +89,13 @@ const pages = [
         sectionDisplay: "interpersonales",
         bodyText:
           "En el análisis de las complejidades inherentes a las relaciones humanas, resulta esencial dividirlas en dos categorías fundamentales",
-        image: "relaciones-interpersonales-link",
+        image: "/imgs/explore/interpersonales/interpersonales-main.png",
         pathname: "/explore/relaciones-interpersonales",
         huella: (
           <svg
-            width="800"
-            viewBox="0 0 334 336"
+            width="700"
+
+            viewBox="0 0 897 894"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -102,19 +103,12 @@ const pages = [
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"
-                d="M333.467 1.05737V68.2609H301.326V100.767H333.467V133.273H301.326V166.875H266.994V133.273H233.757V100.767H200.156V33.5634H266.994V1.05737H333.467ZM233.759 100.721V68.2147H266.995V100.721H233.759Z"
-                stroke="black"
-              />
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M167.284 133.273V100.767H100.811V133.273H34.3381V100.767H0.736328V300.917H34.3381V334.884H100.811V300.917H134.413V268.045H167.284V200.477H134.413V166.875H200.156V133.273H167.284ZM101.174 200.475V232.981H134.41V200.475H101.174Z"
-                stroke="black"
+                d="M0.773438 623.541V801.722H92.0731V893.021H271.727V801.722H355.663V716.313H442.545V801.722H538.262V716.313H625.144V623.541H716.443V532.242H538.254V357L716.443 357.006V445.36H804.797V357.006H896.097V178.825H804.797V88.9976H625.144V178.825H538.262V88.9976H442.545V0.643555H181.9V178.825H92.0731V88.9976H0.773438V445.36H271.727V532.242H355.663V623.541H271.727V801.722H181.9V623.541H0.773438ZM268.244 88.9204V176.485H356.684V88.9204H268.244ZM449.814 269.436V357H538.254V269.436H449.814Z"
+                fill="black"
               />
             </clipPath>
             <image
-              href={`../public/imgs/relaciones-interpersonales-link.png`}
-              width="100%"
+              href={`/imgs/explore/interpersonales/interpersonales-main.png`}
               height="100%"
               clipPath="url(#clip02)"
             />
@@ -127,7 +121,7 @@ const pages = [
         sectionDisplay: "espaciales",
         bodyText:
           "El comportamiento humano se concibe como el resultado de un campo, compuesto por hechos coexistentes donde el cambio en una parte afecta al conjunto",
-        image: "section-3",
+        image: "/imgs/explore/espaciales/espaciales-main.jpg",
         pathname: "/explore/relaciones-espaciales",
         huella: (
           <svg
@@ -143,9 +137,8 @@ const pages = [
               />
             </clipPath>
             <image
-              href={`../public/imgs/relaciones-espaciales-1.png`}
+              href={`/imgs/explore/espaciales/espaciales-main.jpg`}
               width="100%"
-              height="100%"
               clipPath="url(#clip03)"
             />
           </svg>
@@ -153,11 +146,11 @@ const pages = [
         carrusel: [
           {
             text: "La proxémica, una rama de la semiótica dedicada al estudio de la organización del espacio en la comunicación",
-            image: "espaciales-2.jpg",
+            image: "explore/espaciales/espaciales-carrusel-1.png",
           },
           {
             text: "Analiza las relaciones espaciales entre individuos y objetos durante la interacción, considerando posturas adoptadas y la presencia o ausencia de contacto físico ",
-            image: "espaciales-1.jpg",
+            image: "explore/espaciales/espaciales-carrusel-2.jpg",
           },
         ],
       },
@@ -166,6 +159,7 @@ const pages = [
   {
     name: "Nexus",
     pathname: "/nexus",
+    image: "../public/imgs/nexus/nexus-main.jpg",
     huella: (
       <svg
         width="334"

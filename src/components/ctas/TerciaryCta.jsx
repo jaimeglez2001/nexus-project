@@ -5,7 +5,7 @@ export default function TerciaryCta({ name = "Volver", link = "#" }) {
     return (
         <Link
         to="/explore"
-        className="body flex gap-4 items-center absolute top-[124px] left-10"
+        className="body flex gap-4 items-center absolute top-[164px] left-10"
       >
         <svg
           width="15"

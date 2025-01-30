@@ -1,20 +1,16 @@
 import "../../style/typography.css";
-import Cta from "../../components/ctas/Cta.jsx";
-import "../../style/index.css";
 import Apertura from "../../components/Apertura.jsx";
 import SingleNav from "../../components/nav/SingleNav.jsx";
-import React, { useState, useEffect } from "react";
 import Carrusel from "../../components/Carrusel.jsx";
 import PAGES from "../../data/PAGES.jsx";
-
-
+import Footer from "../../components/Footer.jsx";
 
 export default function Conexion({ name, nameHighlight }) {
   const CONEXION = PAGES[1].subPages[0].carrusel;
 
   return (
     <>
-      <main className="bg-white">
+      <main className="bg-white relative">
         <SingleNav />
 
         <Apertura>
@@ -58,14 +54,12 @@ export default function Conexion({ name, nameHighlight }) {
           <aside className="bg-white">
             <article className="z-50 flex flex-col max-w-[800px] items-end">
               {/* Tetxo highlight */}
-              <strong className="pixel z-50 text-white difference font-normal">
-                miradas
-              </strong>
+              <strong className="pixel z-50 font-normal">miradas</strong>
             </article>
 
             <figure>
               <img
-                src="../public/imgs/conexion-4.png"
+                src="/imgs/explore/conexion/conexion-miradas.png"
                 alt=""
                 className="absolute top-[50%] right-[15%] translate-y-[-50%] h-[70vh]"
               />
@@ -74,7 +68,7 @@ export default function Conexion({ name, nameHighlight }) {
 
           <figure>
             <img
-              src="../public/imgs/firma-xl.png"
+              src="/imgs/firma-xl.png"
               alt=""
               className="absolute right-[0%] top-[50%] translate-y-[-20%] z-[99]  difference"
             />
@@ -145,27 +139,7 @@ export default function Conexion({ name, nameHighlight }) {
             </article>
           </article>
         </section>
-        <footer className="flex items-end gap-20 p-10">
-          <figure>
-            <img
-              src="../public/imgs/relaciones-interpersonales-link.png"
-              className=""
-              alt=""
-            />
-          </figure>
-          <article className="flex flex-col items-end gap-5 pb-20">
-            <h2 className="flex flex-col sinteca-sb text-[48px] pt-40 tracking-tighter leading-[1%]">
-              <span className="pl-10">Relaciones</span>
-              <strong className="pixel-sm mr-[100px] font-normal mt-[-20px]">
-                interpersonales
-              </strong>
-            </h2>
-            <Cta
-              name="Explorar más"
-              link="/explore/relaciones-interpersonales"
-            />
-          </article>
-        </footer>
+      <Footer />
       </main>
     </>
   );

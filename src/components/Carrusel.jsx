@@ -10,7 +10,6 @@ gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Carrusel({ array }) {
-  const [activeSection, setActiveSection] = useState(1); // Controlador del índice activo
 
   useGSAP(() => {
     const contents = gsap.utils.toArray(".carusel-child");
@@ -41,7 +40,7 @@ export default function Carrusel({ array }) {
               key={index}
               id="section_1"
               className="carusel-child shrink-0 w-full text-carusel h-[85vh] flex flex-col items-center justify-center"
-              style={{ backgroundImage: `url("../public/imgs/${item.image}")` }}
+              style={ { backgroundImage: `url("../public/imgs/${item.image}")` }}
             >
               <span className="sinteca-sb text-[48px] leading-[95%] tracking-tight max-w-[900px] text-pretty text-white">
                 {item.text}

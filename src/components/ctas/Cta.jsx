@@ -32,7 +32,7 @@ function NormalCta({ name = "Explorar más", link = "#", color = "black" }) {
 
   return (
     <>
-      <Link to={link} className={`cta ${color === "white" ? 'cta-white' : 'cta'} flex gap-1 bg-black p-2 rounded-md`}>
+      <Link to={link} className={`cta ${color === "white" ? 'cta-white' : 'cta'} flex gap-1 bg-black p-[6px] rounded-md`}>
         <span className= {`body-med ${color === "white" ? 'white-box' : 'black-box'} rounded-sm`}>{name}</span>
         <figure className="w-[24px] border-[1px] border-white rounded-sm flex justify-center items-center">
           <svg

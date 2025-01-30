@@ -39,7 +39,7 @@ export default function BurguerMenu() {
         <footer>
           <img
             className="w-[1000px] h-full object-cover" 
-            src="../../public/imgs/footer-menu.png"
+            src="../../public/imgs/menu-bg.png"
             alt=""
           />
         </footer>

@@ -27,16 +27,16 @@ export default function ExploreCard({
             <p className="max-w-[368px] small text-[14px] tracking-wide text-pretty leading-5">
               {bodyText}
             </p>
-            <Cta name="Explorar más" link={link} />
+            <Cta name="Explorar más" link={link} color="white" />
           </aside>
         </article>
         <aside>
-          <figure className="static sm:absolute bottom-0 right-0">
+          <figure className="absolute bottom-0 right-0">
             {huella}
             <img
               src="../public/imgs/firma-negra.png"
               alt=""
-              className=" absolute bottom-40 right-40"
+              className="h-full"
             />
           </figure>
         </aside>

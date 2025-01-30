@@ -1,7 +1,7 @@
 import React, { useState, useId } from "react";
-import Cta from "../components/ctas/Cta.jsx";
 import "../style/typography.css";
 import ExploreCard from "/src/components/ExploreCard.jsx";
+import Breadcrumbs from "../components/nav/Breadcrumbs.jsx";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -38,16 +38,8 @@ function Explore() {
   return (
     <>
       <main className="w-full flex flex-col gap-10 pb-10 bg-white">
-        <header className="w-full flex flex-col gap-2 px-10 top-20 z-50 fixed">
-          <ul className="flex small sinteca">
-            <li>
-              <a href="/">Inicio</a>
-            </li>
-            /<li>Explora</li>
-          </ul>
-          <h1 className="blue-box">Explora</h1>
-        </header>
-
+        <Breadcrumbs />
+        <h1 className="blue-box">Explora</h1>
         <ul
           id="explore-holder"
           className={`flex overflow-x-hidden w-[99vw] h-[300vw] absolute top-0 left-0`}

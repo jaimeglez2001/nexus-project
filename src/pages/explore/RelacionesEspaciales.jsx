@@ -11,7 +11,8 @@ import PAGES from "../../data/PAGES.jsx";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Footer from "../../components/Footer.jsx";
+
 gsap.registerPlugin(useGSAP);
 
 export default function RelacionesInterpersonales({ name, nameHighlight }) {
@@ -19,8 +20,8 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
   const hall = HALL;
   const handleClick = (index) => {
     setActiveHall(index);
-  }
-  const ESPACIALES = PAGES[1].subPages[2].carrusel
+  };
+  const ESPACIALES = PAGES[1].subPages[2].carrusel;
   return (
     <>
       <main className="bg-white">
@@ -58,25 +59,22 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
               afecta al conjunto
             </h3>
             <div className="flex flex-col gap-[16px]">
-            <p className="body">
-              Este &quot;espacio&quot; es percibido de manera única por cada
-              individuo. El individuo y su entorno no son entidades separadas,
-              sino que constantemente interactúan y se modifican mutuamente en
-              tiempo real
-            </p>
-            <p className="body">
-              El comportamiento no depende ni del pasado ni del futuro, sino de
-              los hechos y acontecimientos actuales y de cómo los percibe el
-              sujeto
-            </p>
+              <p className="body">
+                Este &quot;espacio&quot; es percibido de manera única por cada
+                individuo. El individuo y su entorno no son entidades separadas,
+                sino que constantemente interactúan y se modifican mutuamente en
+                tiempo real
+              </p>
+              <p className="body">
+                El comportamiento no depende ni del pasado ni del futuro, sino
+                de los hechos y acontecimientos actuales y de cómo los percibe
+                el sujeto
+              </p>
             </div>
-
           </article>
         </section>
 
-        <Carrusel 
-          array={ESPACIALES}
-        />
+        <Carrusel array={ESPACIALES} />
 
         <section className="h-[100vh] flex justify-between p-10 pt-40 w-full">
           <article className="flex flex-col gap-20">
@@ -86,20 +84,26 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
             </h2>
             <section className="flex flex-col gap-10">
               <ul className="flex gap-2 bg-gray-200 p-1">
-                {hall.map((hall, index) =>  {
+                {hall.map((hall, index) => {
                   return (
-                    <li key={index}><button onClick={() => {handleClick(index)}} className={activeHall === index ? 'blue-box' : 'tab'}>{hall.name}</button></li>
-                  )
+                    <li key={index}>
+                      <button
+                        onClick={() => {
+                          handleClick(index);
+                        }}
+                        className={activeHall === index ? "blue-box" : "tab"}
+                      >
+                        {hall.name}
+                      </button>
+                    </li>
+                  );
                 })}
-                
               </ul>
               <article className="flex gap-10 max-w-[440px]">
                 <span className="small">0{hall[activeHall].id}</span>
                 <aside className="flex flex-col gap-10">
                   <h3 className="h5">Espacio íntimo</h3>
-                  <p>
-                    {hall[activeHall].description}
-                  </p>
+                  <p>{hall[activeHall].description}</p>
                 </aside>
               </article>
             </section>
@@ -120,7 +124,7 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
                 height="563.212"
                 stroke="#194bf9"
                 strokeWidth="0.7"
-                fill={activeHall === 3 ? '#194bf9' : 'white'}
+                fill={activeHall === 3 ? "#194bf9" : "white"}
               />
             </svg>
 
@@ -139,7 +143,7 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
                 height="452.939"
                 stroke="#194bf9"
                 strokeWidth="0.7"
-                fill={activeHall === 2 ? '#194bf9' : 'white'}
+                fill={activeHall === 2 ? "#194bf9" : "white"}
               />
             </svg>
 
@@ -158,7 +162,7 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
                 height="330.967"
                 stroke="#194bf9"
                 strokeWidth="0.7"
-                fill={activeHall === 1 ? '#194bf9' : 'white'}
+                fill={activeHall === 1 ? "#194bf9" : "white"}
               />
             </svg>
             <svg
@@ -176,25 +180,13 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
                 height="187.234"
                 stroke="#194bf9"
                 strokeWidth="0.7"
-                fill={activeHall === 0 ? '#194bf9' : 'white'}
+                fill={activeHall === 0 ? "#194bf9" : "white"}
               />
             </svg>
           </aside>
         </section>
 
-        <footer className="p-10 w-full">
-          <section className="w-full h-[520px] flex items-center justify-center bg-[url('/imgs/descubre-nexus.png')] bg-cover bg-center bg-no-repeat">
-          <article className="flex flex-col items-end gap-5 pb-20">
-            <h2 className="flex flex-col sinteca-sb text-[48px] pt-40 tracking-tighter leading-[1%]">
-              <span className="pl-40 text-white">Descubre</span>
-              <strong className="pixel-sm text-white mr-[100px] font-normal mt-[-20px]">
-                Nexus
-              </strong>
-            </h2>
-            <Cta color="white" name="Descubrir Nexus" link="/nexus" />
-          </article>
-          </section>
-        </footer>
+        <Footer />
       </main>
     </>
   );

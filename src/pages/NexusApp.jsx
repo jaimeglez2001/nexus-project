@@ -86,11 +86,11 @@ function Cuestionario() {
 
   const handleActiveFase = (numeral, index) => {
     if (numeral === 0) {
-        setActiveFase((prevFase) => {
+      setActiveFase((prevFase) => {
         const newFase = prevFase - 1;
         if (newFase === 9) {
-            setActiveFeedback(false); // Desactiva feedback al retroceder
-          }
+          setActiveFeedback(false); // Desactiva feedback al retroceder
+        }
         if (newFase >= FASES.length + 1) return prevFase;
 
         if (newFase <= 2) {
@@ -261,14 +261,164 @@ function Cuestionario() {
   );
 }
 
+function Manual() {
+  const [activeFase, setActiveFase] = useState(0);
+  const fasesRelacion = FASES;
+  const [huellaObj, setHuellaObj] = useState([]);
+
+  function handleActiveFase(index) {
+    setActiveFase(index);
+  }
+
+  function handleHuella(item, index) {
+    if (huellaObj.length <= 9) {
+      const newHuellaObj = [...huellaObj]; // Crea una copia del estado actual
+      newHuellaObj.push({
+        fase: `${fasesRelacion[activeFase].fase}`,
+        interpretacion: `${
+          index === 0 ? "Positiva" : index === 1 ? "Neutra" : "Negativa"
+        }`,
+        letra: `${item}`,
+      });
+      setHuellaObj(newHuellaObj); // Establece el nuevo estado
+      console.log(huellaObj);
+    }
+  }
+
+  /** 
+    
+    )]);
+
+    */
+  return (
+    <section className="w-full h-[100vh] flex gap-10 bg-white relative pt-[60px] items-center">
+      <section className="h-full flex gap-5">
+        <section className="flex flex-col gap-10 bg-[--nexusBlue] relative h-full max-w-[477px] px-10 py-10 text-white">
+          <nav>
+            <ul className="flex shrink-0 gap-2 max-w-[700px] flex-wrap pb-10 border-b-[1px] border-white">
+              {fasesRelacion.map((fase, index) => {
+                return (
+                  <li
+                    key={index}
+                    onClick={() => {
+                      handleActiveFase(index);
+                    }}
+                    className={
+                      index === activeFase
+                        ? "button border-[1px] bg-white rounded-md px-3 py-1 text-[14px] text-[--nexusBlue] sinteca-sb"
+                        : "button border-[1px] border-white rounded-md px-3 py-1 small text-white"
+                    }
+                  >
+                    {fase.fase}
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+          <article className="flex flex-col w-full gap-10">
+            <article className="flex gap-10 max-w-[440px]">
+              <span className="small">
+                {activeFase === 9 ? "" : "0"}
+                {fasesRelacion[activeFase].id}
+              </span>
+              <aside className="flex flex-col gap-3">
+                <h3 className="h5">{fasesRelacion[activeFase].fase}</h3>
+                <p>{fasesRelacion[activeFase].descripcion}</p>
+              </aside>
+            </article>
+            <ul className="flex gap-4 pl-[50px]">
+              {fasesRelacion[activeFase].letra
+                .slice(0, 3)
+                .map((item, index) => {
+                  return (
+                    <li
+                      key={index}
+                      className="flex flex-col items-center gap-5"
+                    >
+                      <button
+                        onClick={() => handleHuella(item, index)}
+                        className="w-[90px] h-[90px] border-[1px] rounded-md border-white flex items-center justify-center nexus-font text-[80px]"
+                      >
+                        {item}
+                      </button>
+                      <span className="sinteca-med text-[16px]">
+                        {index === 0 && "Positiva"}
+                        {index === 1 && "Neutra"}
+                        {index === 2 && "Negativa"}
+                      </span>
+                    </li>
+                  );
+                })}
+            </ul>
+          </article>
+        </section>
+        <section className="flex flex-col gap-10 w-[264px]">
+          <ul className="flex flex-col gap-2">
+            {huellaObj.map((fase, index) => (
+              <li
+                key={index}
+                className="flex w-full gap-5 border-[1px] border-[#c1c1c1] rounded-md px-6 py-2"
+              >
+                <aside className="caption">{index + 1}</aside>
+                <div className=" flex flex-col ">
+                  <header className="sinteca-med text-[16px]">{fase.fase}</header>
+                  <span className="small">
+                    {fase.interpretacion}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </section>
+      <section className="w-full flex flex-col items-center">
+        <aside className="w-full flex flex-col items-center">
+          <article>
+            <div>
+              {huellaObj.slice(0, 3).map((fase, index) => (
+                <span
+                  key={index}
+                  className="nexus-font text-[--nexusBlue] text-[300px] tracking-[-120px]"
+                >
+                  {fase.letra}
+                </span>
+              ))}
+            </div>
+            {huellaObj.length > 2 && (
+              <div>
+                {huellaObj.slice(3, 7).map((fase, index) => (
+                  <span
+                    key={index}
+                    className="nexus-font text-[--nexusBlue] text-[300px] tracking-[-120px]"
+                  >
+                    {fase.letra}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {huellaObj.length > 5 && (
+              <div>
+                {huellaObj.slice(7, 10).map((fase, index) => (
+                  <span
+                    key={index}
+                    className="nexus-font text-[--nexusBlue] text-[300px] tracking-[-120px]"
+                  >
+                    {fase.letra}
+                  </span>
+                ))}
+              </div>
+            )}
+          </article>
+        </aside>
+      </section>
+    </section>
+  );
+}
+
 function NexusApp() {
   const { stage, handleClick } = useContext(AppHuellaContext);
-  return (
-    <>
-      {stage === 0 && <Welcome />}
-      {stage === 1 && <Cuestionario />}
-    </>
-  );
+  return <>{stage === 0 && <Manual />}</>;
 }
 
 export default NexusApp;

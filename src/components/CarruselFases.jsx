@@ -42,7 +42,7 @@ export default function CarruselFases() {
                 fase={fase.fase}
                 description={fase.descripcion}
                 numero={fase.id}
-                letra={fase.letra}
+                letra={fase.letra[1]}
               />
           );
         })}

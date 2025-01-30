@@ -31,7 +31,7 @@ function Home() {
         start: "top top",
         end: "+=3000",
         pin: true,
-        markers: true,
+        markers: false,
         scrub: 1,
       },
     });
@@ -59,24 +59,24 @@ function Home() {
         { opacity: 1 },
         "end+=2"
       );
+
   });
 
   return (
     <>
       <main className="">
         {/*HERO*/}
-        <section className="hero flex justify-center items-center h-[100vh] sinteca bg-white">
+        <section className="hero w-full flex justify-center items-center h-[100vh] sinteca bg-white">
           {/*FIRMA*/}
           <img
             className="absolute top-[50%] left-[50%] translate-x-[-40%] translate-y-[-55%]"
-            src="./public/imgs/firma.png"
+            src="/imgs/firmas/firma-blanca.png"
             alt=""
           />
           {/*Huella Hero*/}
           <svg
-            className="main-svg"
-            height="90vh"
             viewBox="0 0 936 810"
+            className="md:w-[95vh]"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -89,7 +89,7 @@ function Home() {
 
             {/* Imagen de fondo */}
             <image
-              href="/public/imgs/hero-3.png"
+              href="/imgs/home/hero.png"
               x="0"
               y="0"
               width="100%"
@@ -101,10 +101,9 @@ function Home() {
           {/* Logo Nexus Hero */}
 
           <svg
-            className="absolute top-[50%] left-[50%] translate-x-[-50%]
-        translate-y-[-50%]"
-            width="316"
-            height="164"
+            className="absolute top-[50%] left-[50%] md:translate-x-[-50%] translate-x-[-35%]
+        translate-y-[-50%] md:w-[316px]"
+
             viewBox="0 0 316 164"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -181,7 +180,7 @@ function Home() {
             {/* Firma */}
             <figure>
               <img
-                src="./public/imgs/firma-negra.png"
+                src="/imgs/firmas/firma-negra.png"
                 className="absolute h-[95vh] right-[5%] bottom-0 z-10"
                 alt=""
               />
@@ -220,7 +219,7 @@ function Home() {
 
             {/* Imagen de la sección */}
             <img
-              src="./public/imgs/home-2.png"
+              src="/imgs/home/home-section-1.png"
               alt=""
               className="h-[95vh] absolute right-0 bottom-0"
             />
@@ -230,7 +229,7 @@ function Home() {
               En nuestras vidas nos encontramos con diversidad de individuos
             </p>
             <img
-              src="/public/imgs/home-3.png"
+              src="/imgs/home/home-section-2.png"
               className="absolute left-10 bottom-0 h-[90vh]"
             />
           </article>
@@ -303,15 +302,22 @@ function Home() {
 
             {/* Imagen de la sección */}
             <img
-              src="./public/imgs/section-4.png"
+              src="/imgs/home/home-section-3.png"
               alt=""
               className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] h-[40vh] opacity-60"
             />
           </article>
         </section>
-<section className="h-[100vh] flex items-center justify-center">
-  <video src="./public/vids/nexus_video.mp4" className="w-full cover" autoPlay loop muted></video>
-</section>
+        <section id="nexus_video" className="h-[100vh] flex items-center justify-center">
+          <video
+            id="video"
+            src="/vids/nexus_video.mp4"
+            className="w-full cover"
+            autoPlay
+            loop
+            muted
+          ></video>
+        </section>
         {/* SECCIÓN 4 */}
         <section id="end" className="w-full flex">
           <section className="columns w-full flex">
@@ -319,7 +325,7 @@ function Home() {
               id="section-1"
               className="h-[100vh] w-[100vw] flex items-center"
             >
-              <article className="w-full h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/cada-relacion.png')] bg-cover bg-center bg-no-repeat">
+              <article className="w-full h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/home/cada-relacion.png')] bg-cover bg-center bg-no-repeat">
                 <div className="flex ">
                   <span className="black-box body-large">Cada </span>{" "}
                   <strong className="white-box body-large">relación</strong>
@@ -330,7 +336,7 @@ function Home() {
               id="section-2"
               className="h-[100vh] w-[100vw] flex items-center"
             >
-              <article className="w-full h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/es-unica.png')] bg-cover bg-center bg-no-repeat">
+              <article className="w-full h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/home/es-unica.png')] bg-cover bg-center bg-no-repeat">
                 <div className="flex gap-4 ">
                   <span className="white-box body-large">es </span>{" "}
                   <strong className="blue-box body-large">única</strong>
@@ -341,7 +347,7 @@ function Home() {
               id="section-3"
               className="h-[100vh] w-[100vw] flex items-center"
             >
-              <article className="w-full h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/y-personal.png')] bg-cover bg-center bg-no-repeat">
+              <article className="w-full h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/home/y-personal.png')] bg-cover bg-center bg-no-repeat">
                 <div className="flex gap-4 flex-col items-center">
                   <span className="black-box body-large text-center">y </span>{" "}
                   <strong className="white-box body-large">personal</strong>

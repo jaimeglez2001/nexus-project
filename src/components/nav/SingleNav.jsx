@@ -2,6 +2,7 @@ import "../../style/typography.css";
 import { Link, useLocation } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import PAGES from "../../data/PAGES.jsx";
+import Breadcrumbs from "./Breadcrumbs.jsx";
 
 export default function SingleNav() {
   const location = useLocation();
@@ -24,8 +25,9 @@ export default function SingleNav() {
 
   return (
     <>
+    <Breadcrumbs />
       <nav>
-        <ul className="flex gap-1 z-[60] top-20 left-10 fixed p-1 bg-white rounded-md">
+        <ul className="flex gap-1 z-[60] top-[85px] left-10 fixed p-1 bg-white rounded-md">
           {EXPLORE.map((page, index) => {
             return (
               <li key={index}>

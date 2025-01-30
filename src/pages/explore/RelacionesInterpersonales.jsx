@@ -1,24 +1,19 @@
 import "../../style/typography.css";
-import Cta from "../../components/ctas/Cta.jsx";
 import "../../style/index.css";
 import Apertura from "../../components/Apertura.jsx";
 import SingleNav from "../../components/nav/SingleNav.jsx";
-import React, { useState, useEffect } from "react";
-import Carrusel from "../../components/Carrusel.jsx";
-import Huella from "../../components/Huella.jsx";
-import FASES from "../../data/FASES.js";
+import React, { useState } from "react";
 import CarruselFases from "../../components/CarruselFases.jsx";
 import RELACIONES from "../../data/RELACIONES.jsx";
+import Footer from "../../components/Footer.jsx";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(useGSAP);
 
 export default function RelacionesInterpersonales({ name, nameHighlight }) {
-  const [activeSection, setActiveSection] = useState(1); // Controlador del índice activo
-  const fasesRelacion = FASES;
+
   const relaciones = RELACIONES;
   const [activeRelation_1, setActiveRelation_1] = useState(0);
   const [activeRelation_2, setActiveRelation_2] = useState(0);
@@ -156,24 +151,7 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
           </section>
         </section>
 
-        <footer className="flex items-end gap-20 p-10">
-          <figure>
-            <img
-              src="../public/imgs/relaciones-espaciales-1.png"
-              className=""
-              alt=""
-            />
-          </figure>
-          <article className="flex flex-col items-end gap-5 pb-20">
-            <h2 className="flex flex-col sinteca-sb text-[48px] pt-40 tracking-tighter leading-[1%]">
-              <span className="pl-10">Relaciones</span>
-              <strong className="pixel-sm mr-[100px] font-normal mt-[-20px]">
-                espaciales
-              </strong>
-            </h2>
-            <Cta name="Explorar más" link="/explore/relaciones-espaciales" />
-          </article>
-        </footer>
+      <Footer />
       </main>
     </>
   );

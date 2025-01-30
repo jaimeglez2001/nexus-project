@@ -208,7 +208,7 @@
   &:hover {
     cursor: pointer;
     transition: all 0.1s ease-in-out;
-    background-color: rgb(196, 209, 226);
+    background-color: rgb(227, 232, 239);
   }
 }
 
@@ -389,13 +389,15 @@
     }
   }
   &:hover {
-    background-color: var(--nexusBlue);
+    background-color: transparent;
+    outline: 1px solid var(--nexusBlue);
+    outline-offset: -2px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     border-radius: 0px;
     .white-box {
       background-color: var(--nexusBlue);
-      outline: 1px solid white;
+      outline: 1px solid var(--nexusBlue);
       outline-offset: -1px;
       color: white;
       border-radius: 0px;
@@ -404,7 +406,7 @@
     figure {
       background-color: white;
       border-radius: 0px;
-      outline: 1px solid white;
+      outline: 1px solid var(--nexusBlue);
       outline-offset: -1px;
       transition: all 0.3s ease-in-out;
       svg {
@@ -421,4 +423,21 @@
   &:hover{
     cursor: pointer;
   }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: translateY(300px);
+    transform: scale(.85);
+  }
+  to {
+    transform: translateY(0);
+    transform: scale(1);
+  }
+}
+
+#nexus_video {
+  animation : scaleIn linear both;
+  animation-timeline: view();
+  animation-range: entry 20% cover 30%; 
 }
