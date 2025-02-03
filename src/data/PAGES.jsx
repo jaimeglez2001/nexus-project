@@ -186,6 +186,7 @@ const pages = [
   {
     name: "Crea tu huella",
     pathname: "/crea-tu-huella",
+    image: "../public/imgs/nexusApp/crea-tu-huella-main.png",
     huella: (
       <svg
         width="344"

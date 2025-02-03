@@ -11,7 +11,7 @@ function Welcome() {
   const { stage, handleClick } = useContext(AppHuellaContext);
 
   return (
-    <main className="bg-white w-full h-[100vh] flex justify-between items-center p-10 pl-[164px]">
+    <main className="bg-white w-full h-[96vh] flex justify-between items-center p-10 pl-[164px]">
       <section className="flex flex-col items-center justify-center h-[85vh] bg-white relative pb-[164px]">
         <figure>
           <img
@@ -52,85 +52,36 @@ function Welcome() {
 }
 
 function Cuestionario() {
-  const [firstRow, setFirstRow] = useState([]);
-  const [secondRow, setSecondRow] = useState([]);
-  const [thirdRow, setThirdRow] = useState([]);
   const [activeFase, setActiveFase] = useState(0);
-  const [activeFeedback, setActiveFeedback] = useState(false);
+  const fasesRelacion = FASES;
+  const [huellaObj, setHuellaObj] = useState([]);
 
-  const handleActiveFeedback = () => {
-    if (activeFase === 9) {
-      setActiveFeedback((prev) => !prev);
+  function handleHuella(respuesta, index, action) {
+    if (action === "add") {
+      if (huellaObj.length <= 9) {
+        const newHuellaObj = [...huellaObj]; // Crea una copia del estado actual
+        newHuellaObj.push({
+          letra: `${fasesRelacion[huellaObj.length].letra[index]}`,
+        });
+        setHuellaObj(newHuellaObj); // Establece el nuevo estado
+        console.log(huellaObj);
+      }
+    } else if (action === "remove") {
+      const newHuellaObj = [...huellaObj]; // Crea una copia del estado actual
+      newHuellaObj.splice(huellaObj.length - 1, 1);
+      setHuellaObj(newHuellaObj); // Establece el nuevo estado
+      console.log(huellaObj);
+    } else if (action === "reset") {
+      setHuellaObj([]);
     }
-  };
-
-  const handleSetFirstRow = (numeral, index) => {
-    if (numeral === 0 && firstRow.length > 0) {
-      setFirstRow((prevRow) => prevRow.slice(0, -1));
-    } else if (FASES[activeFase]?.letra?.[index]) {
-      setFirstRow((prevRow) => [...prevRow, FASES[activeFase].letra[index]]);
-    }
-  };
-
-  const handleSetSecondRow = (numeral, index) => {
-    if (numeral === 0 && secondRow.length > 0) {
-      setSecondRow((prevRow) => prevRow.slice(0, -1));
-    } else if (FASES[activeFase]?.letra?.[index]) {
-      setSecondRow((prevRow) => [...prevRow, FASES[activeFase].letra[index]]);
-    }
-  };
-
-  const handleSetThirdRow = (numeral, index) => {
-    if (numeral === 0 && thirdRow.length > 0) {
-      setThirdRow((prevRow) => prevRow.slice(0, -1));
-    } else if (FASES[activeFase]?.letra?.[index]) {
-      setThirdRow((prevRow) => [...prevRow, FASES[activeFase].letra[index]]);
-    }
-  };
-
-  const handleActiveFase = (numeral, index) => {
-    if (numeral === 0) {
-      setActiveFase((prevFase) => {
-        const newFase = prevFase - 1;
-        if (newFase === 9) {
-          setActiveFeedback(false); // Desactiva feedback al retroceder
-        }
-        if (newFase >= FASES.length + 1) return prevFase;
-
-        if (newFase <= 2) {
-          handleSetFirstRow(numeral);
-        } else if (newFase <= 6) {
-          handleSetSecondRow(numeral);
-        } else {
-          handleSetThirdRow(numeral);
-        }
-
-        return newFase;
-      });
-    } else {
-      setActiveFase((prevFase) => {
-        const newFase = prevFase + 1;
-        if (newFase < 0 || newFase >= FASES.length + 1) return prevFase;
-
-        if (newFase <= 3) {
-          handleSetFirstRow(numeral, index);
-        } else if (newFase <= 7) {
-          handleSetSecondRow(numeral, index);
-        } else {
-          handleSetThirdRow(numeral, index);
-        }
-
-        return newFase;
-      });
-    }
-  };
+  }
 
   function Preguntas() {
     return (
       <section className="w-full max-h-[100vh] flex flex-col gap-10 relative">
-        {activeFase > 0 && (
+        {huellaObj.length > 0 && (
           <button
-            onClick={() => handleActiveFase(0)}
+            onClick={() => handleHuella(null, null, "remove")}
             className="flex gap-3 items-center absolute -top-10"
           >
             <svg
@@ -152,22 +103,23 @@ function Cuestionario() {
         <header className="flex flex-col gap-1 pr-80">
           <span className="caption">
             {" "}
-            {activeFase === 9 ? null : "0"}
-            {activeFase + 1} / 10
+            {huellaObj.length === 10 ? null : "0"}
+            {huellaObj.length} / 10
           </span>
-          <h2 className="h3">{FASES[activeFase]?.cuestionario.pregunta}</h2>
+          <h2 className="h3">
+            {FASES[huellaObj.length]?.cuestionario.pregunta}
+          </h2>
         </header>
         <p className="body text-gray-500 pr-80">
-          {FASES[activeFase]?.cuestionario.ejemplo}
+          {FASES[huellaObj.length]?.cuestionario.ejemplo}
         </p>
         <ul className="flex gap-2 flex-wrap">
-          {FASES[activeFase]?.cuestionario.respuestas.map(
+          {FASES[huellaObj.length].cuestionario.respuestas.map(
             (respuesta, index) => (
               <li key={index}>
                 <button
                   onClick={() => {
-                    handleActiveFase(1, index);
-                    handleActiveFeedback(activeFeedback);
+                    handleHuella(respuesta, index, "add");
                   }}
                   className="border-black-box"
                 >
@@ -185,9 +137,9 @@ function Cuestionario() {
     const { stage, handleClick } = useContext(AppHuellaContext);
     return (
       <section className="w-full max-h-[100vh] flex flex-col gap-10 relative">
-        {activeFase > 0 && (
+        {huellaObj.length > 0 && (
           <button
-            onClick={() => handleActiveFase(0)}
+            onClick={() => handleHuella(null, null, "remove")}
             className="flex gap-3 items-center absolute -top-10"
           >
             <svg
@@ -219,48 +171,65 @@ function Cuestionario() {
           <li className="black-box">
             <button onClick={() => handleClick(2)}>Modo manual</button>
           </li>
-          <li onClick={() => {}} className="border-black-box">Crear una huella nueva</li>
+          <li
+            onClick={() => {
+              handleHuella(null, null, "reset");
+            }}
+            className="border-black-box"
+          >
+            Crear una huella nueva
+          </li>
         </ul>
       </section>
     );
   }
 
   return (
-    <main className="bg-white h-[100vh] flex pt-[35vh] justify-between p-10">
+    <main className="bg-white h-[96vh] flex pt-[35vh] justify-between p-10">
       <AppSwitch changeStage={2} />
-      {activeFeedback ? <Feedback /> : <Preguntas />}
-      <aside className="w-full flex flex-col items-center">
-        <article>
+      {huellaObj.length === 10 ? <Feedback /> : <Preguntas />}
+      <aside className="w-full h-full justify-center flex flex-col items-center">
+        <article className="pb-40">
           <div>
-            {firstRow.map((fase, index) => (
+            {huellaObj.length === 0 && (
+              <p className="h5 text-center text-gray-300 pb-40">
+                Escoge una respuesta para comenzar
+              </p>
+            )}
+            {huellaObj.slice(0, 3).map((fase, index) => (
               <span
                 key={index}
                 className="nexus-font text-[--nexusBlue] text-[300px] tracking-[-120px]"
               >
-                {fase}
+                {fase.letra}
               </span>
             ))}
           </div>
-          <div>
-            {secondRow.map((fase, index) => (
-              <span
-                key={index}
-                className="nexus-font text-[--nexusBlue] text-[300px] tracking-[-120px]"
-              >
-                {fase}
-              </span>
-            ))}
-          </div>
-          <div>
-            {thirdRow.map((fase, index) => (
-              <span
-                key={index}
-                className="nexus-font text-[--nexusBlue] text-[300px] tracking-[-120px]"
-              >
-                {fase}
-              </span>
-            ))}
-          </div>
+          {huellaObj.length > 2 && (
+            <div>
+              {huellaObj.slice(3, 7).map((fase, index) => (
+                <span
+                  key={index}
+                  className="nexus-font text-[--nexusBlue] text-[300px] tracking-[-120px]"
+                >
+                  {fase.letra}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {huellaObj.length > 5 && (
+            <div>
+              {huellaObj.slice(7, 10).map((fase, index) => (
+                <span
+                  key={index}
+                  className="nexus-font text-[--nexusBlue] text-[300px] tracking-[-120px]"
+                >
+                  {fase.letra}
+                </span>
+              ))}
+            </div>
+          )}
         </article>
       </aside>
     </main>
@@ -296,9 +265,9 @@ function Manual() {
       newHuellaObj.splice(huellaObj.length - 1, 1);
       setHuellaObj(newHuellaObj); // Establece el nuevo estado
       console.log(huellaObj);
-    } else if (action === "reset") { 
+    } else if (action === "reset") {
       setHuellaObj([]);
-    } 
+    }
   }
 
   /** 
@@ -307,7 +276,7 @@ function Manual() {
 
     */
   return (
-    <section className="w-full h-[100vh] flex gap-10 bg-white relative pt-[60px] items-center">
+    <main className="w-full h-[96vh] flex gap-10 bg-white relative pt-[60px] items-center">
       <AppSwitch changeStage={1} />
       <section className="h-full flex gap-5">
         <section className="flex flex-col gap-10 bg-[--nexusBlue] relative h-full max-w-[477px] px-10 py-10 text-white">
@@ -333,6 +302,7 @@ function Manual() {
             </ul>
           </nav>
           <article className="flex flex-col w-full gap-10">
+            <span className="small pl-[50px]">Selecciona:</span>
             <ul className="flex gap-4 pl-[50px]">
               {fasesRelacion[activeFase].letra
                 .slice(0, 3)
@@ -370,24 +340,27 @@ function Manual() {
           </article>
         </section>
         <section className="flex flex-col gap-5 w-[264px]">
-          {huellaObj.length === 0 && (
-            <li className="flex w-full gap-5 border-b-[1px] border-[#c1c1c1] px-6 py-2">
-              <aside className="caption text-gray-400">00</aside>
-              <div className=" flex flex-col ">
-                <header className="sinteca-med text-gray-400 text-[16px]">
-                  Iniciación
-                </header>
-                <span className="small text-gray-400">Positiva</span>
-              </div>
-            </li>
-          )}
           <ul className="flex flex-col gap-2">
+            {huellaObj.length === 0 && (
+              <li className="flex w-full gap-5 border-b-[1px] border-[#c1c1c1] px-6 py-2">
+                <aside className="caption text-gray-400">00</aside>
+                <div className=" flex flex-col ">
+                  <header className="sinteca-med text-gray-400 text-[16px]">
+                    Iniciación
+                  </header>
+                  <span className="small text-gray-400">Positiva</span>
+                </div>
+              </li>
+            )}
             {huellaObj.map((fase, index) => (
               <li
                 key={index}
                 className="flex w-full gap-5 border-b-[1px] border-[#c1c1c1] px-6 py-2"
               >
-                <aside className="caption">{index + 1}</aside>
+                <aside className="caption">
+                  {index < 9 && "0"}
+                  {index + 1}
+                </aside>
                 <div className=" flex flex-col ">
                   <header className="sinteca-med text-[16px]">
                     {fase.fase}
@@ -396,8 +369,23 @@ function Manual() {
                 </div>
               </li>
             ))}
+            {huellaObj.length < 10 && huellaObj.length > 0 && (
+              <li className="flex w-full gap-5 border-b-[1px] border-[#c1c1c1] px-6 py-2">
+                <aside className="caption text-gray-400">
+                  {huellaObj.length < 9 && "0"}
+                  {huellaObj.length + 1}
+                </aside>
+                <div className=" flex flex-col ">
+                  <header className="sinteca-med text-gray-400 text-[16px]">
+                    {fasesRelacion[huellaObj.length].fase}
+                  </header>
+                  <span className="small text-gray-400">Positiva</span>
+                </div>
+              </li>
+            )}
           </ul>
-          <aside>
+          <aside className="flex items-center justify-between">
+            <span className="body-med">Fase</span>
             <span className={`${huellaObj.length === 0 && "text-gray-400"}`}>
               {huellaObj.length < 10 && "0"}
               {huellaObj.length} / 10
@@ -469,27 +457,39 @@ function Manual() {
               </div>
             )}
           </article>
-          {huellaObj.length === 10 && <article className="flex flex-col gap-10 max-w-[600px]">
-            <header className="flex flex-col gap-1">
-              <h2 className="h3">¡Esta es la huella de tu relación!</h2>
-            </header>
-            <div className="flex flex-col gap-5">
-              <p className="body text-gray-500">
-                ¡Enhorabuena! Este es el reflejo de tu relación. Cada relación
-                es única y tu huella también lo es.
-              </p>
-              <ul className="flex gap-2 flex-wrap">
-                <li className="black-box">
-                  <button onClick={() => {handleHuella(null, null, 'reset')}} >Crear una huella nueva</button>
-                </li>
-                <li onClick={() => handleClick(1)} className="border-black-box">Modo manual</li>
-              </ul>
-            </div>
-          </article> }
-          
+          {huellaObj.length === 10 && (
+            <article className="flex flex-col gap-10 max-w-[600px]">
+              <header className="flex flex-col gap-1">
+                <h2 className="h3">¡Esta es la huella de tu relación!</h2>
+              </header>
+              <div className="flex flex-col gap-5">
+                <p className="body text-gray-500">
+                  ¡Enhorabuena! Este es el reflejo de tu relación. Cada relación
+                  es única y tu huella también lo es.
+                </p>
+                <ul className="flex gap-2 flex-wrap">
+                  <li className="black-box">
+                    <button
+                      onClick={() => {
+                        handleHuella(null, null, "reset");
+                      }}
+                    >
+                      Crear una huella nueva
+                    </button>
+                  </li>
+                  <li
+                    onClick={() => handleClick(1)}
+                    className="border-black-box"
+                  >
+                    Modo manual
+                  </li>
+                </ul>
+              </div>
+            </article>
+          )}
         </aside>
       </section>
-    </section>
+    </main>
   );
 }
 

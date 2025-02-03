@@ -3,7 +3,7 @@ import Apertura from "../../components/Apertura.jsx";
 import SingleNav from "../../components/nav/SingleNav.jsx";
 import Carrusel from "../../components/Carrusel.jsx";
 import PAGES from "../../data/PAGES.jsx";
-import Footer from "../../components/Footer.jsx";
+import SectionFooter from "../../components/SectionFooter.jsx";
 
 export default function Conexion({ name, nameHighlight }) {
   const CONEXION = PAGES[1].subPages[0].carrusel;
@@ -24,7 +24,10 @@ export default function Conexion({ name, nameHighlight }) {
 
         <Carrusel array={CONEXION} />
 
-        <section className="h-[100vh] w-full flex flex-col justify-center px-80 relative pt-80 bg-white overflow-visible pb-90">
+        <section
+          id="conexion-section-2"
+          className="h-[100vh] w-full flex flex-col justify-center px-80 relative pt-80 bg-white overflow-visible pb-90"
+        >
           <h2 className="small flex items-center gap-2 absolute top-[15%] left-10">
             <svg
               width="12"
@@ -74,9 +77,10 @@ export default function Conexion({ name, nameHighlight }) {
             />
           </figure>
         </section>
-        <section className="flex flex-col items-center justify-center h-[100vh] bg-white relative">
+        <section className="flex flex-col items-center justify-center h-[100vh] bg-[--nexusBlue] text-white relative">
           <figure>
             <svg
+              opacity={0.25}
               width="633"
               height="540"
               viewBox="0 0 633 540"
@@ -98,7 +102,7 @@ export default function Conexion({ name, nameHighlight }) {
             <strong className="pixel font-normal">compartir</strong>
           </span>
         </section>
-        <section className="flex justify-between px-10 py-20">
+        <section className="flex justify-between px-10 py-40 min-h-[80vh]">
           <aside>
             <h2 className="small flex items-center gap-2">
               <svg
@@ -139,7 +143,7 @@ export default function Conexion({ name, nameHighlight }) {
             </article>
           </article>
         </section>
-      <Footer />
+        <SectionFooter />
       </main>
     </>
   );

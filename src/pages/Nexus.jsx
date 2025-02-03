@@ -7,6 +7,8 @@ import PAGES from "../data/PAGES.jsx";
 import HALL from "../data/HALL.jsx";
 import Breadcrumbs from "../components/nav/Breadcrumbs.jsx";
 
+import SectionFooter from "../components/SectionFooter.jsx";
+
 export default function Nexus({ name, nameHighlight }) {
   const [activeFase, setActiveFase] = useState(0);
   const fasesRelacion = FASES;
@@ -302,6 +304,7 @@ export default function Nexus({ name, nameHighlight }) {
             className="cover  w-full"
           ></video>
         </section>
+        <SectionFooter />
       </main>
     </>
   );

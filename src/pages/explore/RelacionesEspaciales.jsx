@@ -11,7 +11,7 @@ import PAGES from "../../data/PAGES.jsx";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-import Footer from "../../components/Footer.jsx";
+import SectionFooter from "../../components/SectionFooter.jsx";
 
 gsap.registerPlugin(useGSAP);
 
@@ -83,7 +83,7 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
               subcategorías:
             </h2>
             <section className="flex flex-col gap-10">
-              <ul className="flex gap-2 bg-gray-200 p-1">
+              <ul className="flex gap-2 bg-gray-200 rounded-md p-1">
                 {hall.map((hall, index) => {
                   return (
                     <li key={index}>
@@ -91,7 +91,11 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
                         onClick={() => {
                           handleClick(index);
                         }}
-                        className={activeHall === index ? "blue-box" : "tab"}
+                        className={
+                          activeHall === index
+                            ? "blue-box rounded-[2px]"
+                            : "tab-black"
+                        }
                       >
                         {hall.name}
                       </button>
@@ -102,7 +106,7 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
               <article className="flex gap-10 max-w-[440px]">
                 <span className="small">0{hall[activeHall].id}</span>
                 <aside className="flex flex-col gap-10">
-                  <h3 className="h5">Espacio íntimo</h3>
+                  <h3 className="h5">{hall[activeHall].name}</h3>
                   <p>{hall[activeHall].description}</p>
                 </aside>
               </article>
@@ -186,7 +190,7 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
           </aside>
         </section>
 
-        <Footer />
+        <SectionFooter />
       </main>
     </>
   );

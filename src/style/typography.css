@@ -122,7 +122,7 @@
   line-height: 90%;
 }
 .pixel-strong {
-  margin-top: -60px
+  margin-top: -60px;
 }
 .pixel-menu {
   font-family: "New Pixel";
@@ -368,7 +368,7 @@
 
 .cta {
   transition: all 0.3s ease-in-out;
-  .white-box{
+  .white-box {
     transition: all 0.3s ease-in-out;
   }
   figure {
@@ -410,8 +410,8 @@
   }
 }
 
-.button{
-  &:hover{
+.button {
+  &:hover {
     cursor: pointer;
   }
 }
@@ -419,7 +419,7 @@
 @keyframes scaleIn {
   from {
     transform: translateY(300px);
-    transform: scale(.85);
+    transform: scale(0.85);
   }
   to {
     transform: translateY(0);
@@ -427,17 +427,34 @@
   }
 }
 
+@keyframes opacityIn {
+  from {
+    opacity: 0;
+    transform: translateY(300px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 #nexus_video {
-  animation : scaleIn linear both;
+  animation: scaleIn linear both;
   animation-timeline: view();
-  animation-range: entry 20% cover 30%; 
+  animation-range: entry 20% cover 30%;
+}
+#conexion-section-2 {
+  animation: scaleIn linear both;
+  animation: opacityIn linear both;
+  animation-timeline: view();
+  animation-range: entry 20% cover 50%;
 }
 
 @media (max-width: 768px) {
-  .h3{
+  .h3 {
     font-size: 32px;
   }
-  .menu-item{
+  .menu-item {
     height: 52px;
   }
   .menu-open {
@@ -464,7 +481,7 @@
     }
   }
   .pixel-strong {
-    margin-top: -20px
+    margin-top: -20px;
   }
   .pixel {
     font-size: 18vw;
@@ -479,21 +496,21 @@
   }
 }
 
-.switch{
+.switch {
   transition: all 2s ease-in-out;
 }
 
-.enabled{
+.enabled {
   background-color: #194bf9;
   transition: all 2s ease-in-out;
-  .atom-switch{
+  .atom-switch {
     transform: translatex(28px);
     transition: transform 1.35s cubic-bezier(0.24, 1.03, 0.85, 0.99) 0.125s;
     background-color: white;
-    border : 1px solid white;
+    border: 1px solid white;
   }
 }
 
-.atom-switch{
+.atom-switch {
   transition: all 2s ease-in-out;
 }

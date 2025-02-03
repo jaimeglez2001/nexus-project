@@ -28,7 +28,7 @@ export default function Carrusel({ array }) {
   });
 
   return (
-    <section className="p-5 pt-14 relative bg-white">
+    <section id="carrusel" className="p-5 pt-14 relative bg-white">
       <ScrollToTop />
       <section
         id="carusel-holder"

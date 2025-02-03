@@ -5,7 +5,7 @@ import SingleNav from "../../components/nav/SingleNav.jsx";
 import React, { useState } from "react";
 import CarruselFases from "../../components/CarruselFases.jsx";
 import RELACIONES from "../../data/RELACIONES.jsx";
-import Footer from "../../components/Footer.jsx";
+import SectionFooter from "../../components/SectionFooter.jsx";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -151,7 +151,7 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
           </section>
         </section>
 
-      <Footer />
+      <SectionFooter />
       </main>
     </>
   );

@@ -12,6 +12,7 @@ import NexusApp from "./pages/NexusApp.jsx";
 import { AppHuellaProvider } from "./context/appHuella.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import Nexus from "./pages/Nexus.jsx";
+import Footer from "./components/nav/Footer.jsx";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <MenuProvider>
         <Router>
           <Nav />
+
           <BurguerMenu />
           <ScrollToTop />
           <Routes>
@@ -82,6 +84,7 @@ function App() {
               }
             />
           </Routes>
+          <Footer />
         </Router>
       </MenuProvider>
     </>
