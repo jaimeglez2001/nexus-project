@@ -373,11 +373,11 @@ function Manual() {
               <li className="flex w-full gap-5 border-b-[1px] border-[#c1c1c1] px-6 py-2">
                 <aside className="caption text-gray-400">
                   {huellaObj.length < 9 && "0"}
-                  Fase
+                  {huellaObj.length + 1}
                 </aside>
                 <div className=" flex flex-col ">
                   <header className="sinteca-med text-gray-400 text-[16px]">
-                    {fasesRelacion[huellaObj.length].fase}
+                    Fase
                   </header>
                   <span className="small text-gray-400">Positiva</span>
                 </div>
