@@ -104,7 +104,7 @@ function Cuestionario() {
           <span className="caption">
             {" "}
             {huellaObj.length === 10 ? null : "0"}
-            {huellaObj.length} / 10
+            {huellaObj.length + 1} / 10
           </span>
           <h2 className="h3">
             {FASES[huellaObj.length]?.cuestionario.pregunta}
