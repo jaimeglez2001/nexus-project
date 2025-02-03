@@ -71,15 +71,15 @@ const pages = [
         carrusel: [
           {
             text: "“Cada individuo posee una voz interior que rápidamente evalúa la relevancia o significado de algo o alguien”",
-            image: "/explore/conexion/conexion-carrusel-1.png",
+            image: "imgs/explore/conexion/conexion-carrusel-1.png",
           },
           {
             text: "En nuestras vidas cotidianas nos encontramos con una diversidad de individuos",
-            image: "/explore/conexion/conexion-carrusel-2.png",
+            image: "imgs/explore/conexion/conexion-carrusel-2.png",
           },
           {
             text: `Aunque compartamos espacio con ellos, el acto de "conectar" profundamente se reserva a unas pocos`,
-            image: "/explore/conexion/conexion-carrusel-3.png",
+            image: "imgs/explore/conexion/conexion-carrusel-3.png",
           },
         ],
       },
@@ -146,11 +146,11 @@ const pages = [
         carrusel: [
           {
             text: "La proxémica, una rama de la semiótica dedicada al estudio de la organización del espacio en la comunicación",
-            image: "explore/espaciales/espaciales-carrusel-1.png",
+            image: "imgs/explore/espaciales/espaciales-carrusel-1.png",
           },
           {
             text: "Analiza las relaciones espaciales entre individuos y objetos durante la interacción, considerando posturas adoptadas y la presencia o ausencia de contacto físico ",
-            image: "explore/espaciales/espaciales-carrusel-2.jpg",
+            image: "imgs/explore/espaciales/espaciales-carrusel-2.jpg",
           },
         ],
       },
@@ -159,7 +159,7 @@ const pages = [
   {
     name: "Nexus",
     pathname: "/nexus",
-    image: "../public/imgs/nexus/nexus-main.jpg",
+    image: "/imgs/nexus/nexus-main.jpg",
     huella: (
       <svg
         width="334"
@@ -186,7 +186,7 @@ const pages = [
   {
     name: "Crea tu huella",
     pathname: "/crea-tu-huella",
-    image: "../public/imgs/nexusApp/crea-tu-huella-main.png",
+    image: "imgs/nexusApp/crea-tu-huella-main.png",
     huella: (
       <svg
         width="344"

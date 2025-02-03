@@ -8,7 +8,7 @@ export default function Apertura({ children }) {
       <TerciaryCta name="Volver" link="/explore" />
         <figure>
           <img
-            src="../public/imgs/firmas/firma-blanca.png"
+            src="/imgs/firmas/firma-blanca.png"
             alt=""
             className="absolute z-[50] right-[50%] translate-x-[30%] top-[60%] translate-y-[-40%]  difference"
           />
