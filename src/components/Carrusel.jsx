@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import CarruselArticle from "./CarruselArticle.jsx";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
