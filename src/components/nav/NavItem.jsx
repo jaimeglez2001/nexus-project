@@ -6,10 +6,10 @@ function ActiveNavItem({ name, link, onMouseEnter, onMouseLeave, onClick }) {
   return (
       <li>
         <Link to={link} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} className="menu-item flex flex-col gap-5 overflow-hidden">
-          <span className="pixel-menu tracking-tighter leading-[100%]">
+          <span className="pixel-menu text-[58px] md:text-[84px] tracking-tighter leading-[100%]">
             {name}
           </span>
-          <span className="sinteca-med text-[72px] tracking-tighter leading-[100%]">
+          <span className="sinteca-med text-[52px] md:text-[72px] tracking-tighter leading-[100%]">
             {name}
           </span>
         </Link>
@@ -20,12 +20,12 @@ function ActiveNavItem({ name, link, onMouseEnter, onMouseLeave, onClick }) {
 function DefaultNavItem({ name, link, onMouseEnter, onMouseLeave, onClick }) {
 
   return (
-      <li className="sinteca-med text-[72px] tracking-tighter leading-[100%]">
+      <li className="sinteca-med tracking-tighter leading-[100%]">
         <Link to={link} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} className="menu-item flex flex-col gap-5 overflow-hidden">
-          <span className="sinteca-med text-[72px] tracking-tighter leading-[100%]">
+          <span className="sinteca-med text-[52px] md:text-[72px] tracking-tighter leading-[100%]">
             {name}
           </span>
-          <span className="pixel-menu tracking-tighter leading-[100%]">
+          <span className="pixel-menu text-[58px] md:text-[84px] tracking-tighter leading-[100%]">
             {name}
           </span>
         </Link>

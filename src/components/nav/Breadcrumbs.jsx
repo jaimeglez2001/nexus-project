@@ -24,7 +24,7 @@ export default function Breadcrumbs() {
   });
 
   return (
-    <nav className="w-full flex flex-col gap-4 px-10 absolute top-[60px] z-50">
+    <nav className="w-full flex flex-col gap-4 px-5 md:px-10 absolute top-[60px] z-50">
       <ul className="flex gap-3">
         <li className="flex gap-3 sinteca-med text-[14px]">
           <Link to="/" className="underline underline-offset-[4px] text-black">

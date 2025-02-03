@@ -17,20 +17,21 @@ function Explore() {
 
   useGSAP(() => {
     const contents = gsap.utils.toArray(".explore-card");
-
-    gsap.to(contents, {
-      xPercent: -103.5 * (contents.length - 1),
-      scrollTrigger: {
-        trigger: "#explore-holder",
-        pin: true,
-        scrub: 1,
-        onUpdate: (self) => {
-          // Calculando la sección activa en función del progreso del scroll
-          const index = Math.round(self.progress * (contents.length - 1));
-          setActiveSection(index + 1); // Actualiza el estado con el índice
+    if (window.innerWidth > 768) {
+      gsap.to(contents, {
+        xPercent: -103.5 * (contents.length - 1),
+        scrollTrigger: {
+          trigger: "#explore-holder",
+          pin: true,
+          scrub: 1,
+          onUpdate: (self) => {
+            // Calculando la sección activa en función del progreso del scroll
+            const index = Math.round(self.progress * (contents.length - 1));
+            setActiveSection(index + 1); // Actualiza el estado con el índice
+          },
         },
-      },
-    });
+      });
+    }
   });
 
   const sectionId = useId();
@@ -42,7 +43,7 @@ function Explore() {
         <h1 className="blue-box">Explora</h1>
         <ul
           id="explore-holder"
-          className={`flex overflow-x-hidden w-[99vw] h-[300vw] absolute top-0 left-0`}
+          className={`flex flex-col md:flex-row overflow-x-hidden w-[99vw] h-[300vw] absolute top-0 left-0`}
         >
           {explore.map((explore, index) => {
             return (
@@ -63,7 +64,7 @@ function Explore() {
           })}
         </ul>
 
-        <footer className="flex flex-col gap-4 fixed bottom-10 left-10 z-50">
+        <footer className="md:flex flex-col gap-4 fixed bottom-10 left-10 z-50 hidden">
           <aside className="flex gap-2 items-center">
             <span className="black-box small">
               {String(activeSection).padStart(2, "0")}

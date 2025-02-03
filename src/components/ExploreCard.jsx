@@ -14,24 +14,24 @@ export default function ExploreCard({
     <>
       <section
         id={`${id}`}
-        className="explore-card border-x-[.5px] snap-start border-black flex-col sm:flex-row h-[95vh] flex items-end w-[100vw] pl-10 bg-white relative shrink-0 pb-20"
+        className="explore-card border-x-[.5px] md:snap-start border-black flex-col-reverse sm:flex-row h-[95vh] flex items-center md:items-end w-[100vw] px-5 md:pl-10 bg-white relative md:shrink-0 py-50 pb-5 md:pb-20"
       >
-        <article className="flex flex-col gap-10 items-start z-50">
+        <article className="flex flex-col gap-5 md:gap-10 items-start z-50">
           <h2 className="h2 flex flex-col gap-2sinteca-sb items-end tracking-tighter">
             <span>{sectionName}</span>
             <strong className="pixel pixel-strong font-normal mt-[-60px]">
               {sectionDisplay}
             </strong>
           </h2>
-          <aside className="w-full flex justify-between items-end">
+          <aside className="w-full gap-2 flex flex-col md:flex-row md:justify-between items-end">
             <p className="max-w-[368px] small text-[14px] tracking-wide text-pretty leading-5">
               {bodyText}
             </p>
             <Cta name="Explorar más" link={link} color="white" />
           </aside>
         </article>
-        <aside>
-          <figure className="absolute bottom-0 right-0">
+        <aside className="h-[600px]">
+          <figure className=" md:absolute md:bottom-0 md:right-0 md:scale-100 scale-[40%]">
             {huella}
             <img
               src="../public/imgs/firma-negra.png"
