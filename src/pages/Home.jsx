@@ -152,15 +152,15 @@ function Home() {
 
           {/* Claim Hero */}
           <article className="hero-claim flex flex-col items-end w-full md:w-[400px] absolute bottom-[25%] left-[50%] z-10 translate-x-[-50%] gap-5 px-4">
-            <div className="claim flex flex-col w-full">
+            <div className="claim flex flex-col shrink-0 w-full">
               {/* Row 1 */}
-              <p className="black-box body-large font-sinteca text-[22px]">
+              <p className="black-box shrink-0 body-large font-sinteca text-[22px]">
                 Cada relación es única y personal,
               </p>
 
               {/* Row 2 */}
               <div className="p-wrap w-full flex justify-end">
-                <p className="black-box body-large font-sinteca text-[22px]">
+                <p className="black-box shrink-0 body-large font-sinteca text-[22px]">
                   como una huella dactilar
                 </p>
               </div>
