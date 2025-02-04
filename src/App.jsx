@@ -10,7 +10,7 @@ import BurguerMenu from "./components/nav/BurguerMenu.jsx";
 import { MenuProvider } from "./context/menu.jsx";
 import NexusApp from "./pages/NexusApp.jsx";
 import { AppHuellaProvider } from "./context/appHuella.jsx";
-import ScrollToTop from "./components/ScrollToTop.jsx";
+
 import Nexus from "./pages/Nexus.jsx";
 import Footer from "./components/nav/Footer.jsx";
 
@@ -22,7 +22,7 @@ function App() {
           <Nav />
 
           <BurguerMenu />
-          <ScrollToTop />
+
           <Routes>
             <Route path="/" element={<Home />} />
             <Route
