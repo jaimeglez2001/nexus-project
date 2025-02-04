@@ -434,7 +434,7 @@ function Manual() {
                 {huellaObj.slice(3, 7).map((fase, index) => (
                   <span
                     key={index}
-                    className="nexus-font text-[--nexusBlue] text-[200px]xlg:text-[300px] tracking-[-80px] leading-[28px] xl:leading-[48px] xl:tracking-[-120px]"
+                    className="nexus-font text-[--nexusBlue] text-[200px] xl:text-[300px] tracking-[-80px] leading-[28px] xl:leading-[48px] xl:tracking-[-120px]"
                   >
                     {fase.letra}
                   </span>

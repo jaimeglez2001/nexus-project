@@ -29,7 +29,7 @@ export default function CarruselFases() {
   });
 
   return (
-    <section className="flex flex-col items-center gap-20 h-screen pt-60 p-10 w-[100%]"  id="fases-holder">
+    <section className="xl:min-h-[100vh] flex flex-col items-center gap-20 h-screen pt-60 pb-20 p-10 w-[100%]"  id="fases-holder">
       <h3 className="h3 text-center max-w-[1024px]">
         El proceso de formación y desgaste de las relaciones se define a través
         de diez etapas establecidas

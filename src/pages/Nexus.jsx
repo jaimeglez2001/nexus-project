@@ -67,7 +67,7 @@ export default function Nexus({ name, nameHighlight }) {
             />
           </svg>
         </section>
-        <section className="xl:h-[100vh] flex flex-col gap-20 xl:flex-row items-center xl:items-start justify-between p-10 pt-40 w-full">
+        <section className="xl:min-h-[100vh] flex flex-col gap-20 xl:flex-row items-center xl:items-start justify-between p-10 pt-40 w-full">
           <article className="flex flex-col gap-20 xl:max-w-[40vw]">
             <article className="flex flex-col gap-10  pb-20 border-b-[1px] border-black  max-w-[674px]">
               <h2 className="h5">
