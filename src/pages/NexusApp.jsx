@@ -199,7 +199,7 @@ function Cuestionario() {
             {huellaObj.slice(0, 3).map((fase, index) => (
               <span
                 key={index}
-                className="nexus-font text-[--nexusBlue] text-[200px] lg:text-[300px] tracking-[-80px] leading-[28px] lg:leading-[48px] lg:tracking-[-120px]"
+                className="nexus-font text-[--nexusBlue] text-[200px] xl:text-[300px] tracking-[-80px] leading-[28px] xl:leading-[48px] xl:tracking-[-120px]"
               >
                 {fase.letra}
               </span>
@@ -210,7 +210,7 @@ function Cuestionario() {
               {huellaObj.slice(3, 7).map((fase, index) => (
                 <span
                   key={index}
-                  className="nexus-font text-[--nexusBlue] text-[200px] lg:text-[300px] tracking-[-80px] leading-[28px] lg:leading-[48px] lg:tracking-[-120px]"
+                  className="nexus-font text-[--nexusBlue] text-[200px] xl:text-[300px] tracking-[-80px] leading-[28px] xl:leading-[48px] xl:tracking-[-120px]"
                 >
                   {fase.letra}
                 </span>
@@ -223,7 +223,7 @@ function Cuestionario() {
               {huellaObj.slice(7, 10).map((fase, index) => (
                 <span
                   key={index}
-                  className="nexus-font text-[--nexusBlue] text-[200px] lg:text-[300px] tracking-[-80px] leading-[28px] lg:leading-[48px] lg:tracking-[-120px]"
+                  className="nexus-font text-[--nexusBlue] text-[200px] xl:text-[300px] tracking-[-80px] leading-[28px] xl:leading-[48px] xl:tracking-[-120px]"
                 >
                   {fase.letra}
                 </span>
@@ -423,7 +423,7 @@ function Manual() {
               {huellaObj.slice(0, 3).map((fase, index) => (
                 <span
                   key={index}
-                  className="nexus-font text-[--nexusBlue] text-[200px] lg:text-[300px] tracking-[-80px] leading-[28px] lg:leading-[48px] lg:tracking-[-120px]"
+                  className="nexus-font text-[--nexusBlue] text-[200px] xl:text-[300px] tracking-[-80px] leading-[28px] xl:leading-[48px] xl:tracking-[-120px]"
                 >
                   {fase.letra}
                 </span>
@@ -434,7 +434,7 @@ function Manual() {
                 {huellaObj.slice(3, 7).map((fase, index) => (
                   <span
                     key={index}
-                    className="nexus-font text-[--nexusBlue] text-[200px] lg:text-[300px] tracking-[-80px] leading-[28px] lg:leading-[48px] lg:tracking-[-120px]"
+                    className="nexus-font text-[--nexusBlue] text-[200px]xlg:text-[300px] tracking-[-80px] leading-[28px] xl:leading-[48px] xl:tracking-[-120px]"
                   >
                     {fase.letra}
                   </span>
@@ -447,7 +447,7 @@ function Manual() {
                 {huellaObj.slice(7, 10).map((fase, index) => (
                   <span
                     key={index}
-                    className="nexus-font text-[--nexusBlue] text-[200px] lg:text-[300px] tracking-[-80px] leading-[28px] lg:leading-[48px] lg:tracking-[-120px]"
+                    className="nexus-font text-[--nexusBlue] text-[200px] xl:text-[300px] tracking-[-80px] leading-[28px]xlg:leading-[48px] xl:tracking-[-120px]"
                   >
                     {fase.letra}
                   </span>
