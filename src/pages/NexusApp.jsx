@@ -11,8 +11,8 @@ function Welcome() {
   const { stage, handleClick } = useContext(AppHuellaContext);
 
   return (
-    <main className="bg-white w-full h-[96vh] flex justify-between items-center p-10 pl-[164px]">
-      <section className="flex flex-col items-center justify-center h-[85vh] bg-white relative pb-[164px]">
+    <main className="bg-white w-full h-[96vh] flex flex-col gap-5 lg:flex-row justify-between items-center px-5 py-40 lg:p-10 pt-40 lg:pl-[164px]">
+      <section className="flex flex-col items-center justify-center h-[20vh] lg:h-[85vh] bg-white relative pb-[164px]">
         <figure>
           <img
             src="../public/imgs/firmas/firma-blanca.png"
@@ -100,7 +100,7 @@ function Cuestionario() {
           </button>
         )}
 
-        <header className="flex flex-col gap-1 pr-80">
+        <header className="flex flex-col gap-1 ">
           <span className="caption">
             {" "}
             {huellaObj.length === 10 ? null : "0"}
@@ -110,7 +110,7 @@ function Cuestionario() {
             {FASES[huellaObj.length]?.cuestionario.pregunta}
           </h2>
         </header>
-        <p className="body text-gray-500 pr-80">
+        <p className="body text-gray-500 ">
           {FASES[huellaObj.length]?.cuestionario.ejemplo}
         </p>
         <ul className="flex gap-2 flex-wrap">
@@ -158,10 +158,10 @@ function Cuestionario() {
           </button>
         )}
 
-        <header className="flex flex-col gap-1 pr-80">
+        <header className="flex flex-col gap-1">
           <h2 className="h3">¡Esta es la huella de tu relación!</h2>
         </header>
-        <p className="body text-gray-500 pr-80">
+        <p className="body text-gray-500">
           ¡Enhorabuena! Este es el reflejo de tu relación. Cada relación es
           única y tu huella también lo es. Si quieres una experiencia más
           personalizada puedes probar a utilizar el modo manual, o bien puedes
@@ -185,10 +185,10 @@ function Cuestionario() {
   }
 
   return (
-    <main className="bg-white h-[96vh] flex pt-[35vh] justify-between p-10">
+    <main className="bg-white xl:h-[96vh] flex flex-col-reverse gap-40 xl:flex-row pt-[20vh] 2xl:pt-[35vh] justify-between p-10">
       <AppSwitch changeStage={2} />
       {huellaObj.length === 10 ? <Feedback /> : <Preguntas />}
-      <aside className="w-full h-full justify-center flex flex-col items-center">
+      <aside className="w-full justify-center flex flex-col items-center h-[40vh] lg:h-full">
         <article className="pb-40">
           <div>
             {huellaObj.length === 0 && (
@@ -199,7 +199,7 @@ function Cuestionario() {
             {huellaObj.slice(0, 3).map((fase, index) => (
               <span
                 key={index}
-                className="nexus-font text-[--nexusBlue] text-[300px] tracking-[-120px]"
+                className="nexus-font text-[--nexusBlue] text-[200px] lg:text-[300px] tracking-[-80px] leading-[28px] lg:leading-[48px] lg:tracking-[-120px]"
               >
                 {fase.letra}
               </span>
@@ -210,7 +210,7 @@ function Cuestionario() {
               {huellaObj.slice(3, 7).map((fase, index) => (
                 <span
                   key={index}
-                  className="nexus-font text-[--nexusBlue] text-[300px] tracking-[-120px]"
+                  className="nexus-font text-[--nexusBlue] text-[200px] lg:text-[300px] tracking-[-80px] leading-[28px] lg:leading-[48px] lg:tracking-[-120px]"
                 >
                   {fase.letra}
                 </span>
@@ -223,7 +223,7 @@ function Cuestionario() {
               {huellaObj.slice(7, 10).map((fase, index) => (
                 <span
                   key={index}
-                  className="nexus-font text-[--nexusBlue] text-[300px] tracking-[-120px]"
+                  className="nexus-font text-[--nexusBlue] text-[200px] lg:text-[300px] tracking-[-80px] leading-[28px] lg:leading-[48px] lg:tracking-[-120px]"
                 >
                   {fase.letra}
                 </span>
@@ -276,11 +276,10 @@ function Manual() {
 
     */
   return (
-    <main className="w-full h-[96vh] flex gap-10 bg-white relative pt-[60px] items-center">
+    <main className="w-full xl:h-[96vh] flex flex-col-reverse xl:flex-row gap-10  bg-white relative pt-[60px] items-center">
       <AppSwitch changeStage={1} />
-      <section className="h-full flex gap-5">
-        <section className="flex flex-col gap-10 bg-[--nexusBlue] relative h-full max-w-[477px] px-10 py-10 text-white">
-          <nav>
+      <section className="h-full flex flex-col w-full lg:flex-row gap-5">
+        <section className="flex flex-col gap-10 bg-[--nexusBlue] relative h-full w-full xl:max-w-[477px] px-5 lg:px-10 py-10 text-white">
             <ul className="flex shrink-0 gap-2 max-w-[700px] flex-wrap pb-10 border-b-[1px] border-white">
               {fasesRelacion.map((fase, index) => {
                 return (
@@ -300,7 +299,6 @@ function Manual() {
                 );
               })}
             </ul>
-          </nav>
           <article className="flex flex-col w-full gap-10">
             <span className="small pl-[50px]">Selecciona:</span>
             <ul className="flex gap-4 pl-[50px]">
@@ -339,7 +337,7 @@ function Manual() {
             </article>
           </article>
         </section>
-        <section className="flex flex-col gap-5 w-[264px]">
+        <section className="flex flex-col gap-5  px-5 lg:px-0 w-full xl:w-[264px]">
           <ul className="flex flex-col gap-2">
             {huellaObj.length === 0 && (
               <li className="flex w-full gap-5 border-b-[1px] border-[#c1c1c1] px-6 py-2">
@@ -384,7 +382,7 @@ function Manual() {
               </li>
             )}
           </ul>
-          <aside className="flex items-center justify-between">
+          <aside className="flex items-center justify-between px-10 lg:px-0">
             <span className="body-med">Fase</span>
             <span className={`${huellaObj.length === 0 && "text-gray-400"}`}>
               {huellaObj.length < 10 && "0"}
@@ -393,7 +391,7 @@ function Manual() {
           </aside>
         </section>
       </section>
-      <section className="w-full flex flex-col items-center h-full">
+      <section className="w-full flex flex-col items-center h-[70vh] lg:h-full">
         <aside className="w-full flex flex-col items-center justify-center relative h-full gap-20">
           {huellaObj.length > 0 && (
             <button

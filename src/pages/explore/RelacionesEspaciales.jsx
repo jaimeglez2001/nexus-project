@@ -76,14 +76,14 @@ export default function RelacionesInterpersonales({ name, nameHighlight }) {
 
         <Carrusel array={ESPACIALES} />
 
-        <section className="h-[100vh] flex justify-between p-10 pt-40 w-full">
-          <article className="flex flex-col gap-20">
+        <section className="xl:h-[100vh] gap-20 items-center xl:items-start flex flex-col xl:flex-row justify-between p-10 pt-40 w-full">
+          <article className="flex flex-col gap-20 xl:max-w-[45vw]">
             <h2 className="h3 max-w-[674px] pb-20 border-b-[1px] border-black">
               El modelo de Hall clasifica el espacio personal en cuatro
               subcategorías:
             </h2>
             <section className="flex flex-col gap-10">
-              <ul className="flex gap-2 bg-gray-200 rounded-md p-1">
+              <ul className="flex flex-wrap gap-2 bg-gray-200 rounded-md p-1">
                 {hall.map((hall, index) => {
                   return (
                     <li key={index}>

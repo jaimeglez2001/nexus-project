@@ -130,7 +130,6 @@
 }
 .nexus-font {
   font-family: "Nexus";
-  line-height: 48px;
 }
 .huella-xxl {
   font-family: "Nexus";
@@ -514,3 +513,7 @@
 .atom-switch {
   transition: all 2s ease-in-out;
 }
+
+.difference {
+    mix-blend-mode: difference;
+  }

@@ -28,14 +28,14 @@ export default function Nexus({ name, nameHighlight }) {
     <>
       <main className="bg-white">
         <Breadcrumbs />
-        <section className="h-[100vh] w-full flex justify-end items-center relative bg-white overflow-hidden pr-80">
+        <section className="h-[100vh] w-full flex gap-20 justify-end items-center relative bg-white overflow-hidden px-40 xl:pr-80">
           {" "}
-          <article className="flex flex-col items-start gap-1 pt-20">
+          <article className="flex flex-col items-start w-full pl-5 md:pl-20 xl:pl-0 gap-1 pt-5 xl:pt-20 xl:max-w-[40vw]">
             <h1 className="h1 text-[--nexusBlue]">Nexus</h1>
             <article className="flex flex-col items-end gap-5">
               <h3 className="h3">Un proyecto de tipografía experimental</h3>
               <article className="flex flex-col gap-4 pl-40">
-                <p className="small max-w-[452px]">
+                <p className="small  xl:max-w-[452px]">
                   Nace de una investigación sobre las relaciones interpersonales
                   y las conexiones humanas, estudiando cómo se forman y sus
                   diferentes etapas y tipologías, y plantea una propuesta
@@ -48,7 +48,7 @@ export default function Nexus({ name, nameHighlight }) {
           </article>
           <img
             src="/imgs/nexus/nexus-apertura.png"
-            className="absolute left-0 bottom-0 h-[90vh]"
+            className="absolute left-0 bottom-0 h-[60vw] xl:h-[90vh]"
           />{" "}
           <svg
             className="absolute top-20 right-10"
@@ -67,8 +67,8 @@ export default function Nexus({ name, nameHighlight }) {
             />
           </svg>
         </section>
-        <section className="h-[100vh] flex justify-between p-10 pt-40 w-full">
-          <article className="flex flex-col gap-20">
+        <section className="xl:h-[100vh] flex flex-col gap-20 xl:flex-row items-center xl:items-start justify-between p-10 pt-40 w-full">
+          <article className="flex flex-col gap-20 xl:max-w-[40vw]">
             <article className="flex flex-col gap-10  pb-20 border-b-[1px] border-black  max-w-[674px]">
               <h2 className="h5">
                 Nexus plantea una retícula de huellas que permite comprender la
@@ -86,7 +86,7 @@ export default function Nexus({ name, nameHighlight }) {
             </article>
 
             <section className="flex flex-col gap-10">
-              <ul className="flex gap-2 bg-gray-200 rounded-md p-1">
+            <ul className="flex flex-wrap gap-2 bg-gray-200 rounded-md p-1">
                 {hall.map((hall, index) => {
                   return (
                     <li key={index}>
@@ -193,7 +193,7 @@ export default function Nexus({ name, nameHighlight }) {
           </aside>
         </section>
 
-        <section className=" justify-between px-10 py-40 min-h-[110vh] text-white bg-[--nexusBlue] relative flex flex-row items-start">
+        <section className=" justify-between px-10 py-40 min-h-[110vh] text-white bg-[--nexusBlue] items-center xl:items-start relative flex flex-col gap-20 xl:flex-row">
           <section className="flex flex-col gap-60">
             <article className="flex flex-col gap-[48px] max-w-[764px] pr-40 border-b-[1px] border-white pb-20">
               <header className="flex flex-col gap-[64px]">

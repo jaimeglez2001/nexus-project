@@ -66,7 +66,7 @@ function Home() {
     <>
       <main className="w-[100vw] bg-white">
         {/*HERO*/}
-        <section className="hero w-full flex justify-center items-center h-[100vh] sinteca bg-white px-4">
+        <section className="hero w-full flex flex-col gap-20 pt-40 justify-center items-center h-[100vh] sinteca bg-white px-4">
           {/*FIRMA*/}
           <figure className="absolute top-[50%] left-[50%] translate-x-[-40%] translate-y-[-55%] w-[100sw]">
             <img
@@ -79,7 +79,7 @@ function Home() {
           {/*Huella Hero*/}
           <svg
             viewBox="0 0 936 810"
-            className="md:w-[95vh]"
+            className="absolute top-[50%] left-[50%] md:translate-x-[-50%] translate-x-[-35%] translate-y-[-50%] h-[85vh]"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -104,8 +104,7 @@ function Home() {
           {/* Logo Nexus Hero */}
 
           <svg
-            className="absolute top-[50%] left-[50%] md:translate-x-[-50%] translate-x-[-35%]
-        translate-y-[-50%] md:w-[316px]"
+            className="md:w-[316px] z-10"
             viewBox="0 0 316 164"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -151,7 +150,7 @@ function Home() {
           </svg>
 
           {/* Claim Hero */}
-          <article className="hero-claim flex flex-col items-end w-full md:w-[400px] absolute bottom-[25%] left-[50%] z-10 translate-x-[-50%] gap-5 px-4">
+          <article className="hero-claim flex flex-col items-end w-full md:w-[400px] z-10 gap-5 px-4">
             <div className="claim flex flex-col shrink-0 w-full">
               {/* Row 1 */}
               <p className="black-box shrink-0 body-large font-sinteca text-[20px]">
@@ -187,7 +186,7 @@ function Home() {
             </figure>
 
             {/* Textos de la sección */}
-            <article className="texts max-w-screen flex flex-col z-10 gap-5 md:gap-0">
+            <article className="texts max-w-screen flex flex-col z-10 gap-5 md:gap-0 ">
               {/* Row 1 */}
               <article className="row-1 flex flex-col md:flex-row md:gap-10">
                 <p className="black-box body-large">Nexus es un proyecto de</p>
@@ -209,7 +208,7 @@ function Home() {
                 </div>
               </article>
               <article className="flex flex-col gap-5 items-end">
-                <span className="pixel md:pl-[200px]">personales</span>
+                <span className="pixel xl:pl-[200px]">personales</span>
                 <Cta color="white" name="Descubre Nexus" link="/nexus" />
               </article>
             </article>
