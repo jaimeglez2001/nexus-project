@@ -19,8 +19,8 @@ export default function BurguerMenu() {
 
   return (
     <>
-      <div className={`burguer-menu z-[80] flex flex-col md:flex-row justify-end h-[100vh] w-full fixed top-0 left-0 ${isOpen ? "menu-open" : "menu-close"}`}>
-        <nav className="menuNav flex flex-col-reverse md:flex-row gap-20 z-10 h-full w-full justify-between items-end p-5 md:p-10 bg-white">
+      <div className={`burguer-menu z-[80] flex flex-col xl:flex-row justify-end h-[100vh] w-full fixed top-0 left-0 ${isOpen ? "menu-open" : "menu-close"}`}>
+        <nav className="menuNav flex flex-col-reverse xl:flex-row gap-20 z-10 h-full w-full justify-between items-end p-5 xl:p-10 bg-white">
           <ul className="flex flex-col w-full">
             {pages.map((item, index) => (
               <NavItem
@@ -32,13 +32,13 @@ export default function BurguerMenu() {
               />
             ))}
           </ul>
-          <aside className="md:scale-100 scale-50">
+          <aside className="xl:scale-100 scale-50">
             {pages[page].huella}
           </aside>
         </nav>
         <footer>
           <img
-            className="w-[1000px] h-[20vh] md:h-full object-cover" 
+            className="w-full xl:w-[400px] 2xl:w-[1000px] h-[20vh] xl:h-full object-cover" 
             src="/imgs/menu-bg.png"
             alt=""
           />
