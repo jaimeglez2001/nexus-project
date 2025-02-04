@@ -15,7 +15,7 @@ function Welcome() {
       <section className="flex flex-col items-center justify-center h-[20vh] lg:h-[85vh] bg-white relative pb-[164px]">
         <figure>
           <img
-            src="../public/imgs/firmas/firma-blanca.png"
+            src="/imgs/firmas/firma-blanca.png"
             alt=""
             className="absolute z-[50] right-[50%] translate-x-[30%] top-[50%] translate-y-[-40%] scale-[2] difference"
           />
@@ -423,7 +423,7 @@ function Manual() {
               {huellaObj.slice(0, 3).map((fase, index) => (
                 <span
                   key={index}
-                  className="nexus-font text-[--nexusBlue] text-[300px] tracking-[-120px]"
+                  className="nexus-font text-[--nexusBlue] text-[200px] lg:text-[300px] tracking-[-80px] leading-[28px] lg:leading-[48px] lg:tracking-[-120px]"
                 >
                   {fase.letra}
                 </span>
@@ -434,7 +434,7 @@ function Manual() {
                 {huellaObj.slice(3, 7).map((fase, index) => (
                   <span
                     key={index}
-                    className="nexus-font text-[--nexusBlue] text-[300px] tracking-[-120px]"
+                    className="nexus-font text-[--nexusBlue] text-[200px] lg:text-[300px] tracking-[-80px] leading-[28px] lg:leading-[48px] lg:tracking-[-120px]"
                   >
                     {fase.letra}
                   </span>
@@ -447,7 +447,7 @@ function Manual() {
                 {huellaObj.slice(7, 10).map((fase, index) => (
                   <span
                     key={index}
-                    className="nexus-font text-[--nexusBlue] text-[300px] tracking-[-120px]"
+                    className="nexus-font text-[--nexusBlue] text-[200px] lg:text-[300px] tracking-[-80px] leading-[28px] lg:leading-[48px] lg:tracking-[-120px]"
                   >
                     {fase.letra}
                   </span>
