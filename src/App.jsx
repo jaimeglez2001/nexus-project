@@ -13,6 +13,7 @@ import { AppHuellaProvider } from "./context/appHuella.jsx";
 
 import Nexus from "./pages/Nexus.jsx";
 import Footer from "./components/nav/Footer.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           <Nav />
 
           <BurguerMenu />
-
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route
