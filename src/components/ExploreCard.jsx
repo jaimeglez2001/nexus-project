@@ -34,7 +34,7 @@ export default function ExploreCard({
           <figure className=" md:absolute md:bottom-0 md:right-0 md:translate-x-20 xl:translate-x-0 md:scale-[70%] xl:scale-[80%] scale-[40%]">
             {huella}
             <img
-              src="/imgs/firma-negra.png"
+              src="/imgs/firmas/firma-negra.png"
               alt=""
               className="h-full"
             />
