@@ -28,7 +28,7 @@
   src: url("/fonts/thatthatnewpixelfamilytest-italicsquare.otf")
     format("opentype");
   font-weight: 500;
-  font-style: italic;
+  font-style: normal;
 }
 @font-face {
   font-family: "Nexus";
