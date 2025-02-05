@@ -326,6 +326,8 @@ function Home() {
             autoPlay
             loop
             muted
+            controls={false}
+            playsInline
           ></video>
         </section>
         {/* SECCIÓN 4 */}
