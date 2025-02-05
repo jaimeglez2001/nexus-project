@@ -31,12 +31,12 @@ export default function ExploreCard({
           </aside>
         </article>
         <aside className="h-[600px]">
-          <figure className=" md:absolute md:bottom-0 md:right-0 md:translate-x-20 xl:translate-x-0 md:scale-[70%] xl:scale-[80%] scale-[40%]">
+          <figure className=" md:absolute md:bottom-0 md:right-0 md:translate-x-20 xl:translate-x-0 md:scale-[70%] xl:scale-[80%] scale-[40%] relative">
             {huella}
             <img
               src="/imgs/firmas/firma-negra.png"
               alt=""
-              className="h-full"
+              className=" absolute top-[5%] right-[20%] scale-[1.5]"
             />
           </figure>
         </aside>
