@@ -12,7 +12,7 @@ function Home() {
   useGSAP(() => {
     const contents = gsap.utils.toArray(".carusel-child");
     console.log(contents);
-
+    const windowWidth = window.innerWidth;
     gsap.to(contents, {
       xPercent: -100 * (contents.length - 1),
       scrollTrigger: {
@@ -27,7 +27,7 @@ function Home() {
       },
     });
 
-    const windowWidth = window.innerWidth;
+
 
     const tl = gsap.timeline({
       scrollTrigger: {
