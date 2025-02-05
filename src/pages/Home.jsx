@@ -13,6 +13,8 @@ function Home() {
     const contents = gsap.utils.toArray(".carusel-child");
     console.log(contents);
     const windowWidth = window.innerWidth;
+    ScrollTrigger.config({ smoothTouch: 0.1 }); // Ajusta la suavidad en pantallas táctiles
+
     gsap.to(contents, {
       xPercent: -100 * (contents.length - 1),
       scrollTrigger: {
