@@ -18,11 +18,12 @@ function Home() {
       scrollTrigger: {
         trigger: "#carusel-holder",
         pin: true,
-        scrub: 1,
-        anticipatePin: 1,
+        scrub: windowWidth > 768 ? 1 : true,
+        anticipatePin: window.innerWidth > 768 ? 1 : 0.5,
         start: "top top", // Empieza cuando la parte superior del trigger (carusel-holder) llegue a la parte superior de la ventana
         end: "+=3000", // Define el final del pin, en este caso 3000px después del comienzo
         markers: false,
+        onUpdate: () => requestAnimationFrame(() => {}), // Forzar suavidad
       },
     });
 
@@ -32,10 +33,11 @@ function Home() {
       scrollTrigger: {
         trigger: "#end",
         start: "top top",
-        end: windowWidth > 768 ? "+=500" : "+=3000",
+        end: windowWidth > 768 ? "+=3000" : "+=500",
+        anticipatePin: window.innerWidth > 768 ? 1 : 0.5,
         pin: true,
         markers: false,
-        scrub: windowWidth > 768 ? 0.5 : 1,
+        scrub: windowWidth > 768 ? 1 : true,
       },
     });
 
@@ -71,11 +73,7 @@ function Home() {
         <section className="hero w-full flex flex-col gap-20 pt-40 justify-center items-center h-[100vh] sinteca bg-white px-4">
           {/*FIRMA*/}
           <figure className="absolute top-[50%] left-[50%] translate-x-[-40%] translate-y-[-55%] w-[100sw]">
-            <img
-              className=""
-              src="/imgs/firmas/firma-blanca.png"
-              alt=""
-            />
+            <img className="" src="/imgs/firmas/firma-blanca.png" alt="" />
           </figure>
 
           {/*Huella Hero*/}
@@ -229,13 +227,12 @@ function Home() {
             <p className="h3 text-center text-white max-w-[675px] z-10">
               En nuestras vidas nos encontramos con diversidad de individuos
             </p>
-            <figure  className="absolute left-10 bottom-0 md:h-[90vh]">
-            <img
-              src="/imgs/home/home-section-2.png"
-              className="h-full w-full"
-            />
+            <figure className="absolute left-10 bottom-0 md:h-[90vh]">
+              <img
+                src="/imgs/home/home-section-2.png"
+                className="h-full w-full"
+              />
             </figure>
-
           </article>
 
           {/* SECCIÓN 3 */}
@@ -306,13 +303,12 @@ function Home() {
 
             {/* Imagen de la sección */}
             <figure className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-screen md:w-auto md:h-[40vh] opacity-60">
-            <img
-              src="/imgs/home/home-section-3.png"
-              alt=""
-              className="h-full w-full"
-            />
+              <img
+                src="/imgs/home/home-section-3.png"
+                alt=""
+                className="h-full w-full"
+              />
             </figure>
-           
           </article>
         </section>
         <section
@@ -331,9 +327,15 @@ function Home() {
           ></video>
         </section>
         {/* SECCIÓN 4 */}
-        <section id="end" className="w-full flex h-screen flex-col md:flex-row overflow-hidden py-40 md:py-0">
+        <section
+          id="end"
+          className="w-full flex h-screen flex-col md:flex-row overflow-hidden py-40 md:py-0"
+        >
           <section className="columns w-full h-full flex flex-col md:flex-row">
-            <section id="section-1" className="h-full md:h-screen w-full md:w-1/3 flex items-center">
+            <section
+              id="section-1"
+              className="h-full md:h-screen w-full md:w-1/3 flex items-center"
+            >
               <article className="w-full h-full md:h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/home/cada-relacion.png')] bg-cover bg-center bg-no-repeat">
                 <div className="flex ">
                   <span className="black-box body-large">Cada </span>{" "}
@@ -341,7 +343,10 @@ function Home() {
                 </div>
               </article>
             </section>
-            <section id="section-2" className="h-full md:h-screen w-full md:w-1/3 flex items-center">
+            <section
+              id="section-2"
+              className="h-full md:h-screen w-full md:w-1/3 flex items-center"
+            >
               <article className="w-full h-full md:h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/home/es-unica.png')] bg-cover bg-center bg-no-repeat">
                 <div className="flex gap-4 ">
                   <span className="white-box body-large">es </span>{" "}
@@ -349,7 +354,10 @@ function Home() {
                 </div>
               </article>
             </section>
-            <section id="section-3" className="h-full md:h-screen w-full md:w-1/3 flex items-center">
+            <section
+              id="section-3"
+              className="h-full md:h-screen w-full md:w-1/3 flex items-center"
+            >
               <article className="w-full h-full md:h-[75%] flex flex-col items-center justify-center bg-[url('/imgs/home/y-personal.png')] bg-cover bg-center bg-no-repeat">
                 <div className="flex gap-4 flex-col items-center">
                   <span className="black-box body-large text-center">y </span>{" "}
@@ -361,7 +369,10 @@ function Home() {
           <section className="py-40 md:py-0 h-screen w-full absolute top-0 left-0">
             <article className="flex flex-col md:flex-row items-center h-full w-full justify-between px-4 md:px-40 relative">
               <div>
-                <span id="texto-final-1" className="black-box text-base md:text-lg">
+                <span
+                  id="texto-final-1"
+                  className="black-box text-base md:text-lg"
+                >
                   como una
                 </span>
               </div>
@@ -392,8 +403,15 @@ function Home() {
                 </strong>
               </div>
             </article>
-            <div id="cta-final" className="absolute right-4 md:right-40 bottom-[10%] md:bottom-[30%]">
-              <Cta name="Descubre la tuya" link="/crea-tu-huella" color="white" />
+            <div
+              id="cta-final"
+              className="absolute right-4 md:right-40 bottom-[10%] md:bottom-[30%]"
+            >
+              <Cta
+                name="Descubre la tuya"
+                link="/crea-tu-huella"
+                color="white"
+              />
             </div>
           </section>
         </section>

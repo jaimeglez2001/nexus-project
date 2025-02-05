@@ -513,3 +513,7 @@
 .difference {
     mix-blend-mode: difference;
   }
+
+  .carrusel-child {
+    will-change: transform;
+  }
