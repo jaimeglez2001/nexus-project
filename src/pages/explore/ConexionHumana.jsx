@@ -14,9 +14,9 @@ export default function Conexion({ name, nameHighlight }) {
         <SingleNav />
 
         <Apertura>
-          <h1 className="flex flex-col sinteca-sb items-end text-[64px] pt-40 tracking-tighter leading-[1%]">
+          <h1 className=" flex flex-col sinteca-sb items-end text-[40px] lg:text-[64px] pt-80 lg:pt-40 tracking-tighter leading-[1%]">
             {name}
-            <strong className="pixel mr-[100px] font-normal mt-[-20px]">
+            <strong className="pixel mr-[40px] lg:mr-[100px] font-normal lg:mt-[-20px]">
               {nameHighlight}
             </strong>
           </h1>

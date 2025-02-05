@@ -11,9 +11,11 @@ import PAGES from "../data/PAGES.jsx";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
+
 function Explore() {
   const [activeSection, setActiveSection] = useState(1); // Controlador del índice activo
   const explore = PAGES[1].subPages;
+  const windowWidth = window.innerWidth;
 
   useGSAP(() => {
     const contents = gsap.utils.toArray(".explore-card");
@@ -38,12 +40,14 @@ function Explore() {
 
   return (
     <>
-      <main className="w-full flex flex-col gap-10 pb-10 bg-white">
-        <Breadcrumbs />
-        <h1 className="blue-box">Explora</h1>
+      <main className="w-full flex flex-col gap-10 bg-white">
+        {windowWidth > 768 && (
+          <Breadcrumbs />
+        )}
+        <h1 className="blue-box absolute top-20 left-5 md:top-40 md:left-10 z-[99]">Explora</h1>
         <ul
           id="explore-holder"
-          className={`flex flex-col md:flex-row overflow-x-hidden w-[99vw] h-[300vw] absolute top-0 left-0`}
+          className={`flex flex-col md:flex-row overflow-x-hidden w-[99vw] md:h-[300vw] md:absolute top-0 left-0`}
         >
           {explore.map((explore, index) => {
             return (

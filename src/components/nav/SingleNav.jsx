@@ -27,14 +27,14 @@ export default function SingleNav() {
     <>
     <Breadcrumbs />
       <nav>
-        <ul className="flex gap-1 z-[60] top-[85px] left-10 fixed p-1 bg-white rounded-md">
+        <ul className="flex gap-1 z-[60] top-[85px] left-5 lg:left-10 fixed p-1 bg-white rounded-md max-w-[100vw] overflow-scroll">
           {EXPLORE.map((page, index) => {
             return (
               <li key={index}>
                 <Link
                   className={`${
                     activePage === index + 1 ? "black-box" : "border-black-box"
-                  } rounded-[4px]`}
+                  } flex rounded-[4px]`}
                   to={page.pathname}
                 >
                   {page.name}

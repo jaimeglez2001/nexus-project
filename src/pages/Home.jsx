@@ -26,14 +26,16 @@ function Home() {
       },
     });
 
+    const windowWidth = window.innerWidth;
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#end",
         start: "top top",
-        end: "+=3000",
+        end: windowWidth > 768 ? "+=500" : "+=3000",
         pin: true,
         markers: false,
-        scrub: 1,
+        scrub: windowWidth > 768 ? 0.5 : 1,
       },
     });
 
@@ -79,7 +81,7 @@ function Home() {
           {/*Huella Hero*/}
           <svg
             viewBox="0 0 936 810"
-            className="absolute top-[50%] left-[50%] md:translate-x-[-50%] translate-x-[-35%] translate-y-[-50%] h-[85vh]"
+            className="absolute top-[50%] left-[50%] md:translate-x-[-50%] translate-x-[-50%] translate-y-[-50%] w-[100vw] lg:w-auto lg:h-[85vh]"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -104,7 +106,7 @@ function Home() {
           {/* Logo Nexus Hero */}
 
           <svg
-            className="md:w-[316px] z-10"
+            className="w-[200px] md:w-[316px] z-10"
             viewBox="0 0 316 164"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -153,13 +155,13 @@ function Home() {
           <article className="hero-claim flex flex-col items-end w-full md:w-[400px] z-10 gap-5 px-4">
             <div className="claim flex flex-col shrink-0 w-full">
               {/* Row 1 */}
-              <p className="black-box shrink-0 body-large font-sinteca text-[20px]">
+              <p className="black-box shrink-0 font-sinteca text-[18px] md:text-[20px]">
                 Cada relación es única y personal,
               </p>
 
               {/* Row 2 */}
               <div className="p-wrap w-full flex justify-end">
-                <p className="black-box shrink-0 body-large font-sinteca text-[20px]">
+                <p className="black-box shrink-0 font-sinteca text-[18px] md:text-[20px]">
                   como una huella dactilar
                 </p>
               </div>
