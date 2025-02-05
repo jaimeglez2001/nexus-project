@@ -19,7 +19,7 @@ export default function ExploreCard({
         <article className="flex flex-col gap-5 md:gap-10 items-start z-50">
           <h2 className="h2 flex flex-col gap-2sinteca-sb items-end tracking-tighter">
             <span>{sectionName}</span>
-            <strong className="pixel pixel-strong font-normal mt-[-60px]">
+            <strong className="pixel pixel-strong font-normal md:mt-[-60px]">
               {sectionDisplay}
             </strong>
           </h2>
