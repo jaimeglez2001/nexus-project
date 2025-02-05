@@ -18,10 +18,10 @@ function Home() {
       scrollTrigger: {
         trigger: "#carusel-holder",
         pin: true,
-        scrub: windowWidth > 768 ? 1 : true,
+        scrub: windowWidth > 768 ? 1 : 0.5,
         anticipatePin: window.innerWidth > 768 ? 1 : 0.5,
         start: "top top", // Empieza cuando la parte superior del trigger (carusel-holder) llegue a la parte superior de la ventana
-        end: "+=3000", // Define el final del pin, en este caso 3000px después del comienzo
+        end: windowWidth > 768 ? "+=3000" : "+=2000",
         markers: false,
         onUpdate: () => requestAnimationFrame(() => {}), // Forzar suavidad
       },
@@ -33,7 +33,7 @@ function Home() {
       scrollTrigger: {
         trigger: "#end",
         start: "top top",
-        end: windowWidth > 768 ? "+=3000" : "+=500",
+        end: windowWidth > 768 ? "+=3000" : "+=2000",
         anticipatePin: window.innerWidth > 768 ? 1 : 0.5,
         pin: true,
         markers: false,
