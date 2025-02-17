@@ -280,25 +280,25 @@ function Manual() {
       <AppSwitch changeStage={1} />
       <section className="h-full flex flex-col w-full lg:flex-row gap-5">
         <section className="flex flex-col gap-10 bg-[--nexusBlue] relative h-full w-full xl:max-w-[477px] px-5 lg:px-10 py-10 text-white">
-            <ul className="flex shrink-0 gap-2 max-w-[700px] flex-wrap pb-10 border-b-[1px] border-white">
-              {fasesRelacion.map((fase, index) => {
-                return (
-                  <li
-                    key={index}
-                    onClick={() => {
-                      handleActiveFase(index);
-                    }}
-                    className={
-                      index === activeFase
-                        ? "button border-[1px] bg-white rounded-md px-3 py-1 text-[14px] text-[--nexusBlue] sinteca-sb"
-                        : "button border-[1px] border-white rounded-md px-3 py-1 small text-white"
-                    }
-                  >
-                    {fase.fase}
-                  </li>
-                );
-              })}
-            </ul>
+          <ul className="flex shrink-0 gap-2 max-w-[700px] flex-wrap pb-10 border-b-[1px] border-white">
+            {fasesRelacion.map((fase, index) => {
+              return (
+                <li
+                  key={index}
+                  onClick={() => {
+                    handleActiveFase(index);
+                  }}
+                  className={
+                    index === activeFase
+                      ? "button border-[1px] bg-white rounded-md px-3 py-1 text-[14px] text-[--nexusBlue] sinteca-sb"
+                      : "button border-[1px] border-white rounded-md px-3 py-1 small text-white"
+                  }
+                >
+                  {fase.fase}
+                </li>
+              );
+            })}
+          </ul>
           <article className="flex flex-col w-full gap-10">
             <span className="small pl-[50px]">Selecciona:</span>
             <ul className="flex gap-4 pl-[50px]">
@@ -447,7 +447,7 @@ function Manual() {
                 {huellaObj.slice(7, 10).map((fase, index) => (
                   <span
                     key={index}
-                    className="nexus-font text-[--nexusBlue] text-[200px] xl:text-[300px] tracking-[-80px] leading-[28px]xlg:leading-[48px] xl:tracking-[-120px]"
+                    className="nexus-font text-[--nexusBlue] text-[200px] xl:text-[300px] tracking-[-80px] leading-[28px] xl:leading-[48px] xl:tracking-[-120px]"
                   >
                     {fase.letra}
                   </span>

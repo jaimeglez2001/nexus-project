@@ -27,7 +27,7 @@ export default function SingleNav() {
     <>
     <Breadcrumbs />
       <nav>
-        <ul className="flex gap-1 z-[60] top-[85px] left-5 lg:left-10 fixed p-1 bg-white rounded-md max-w-[100vw] overflow-scroll">
+        <ul className="flex gap-1 z-[60] top-[85px] left-5 lg:left-10 fixed p-1  rounded-md max-w-[100vw]">
           {EXPLORE.map((page, index) => {
             return (
               <li key={index}>
