@@ -33,17 +33,17 @@ function Welcome() {
           relaciones personales. Puedes responder un breve cuestionario o puedes
           utilizar la herramienta manual para una experiencia más personalizada
         </p>
-        <div className="ctas flex gap-3">
+        <div className="ctas flex gap-2">
           <button
             onClick={() => {
               handleClick(1);
             }}
-            className="black-box"
+            className="black-box rounded-md"
           >
-            Comenzar
+            Crea tu huella
           </button>
-          <button onClick={() => handleClick(2)} className="border-black-box">
-            Modo manual
+          <button onClick={() => handleClick(2)} className="border-black-box rounded-md">
+            Prueba el modo manual
           </button>
         </div>
       </section>
