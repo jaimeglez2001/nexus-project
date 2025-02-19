@@ -227,7 +227,7 @@ function Cuestionario() {
         </header>
         <p className="body text-gray-500 max-w-[500px]">
           Cada relación es única y personal. Con esta huella puedes tener una
-          visión general el estado de tu relación. Ten en cuenta que formas más
+          visión general del estado de tu relación. Ten en cuenta que formas más
           unificadas y agrupadas representan lazos más unidos, mientras que
           formas más disgregadas y caóticas representan distanciamiento y un
           enfriamento de la relación. Para una experiencia más personalizada
@@ -663,7 +663,7 @@ function Manual() {
                   <div className="flex flex-col gap-5">
                     <p className="small text-gray-500">
                       Cada relación es única y personal. Con esta huella puedes
-                      tener una visión general el estado de tu relación. Ten en
+                      tener una visión general del estado de tu relación. Ten en
                       cuenta que formas más unificadas y agrupadas representan
                       lazos más unidos, mientras que formas más disgregadas y
                       caóticas representan distanciamiento y un enfriamento de
