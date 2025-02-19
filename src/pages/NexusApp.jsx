@@ -60,8 +60,14 @@ function Cuestionario() {
   const fasesRelacion = usefasesRelacion();
   const [huellaObj, setHuellaObj] = useState([]);
 
-  const { introState, handleForm, stage, handleClick, formName, setIntroState } =
-    useContext(AppHuellaContext);
+  const {
+    introState,
+    handleForm,
+    stage,
+    handleClick,
+    formName,
+    setIntroState,
+  } = useContext(AppHuellaContext);
 
   function Intro() {
     return (
@@ -133,7 +139,7 @@ function Cuestionario() {
   function Preguntas() {
     return (
       <section className="w-full max-h-[100vh] flex flex-col gap-10 relative">
-        {(huellaObj.length > 0) && (
+        {huellaObj.length > 0 && (
           <button
             onClick={() => handleHuella(null, null, "remove")}
             className="flex gap-3 items-center absolute -top-10"
@@ -153,24 +159,24 @@ function Cuestionario() {
             Atrás
           </button>
         )}
-<article className="flex flex-col w-full gap-[20px]">
-<header className="flex flex-col gap-1 ">
-          <span className="caption">
-            {huellaObj.length === 10 ? null : "0"}
-            {huellaObj.length + 1} / 10
-          </span>
-          <h2 className="h3">
-            {fasesRelacion[huellaObj.length]?.cuestionario.pregunta.replace(
-              "{formName}",
-              formName
-            )}
-          </h2>
-        </header>
-        <p className="small max-w-[600px] text-gray-500 ">
-          {fasesRelacion[huellaObj.length]?.cuestionario.ejemplo}
-        </p>
-</article>
-        
+        <article className="flex flex-col w-full gap-[20px]">
+          <header className="flex flex-col gap-1 ">
+            <span className="caption">
+              {huellaObj.length === 10 ? null : "0"}
+              {huellaObj.length + 1} / 10
+            </span>
+            <h2 className="h3">
+              {fasesRelacion[huellaObj.length]?.cuestionario.pregunta.replace(
+                "{formName}",
+                formName
+              )}
+            </h2>
+          </header>
+          <p className="small max-w-[600px] text-gray-500 ">
+            {fasesRelacion[huellaObj.length]?.cuestionario.ejemplo}
+          </p>
+        </article>
+
         <ul className="flex gap-2 flex-wrap">
           {fasesRelacion[huellaObj.length].cuestionario.respuestas.map(
             (respuesta, index) => (
@@ -227,7 +233,14 @@ function Cuestionario() {
         </p>
         <ul className="flex gap-2 flex-wrap">
           <li className="black-box rounded-md">
-            <button onClick={() => {handleClick(2); setIntroState(true)}}>Probar el modo manual</button>
+            <button
+              onClick={() => {
+                handleClick(2);
+                setIntroState(true);
+              }}
+            >
+              Probar el modo manual
+            </button>
           </li>
           <li
             onClick={() => {
@@ -413,10 +426,10 @@ function Manual() {
       {introState ? (
         <Intro />
       ) : (
-        <main className="w-full xl:h-[96vh] flex flex-col-reverse xl:flex-row gap-10  bg-white relative pt-[60px] items-center">
+        <main className="w-full xl:h-[96vh] flex flex-col-reverse xl:flex-row gap-10  bg-white relative items-center">
           <AppSwitch changeStage={1} />
           <section className="h-full flex flex-col w-full lg:flex-row gap-5">
-            <section className="flex flex-col gap-10 bg-[--nexusBlue] relative h-full w-full xl:max-w-[477px] px-5 lg:px-10 py-10 text-white">
+            <section className="flex flex-col gap-10 pt-[90px] bg-[--nexusBlue] relative h-full w-full xl:max-w-[477px] px-5 lg:px-10 py-10 text-white">
               <article className="flex flex-col gap-2">
                 <h2 className="sinteca-med text-[20px] leading-[24px] ">
                   Piensa en cómo ha sido tu relación con {formName}. ¿Por qué
@@ -446,7 +459,7 @@ function Manual() {
                   );
                 })}
               </ul>
-              <article className="flex flex-col w-full gap-10">
+              <article className="flex flex-col w-full gap-10 ">
                 <article className="flex gap-10 max-w-[440px]">
                   <span className="small">
                     {activeFase === 9 ? "" : "0"}
@@ -491,10 +504,10 @@ function Manual() {
                 </article>
               </article>
             </section>
-            <section className="flex flex-col gap-5 px-5 lg:px-0 w-full xl:w-[264px] items-end">
+            <section className="flex pt-[90px] flex-col gap-5 px-5 lg:px-0 w-full xl:w-[264px] items-end">
               <ul className="flex flex-col gap-2 w-full">
                 {huellaObj.length === 0 && (
-                  <li className="flex w-full gap-5 border-b-[1px] border-[#c1c1c1] px-6 py-2">
+                  <li className="flex w-full gap-5 border-b-[1px] border-[#c1c1c1] py-2">
                     <aside className="caption text-gray-400">00</aside>
                     <div className=" flex flex-col ">
                       <header className="sinteca-med text-gray-400 text-[16px]">
@@ -507,7 +520,7 @@ function Manual() {
                 {huellaObj.map((fase, index) => (
                   <li
                     key={index}
-                    className="flex w-full gap-5 border-b-[1px] border-[#c1c1c1] px-6 py-2"
+                    className="flex w-full gap-5 border-b-[1px] border-[#c1c1c1] py-2"
                   >
                     <aside className="caption">
                       {index < 9 && "0"}
@@ -524,7 +537,7 @@ function Manual() {
                 {huellaObj.length < 10 &&
                   huellaObj.length > 0 &&
                   !huellaFinished && (
-                    <li className="flex w-full gap-5 border-b-[1px] border-[#c1c1c1] px-6 py-2">
+                    <li className="flex w-full gap-5 border-b-[1px] border-[#c1c1c1] py-2">
                       <aside className="caption text-gray-400">
                         {huellaObj.length < 9 && "0"}
                         {huellaObj.length + 1}
@@ -547,7 +560,16 @@ function Manual() {
                   {huellaObj.length} / 10
                 </span>
               </aside>
-              <div className="w-full flex justify-end">
+              
+              <div className="w-full flex justify-end gap-2">
+              {huellaObj.length > 0 && (
+                <button
+                  onClick={() => handleHuella(null, null, "remove")}
+                  className="flex gap-3 items-center top-10 left-10 border-black-box rounded-md"
+                >
+                  Atrás
+                </button>
+              )}
                 {huellaObj.length > 0 &&
                   huellaObj.length < 10 &&
                   !huellaFinished && (
@@ -555,7 +577,7 @@ function Manual() {
                       onClick={() => {
                         setHuellaFinished(true);
                       }}
-                      className="border-black-box rounded-md"
+                      className="black-box rounded-md"
                     >
                       Terminar huella
                     </button>
@@ -563,7 +585,7 @@ function Manual() {
               </div>
             </section>
           </section>
-          <section className="w-full flex flex-col items-center h-[70vh] lg:h-full">
+          <section className="w-full pt-[60px] flex flex-col items-center h-[70vh] lg:h-full">
             <aside
               className={`w-full flex flex-col items-center ${
                 huellaObj.length === 10 || huellaFinished
@@ -571,26 +593,6 @@ function Manual() {
                   : "justify-center pb-[116px]"
               } relative h-full gap-10`}
             >
-              {huellaObj.length > 0 && (
-                <button
-                  onClick={() => handleHuella(null, null, "remove")}
-                  className="flex gap-3 items-center absolute top-10 left-10"
-                >
-                  <svg
-                    width="15"
-                    height="14"
-                    viewBox="0 0 15 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4.18008 6.02445L14.9129 6.02445V7.78798H4.18008L8.90987 12.5178L7.66305 13.7646L0.804688 6.90622L7.66305 0.0478516L8.90987 1.29467L4.18008 6.02445Z"
-                      fill="black"
-                    />
-                  </svg>
-                  Atrás
-                </button>
-              )}
               <article className="mb-20">
                 <div>
                   {huellaObj.length === 0 && (
