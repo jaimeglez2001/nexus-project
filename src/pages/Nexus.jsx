@@ -2,7 +2,7 @@ import "../style/typography.css";
 import Cta from "../components/ctas/Cta.jsx";
 
 import React, { useState, useEffect } from "react";
-import FASES from "../data/FASES.js";
+import useFasesRelacion from "../data/FASES.jsx";
 import PAGES from "../data/PAGES.jsx";
 import HALL from "../data/HALL.jsx";
 import Breadcrumbs from "../components/nav/Breadcrumbs.jsx";
@@ -11,10 +11,10 @@ import SectionFooter from "../components/SectionFooter.jsx";
 
 export default function Nexus({ name, nameHighlight }) {
   const [activeFase, setActiveFase] = useState(0);
-  const fasesRelacion = FASES;
-
+  const fasesRelacion = useFasesRelacion();
   const [activeHall, setActiveHall] = useState(0);
   const hall = HALL;
+
   const handleClick = (index) => {
     setActiveHall(index);
   };
@@ -86,7 +86,7 @@ export default function Nexus({ name, nameHighlight }) {
             </article>
 
             <section className="flex flex-col gap-10">
-            <ul className="flex flex-wrap gap-2 bg-gray-200 rounded-md p-1">
+              <ul className="flex flex-wrap gap-2 bg-gray-200 rounded-md p-1">
                 {hall.map((hall, index) => {
                   return (
                     <li key={index}>

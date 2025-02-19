@@ -1,7 +1,7 @@
 import "../style/typography.css";
 import Huella from "./Huella.jsx";
 import React, { useState, useEffect } from "react";
-import fasesRelacion from "../data/FASES.js";
+import useFasesRelacion from "../data/FASES.jsx";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -11,6 +11,8 @@ gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CarruselFases() {
+
+  const fasesRelacion = useFasesRelacion()
 
   useGSAP(() => {
     const contents = gsap.utils.toArray(".fase");

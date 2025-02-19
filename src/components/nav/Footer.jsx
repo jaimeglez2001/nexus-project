@@ -51,13 +51,7 @@ export default function Footer() {
             />
           </svg>
         </Link>
-        <ul className="flex gap-4">
-          {PAGES.map((page, index) => (
-            <li key={index} className="small text-white">
-              <Link to={page.pathname}>{page.name}</Link>
-            </li>
-          ))}
-        </ul>
+        
 
       </nav>
     </>

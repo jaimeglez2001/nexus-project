@@ -517,3 +517,28 @@
   .carrusel-child {
     will-change: transform;
   }
+
+#nexusname{
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-bottom: 1px solid white;
+    padding: 12px 0;
+    opacity: 80%;
+    font-family: 'Sinteca';
+    font-size: 24px;
+    &::placeholder{
+      color: white;
+      font-family: 'Sinteca';
+      font-size: 24px;
+    }
+    &:focus{
+      outline: none;
+      opacity: 100;
+      box-shadow: none;
+      border: none;
+      border-bottom: 2px solid white;
+
+    }
+  }

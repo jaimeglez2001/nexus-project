@@ -1,6 +1,6 @@
 import "../style/typography.css";
 import "../style/index.css";
-import FASES from "../data/FASES.js";
+import usefasesRelacion from "../data/FASES.jsx";
 import { useState } from "react";
 import Apertura from "../components/Apertura.jsx";
 import { AppHuellaContext, AppHuellaProvider } from "../context/appHuella.jsx";
@@ -11,7 +11,7 @@ function Welcome() {
   const { stage, handleClick } = useContext(AppHuellaContext);
 
   return (
-    <main className="bg-white w-full h-[96vh] flex flex-col gap-5 lg:flex-row justify-between items-center px-5 py-40 lg:p-10 pt-40 lg:pl-[164px]">
+    <main className="bg-white w-full h-[96.25vh] flex flex-col gap-5 lg:flex-row justify-between items-center px-5 py-40 lg:p-10 pt-40 lg:pl-[164px]">
       <section className="flex flex-col items-center justify-center h-[20vh] lg:h-[85vh] bg-white relative pb-[164px]">
         <figure>
           <img
@@ -42,7 +42,10 @@ function Welcome() {
           >
             Crea tu huella
           </button>
-          <button onClick={() => handleClick(2)} className="border-black-box rounded-md">
+          <button
+            onClick={() => handleClick(2)}
+            className="border-black-box rounded-md"
+          >
             Prueba el modo manual
           </button>
         </div>
@@ -53,8 +56,59 @@ function Welcome() {
 
 function Cuestionario() {
   const [activeFase, setActiveFase] = useState(0);
-  const fasesRelacion = FASES;
+
+  const fasesRelacion = usefasesRelacion();
   const [huellaObj, setHuellaObj] = useState([]);
+
+  const { introState, handleForm, stage, handleClick, formName } =
+    useContext(AppHuellaContext);
+
+  function Intro() {
+    return (
+      <main className="bg-[--nexusBlue] flex-col h-[96.25vh] w-screen flex items-center justify-center">
+        <section className="flex flex-col items-center justify-center gap-10">
+          <h1 className="text-white text-[64px] sinteca tracking-tight">
+            Piensa en una persona...
+          </h1>
+          <form
+            onSubmit={() => {
+              handleForm();
+            }}
+            className="input-container relative w-full"
+            autoCorrect="off"
+            autoComplete="off"
+          >
+            <input
+              id="nexusname"
+              type="text"
+              placeholder="Nombre"
+              autoComplete="off"
+            />
+            <button
+              type="submit"
+              className="send-btn absolute right-0 bottom-4"
+            >
+              <svg
+                height="16"
+                width="16"
+                fill="none"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 8H15M15 8L8 1M15 8L8 15"
+                  stroke="white"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                />
+              </svg>
+            </button>
+          </form>
+        </section>
+      </main>
+    );
+  }
 
   function handleHuella(respuesta, index, action) {
     if (action === "add") {
@@ -102,19 +156,21 @@ function Cuestionario() {
 
         <header className="flex flex-col gap-1 ">
           <span className="caption">
-            {" "}
             {huellaObj.length === 10 ? null : "0"}
             {huellaObj.length + 1} / 10
           </span>
           <h2 className="h3">
-            {FASES[huellaObj.length]?.cuestionario.pregunta}
+            {fasesRelacion[huellaObj.length]?.cuestionario.pregunta.replace(
+              "{formName}",
+              formName
+            )}
           </h2>
         </header>
         <p className="body text-gray-500 ">
-          {FASES[huellaObj.length]?.cuestionario.ejemplo}
+          {fasesRelacion[huellaObj.length]?.cuestionario.ejemplo}
         </p>
         <ul className="flex gap-2 flex-wrap">
-          {FASES[huellaObj.length].cuestionario.respuestas.map(
+          {fasesRelacion[huellaObj.length].cuestionario.respuestas.map(
             (respuesta, index) => (
               <li key={index}>
                 <button
@@ -159,7 +215,7 @@ function Cuestionario() {
         )}
 
         <header className="flex flex-col gap-1">
-          <h2 className="h3">¡Esta es la huella de tu relación!</h2>
+          <h2 className="h3">¡Esta es tu huella con {formName}!</h2>
         </header>
         <p className="body text-gray-500">
           ¡Enhorabuena! Este es el reflejo de tu relación. Cada relación es
@@ -185,60 +241,66 @@ function Cuestionario() {
   }
 
   return (
-    <main className="bg-white xl:h-[96vh] flex flex-col-reverse gap-40 xl:flex-row pt-[20vh] 2xl:pt-[35vh] justify-between p-10">
-      <AppSwitch changeStage={2} />
-      {huellaObj.length === 10 ? <Feedback /> : <Preguntas />}
-      <aside className="w-full justify-center flex flex-col items-center h-[40vh] lg:h-full">
-        <article className="pb-40">
-          <div>
-            {huellaObj.length === 0 && (
-              <p className="h5 text-center text-gray-300 pb-40">
-                Escoge una respuesta para comenzar
-              </p>
-            )}
-            {huellaObj.slice(0, 3).map((fase, index) => (
-              <span
-                key={index}
-                className="nexus-font text-[--nexusBlue] text-[200px] xl:text-[300px] tracking-[-80px] leading-[28px] xl:leading-[48px] xl:tracking-[-120px]"
-              >
-                {fase.letra}
-              </span>
-            ))}
-          </div>
-          {huellaObj.length > 2 && (
-            <div>
-              {huellaObj.slice(3, 7).map((fase, index) => (
-                <span
-                  key={index}
-                  className="nexus-font text-[--nexusBlue] text-[200px] xl:text-[300px] tracking-[-80px] leading-[28px] xl:leading-[48px] xl:tracking-[-120px]"
-                >
-                  {fase.letra}
-                </span>
-              ))}
-            </div>
-          )}
+    <>
+      {introState === true ? (
+        <Intro />
+      ) : (
+        <main className="bg-white xl:h-[96vh] flex flex-col-reverse gap-40 xl:flex-row pt-[20vh] 2xl:pt-[35vh] justify-between p-10">
+          <AppSwitch changeStage={2} />
+          {huellaObj.length === 10 ? <Feedback /> : <Preguntas />}
+          <aside className="w-full justify-center flex flex-col items-center h-[40vh] lg:h-full">
+            <article className="pb-40">
+              <div>
+                {huellaObj.length === 0 && (
+                  <p className="h5 text-center text-gray-300 pb-40">
+                    Escoge una respuesta para comenzar
+                  </p>
+                )}
+                {huellaObj.slice(0, 3).map((fase, index) => (
+                  <span
+                    key={index}
+                    className="nexus-font text-[--nexusBlue] text-[200px] xl:text-[300px] tracking-[-80px] leading-[28px] xl:leading-[48px] xl:tracking-[-120px]"
+                  >
+                    {fase.letra}
+                  </span>
+                ))}
+              </div>
+              {huellaObj.length > 2 && (
+                <div>
+                  {huellaObj.slice(3, 7).map((fase, index) => (
+                    <span
+                      key={index}
+                      className="nexus-font text-[--nexusBlue] text-[200px] xl:text-[300px] tracking-[-80px] leading-[28px] xl:leading-[48px] xl:tracking-[-120px]"
+                    >
+                      {fase.letra}
+                    </span>
+                  ))}
+                </div>
+              )}
 
-          {huellaObj.length > 5 && (
-            <div>
-              {huellaObj.slice(7, 10).map((fase, index) => (
-                <span
-                  key={index}
-                  className="nexus-font text-[--nexusBlue] text-[200px] xl:text-[300px] tracking-[-80px] leading-[28px] xl:leading-[48px] xl:tracking-[-120px]"
-                >
-                  {fase.letra}
-                </span>
-              ))}
-            </div>
-          )}
-        </article>
-      </aside>
-    </main>
+              {huellaObj.length > 5 && (
+                <div>
+                  {huellaObj.slice(7, 10).map((fase, index) => (
+                    <span
+                      key={index}
+                      className="nexus-font text-[--nexusBlue] text-[200px] xl:text-[300px] tracking-[-80px] leading-[28px] xl:leading-[48px] xl:tracking-[-120px]"
+                    >
+                      {fase.letra}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </article>
+          </aside>
+        </main>
+      )}
+    </>
   );
 }
 
 function Manual() {
   const [activeFase, setActiveFase] = useState(0);
-  const fasesRelacion = FASES;
+  const fasesRelacion = usefasesRelacion();
   const [huellaObj, setHuellaObj] = useState([]);
   const { stage, handleClick } = useContext(AppHuellaContext);
 
