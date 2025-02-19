@@ -226,10 +226,12 @@ function Cuestionario() {
           <h2 className="h3">¡Esta es tu huella con {formName}!</h2>
         </header>
         <p className="body text-gray-500 max-w-[500px]">
-          ¡Enhorabuena! Este es el reflejo de tu relación. Cada relación es
-          única y tu huella también lo es. Si quieres una experiencia más
-          personalizada puedes probar a utilizar el modo manual, o bien puedes
-          volver a rellenar el formulario para descubrir otra huella.
+          Cada relación es única y personal. Con esta huella puedes tener una
+          visión general el estado de tu relación. Ten en cuenta que formas más
+          unificadas y agrupadas representan lazos más unidos, mientras que
+          formas más disgregadas y caóticas representan distanciamiento y un
+          enfriamento de la relación. Para una experiencia más personalizada
+          puedes probar a utilizar el modo manual.
         </p>
         <ul className="flex gap-2 flex-wrap">
           <li className="black-box rounded-md">
