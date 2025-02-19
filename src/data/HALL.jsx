@@ -15,7 +15,7 @@ const modeloHall = [
         description: 'Abarca desde los 120 cm hasta los 364 cm y se utiliza en situaciones donde se discuten asuntos no personales'
     },    {
         id: 4,
-        name: "Espacio íntimo",
+        name: "Espacio público",
         description: 'Va desde la categoría anterior hasta el límite de lo visible o lo audible. A esta distancia, los participantes necesitan amplificar recursos como la voz para facilitar la comunicación, como en conferencias'
     }
 ]
