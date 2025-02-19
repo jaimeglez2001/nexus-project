@@ -437,7 +437,9 @@ function Manual() {
                 </h2>
                 <p className="small">
                   Tómate tu tiempo para reflexionar y formar tu huella. Intenta
-                  resumirlo en diez fases o menos.
+                  resumirlo en diez fases o menos. Recuerda que no todas las
+                  relaciones tienen que pasar por todas las fases, ni tienen por
+                  qué ocurrir de forma lineal.
                 </p>
               </article>
               <ul className="flex shrink-0 gap-2 max-w-[700px] flex-wrap pb-10 border-b-[1px] border-white">
@@ -560,16 +562,16 @@ function Manual() {
                   {huellaObj.length} / 10
                 </span>
               </aside>
-              
+
               <div className="w-full flex justify-end gap-2">
-              {huellaObj.length > 0 && (
-                <button
-                  onClick={() => handleHuella(null, null, "remove")}
-                  className="flex gap-3 items-center top-10 left-10 border-black-box rounded-md"
-                >
-                  Atrás
-                </button>
-              )}
+                {huellaObj.length > 0 && (
+                  <button
+                    onClick={() => handleHuella(null, null, "remove")}
+                    className="flex gap-3 items-center top-10 left-10 border-black-box rounded-md"
+                  >
+                    Atrás
+                  </button>
+                )}
                 {huellaObj.length > 0 &&
                   huellaObj.length < 10 &&
                   !huellaFinished && (
