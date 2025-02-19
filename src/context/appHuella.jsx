@@ -26,7 +26,7 @@ export function AppHuellaProvider({ children }) {
 
   return (
     <AppHuellaContext.Provider
-      value={{ stage, handleClick, handleForm, introState, formName, setFormName }}
+      value={{ stage, handleClick, handleForm, introState, formName, setFormName, setIntroState }}
     >
       {children}
     </AppHuellaContext.Provider>
